@@ -1,0 +1,57 @@
+{
+  "name": "jun-cli",
+  "version": "1.0.0",
+  "description": "vue webpack vue-router vue-router vuex",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel input.js -o compiled.js",
+    "dev": "node build/dev-server.js",
+    "deploy": "NODE_ENV=production webpack -p --config build/webpack.prod.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "keywords": [
+    "vue",
+    "webpack"
+  ],
+  "author": "qulongjun",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-runtime": "^5.8.38",
+    "bootstrap": "^3.3.7",
+    "connect-history-api-fallback": "^1.3.0",
+    "css-loader": "^0.25.0",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.10.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.24.1",
+    "html-withimg-loader": "^0.1.16",
+    "http-proxy-middleware": "^0.17.3",
+    "jquery": "^2.1.0",
+    "style": "0.0.3",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^2.0.6",
+    "vue-html-loader": "^1.2.3",
+    "vue-loader": "^9.7.0",
+    "vue-resource": "^1.2.1",
+    "vue-router": "^2.2.1",
+    "vue-style-loader": "^1.0.0",
+    "vuex": "^2.0.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.13.1"
+  },
+  "dependencies": {
+    "vue": "^2.0.3"
+  }
+}
