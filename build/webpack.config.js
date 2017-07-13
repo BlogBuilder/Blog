@@ -44,7 +44,7 @@ module.exports = {
             },
             {
                 test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-                loader: 'url-loader?limit=50000&name=[path][name].[ext]'
+                loader: 'url-loader?limit=500000&name=[path][name].[ext]'
             },
             {
                 test: /\.less$/,
