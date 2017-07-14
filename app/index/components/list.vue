@@ -362,6 +362,7 @@
             },
             _queryList(){
                 var me = this;
+                console.log("触发query变更");
                 var query = me.$route.query;
                 me._fetchData(query.page || 1);
             }
