@@ -2,37 +2,48 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex);
 
+
+import list from '../demo/list.json'
+
 //Vuex实例
 const store = new Vuex.Store({
     state: {
-        count: 0,
-        todos: [
-            {id: 1, text: 'A', done: true},
-            {id: 2, text: 'B', done: false}
-        ]
+        // count: 0,
+        // todos: [
+        //     {id: 1, text: 'A', done: true},
+        //     {id: 2, text: 'B', done: false}
+        // ],
+        article_list: []
     },
     mutations: {
-        increment (state) {
-            state.count++;
-        }
+        setArticles(list){
+
+        },
+        // increment (state) {
+        //     state.count++;
+        // }
     },
     getters: {
-        doneTodos: state => {
-            return state.todos.filter(todo => todo.done)
-        },
-        doneTodosCount: (state, getters) => {
-            return getters.doneTodos.length
-        }
+        // doneTodos: state => {
+        //     return state.todos.filter(todo => todo.done)
+        // },
+        // doneTodosCount: (state, getters) => {
+        //     return getters.doneTodos.length
+        // }
     },
     actions: {
-        incrementAsync ({ commit }) {
-            setTimeout(() => {
-                commit('increment')
-            }, 1000)
+        fetchArticles(){
+            store.commit('setArticles', list.results);
+
+            // var me = this;
+            // Vue.http.get("../demo/list.json").then(response => {
+            //     var data = response.data;
+            //     me.commit('setArticles', data.results);
+            // }, response => {
+            //     alert("失败");
+            // });
         }
     }
 });
 
-store.commit("increment", 20);
-
-module.exports = store
+module.exports = store;

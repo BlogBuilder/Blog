@@ -315,3 +315,26 @@
     <!-- End Content Block -->
 
 </template>
+<script type="es6">
+    import {mapState, mapActions} from 'vuex'
+    module.exports = {
+        computed: {
+            ...mapState([
+                'article_list'
+            ])
+        },
+        mounted(){
+            var me = this;
+            me.fetchList();
+            me.$nextTick(() => {
+                console.log(me.article_list);
+            });
+//            this.$store.dispatch('fetchArticles');
+        },
+        methods: {
+            ...mapActions({
+                fetchList: 'fetchArticles'
+            })
+        }
+    }
+</script>

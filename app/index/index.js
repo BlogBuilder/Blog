@@ -2,8 +2,8 @@
 import Vue from 'vue'
 // import VueRouter from 'mod/vue-router'
 import VueResource from 'vue-resource'
-// import store from './store/store';
-// import router from './router/router'
+import store from './store/store';
+import router from './router/router'
 import 'mod/jquery'
 import 'bootstrap'
 import 'mediaelement/'
@@ -40,6 +40,6 @@ Vue.component('sidebar', sideBar);
 
 new Vue({
     render: h => h(App),
-    // store,
-    // router
+    store,
+    router
 }).$mount('#app');
