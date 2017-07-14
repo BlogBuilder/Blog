@@ -17,7 +17,7 @@ const store = new Vuex.Store({
     },
     mutations: {
         setArticles(list){
-
+            store.state.article_list.push(list);
         },
         // increment (state) {
         //     state.count++;

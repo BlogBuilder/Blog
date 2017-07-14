@@ -7,7 +7,7 @@
             <h6 class="widget_title">检索</h6>
             <div class="search_block">
                 <form action="" method="get" class="widget_search">
-                    <input type="search" placeholder="Start Searching..." id="s" name="s"
+                    <input type="search" placeholder="检索文章..." id="s" name="s"
                            class="serch_input">
                     <button class="search_btn" id="searchsubmit" type="submit">
                         <i class="ico-search2"></i>
@@ -93,28 +93,28 @@
                             <li class="clearfix">
                                 <a href="#">
                                     <img alt="" title="" src="../images/blog/thumb1.jpg">
-                                    <span>Barbour Jacket</span>
+                                    <span>热门文章一</span>
                                 </a>
                                 <span class="post_date"><i class="ico-comments-o"></i>123 Comments</span>
                             </li>
                             <li class="clearfix">
                                 <a href="#">
                                     <img alt="" title="" src="../images/blog/thumb2.jpg">
-                                    <span>Visvim Gornergrat</span>
+                                    <span>热门文章二</span>
                                 </a>
                                 <span class="post_date"><i class="ico-comments-o"></i>57 Comments</span>
                             </li>
                             <li class="clearfix">
                                 <a href="#">
                                     <img alt="" title="" src="../images/blog/thumb3.jpg">
-                                    <span>Nanamica Graphic Tee</span>
+                                    <span>热门文章三</span>
                                 </a>
                                 <span class="post_date"><i class="ico-comments-o"></i>25 Comments</span>
                             </li>
                             <li class="clearfix">
                                 <a href="#">
                                     <img alt="" title="" src="../images/blog/thumb4.jpg">
-                                    <span>Adidas Hoodie</span>
+                                    <span>热门文章四</span>
                                 </a>
                                 <span class="post_date"><i class="ico-comments-o"></i>14 Comments</span>
                             </li>
@@ -126,28 +126,28 @@
                             <li class="clearfix">
                                 <a href="#">
                                     <img alt="" title="" src="../images/blog/thumb1.jpg">
-                                    <span>Barbour Jacket</span>
+                                    <span>最新文章一</span>
                                 </a>
                                 <span class="post_date">2015/01/23</span>
                             </li>
                             <li class="clearfix">
                                 <a href="#">
                                     <img alt="" title="" src="../images/blog/thumb2.jpg">
-                                    <span>Visvim Gornergrat</span>
+                                    <span>最新文章二</span>
                                 </a>
                                 <span class="post_date">2015/01/23</span>
                             </li>
                             <li class="clearfix">
                                 <a href="#">
                                     <img alt="" title="" src="../images/blog/thumb3.jpg">
-                                    <span>Nanamica Graphic Tee</span>
+                                    <span>最新文章三</span>
                                 </a>
                                 <span class="post_date">2015/01/23</span>
                             </li>
                             <li class="clearfix">
                                 <a href="#">
                                     <img alt="" title="" src="../images/blog/thumb4.jpg">
-                                    <span>Adidas Hoodie</span>
+                                    <span>最新文章四</span>
                                 </a>
                                 <span class="post_date">2015/02/12</span>
                             </li>
@@ -194,7 +194,7 @@
 
         <!-- Social Media -->
         <div class="widget_block">
-            <h6 class="widget_title">Social Media</h6>
+            <h6 class="widget_title">社交媒体</h6>
             <div class="social_links_widget clearfix">
                 <a href="#" target="_blank" class="twitter"><i class="ico-twitter4"></i></a>
                 <a href="#" target="_blank" class="facebook"><i class="ico-facebook4"></i></a>

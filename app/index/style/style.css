@@ -60,7 +60,7 @@ a:hover {
     text-decoration: none !important;
 }
 
-a:active,a:focus {
+a:active, a:focus {
     text-decoration: none !important;
 }
 
@@ -100,6 +100,7 @@ img, object, embed {
 p {
     margin-bottom: 15px;
     line-height: 24px;
+    font-family: "Lucida Grande", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", sans-serif;
 }
 
 ul {
@@ -13689,6 +13690,11 @@ a.img_popup:after {
     overflow: hidden;
 }
 
+.feature_inner_ling img {
+    width: 835px;
+    height: 470px;
+}
+
 .feature_inner_ling:after {
     background: #1ccdca;
     width: 100%;
@@ -14248,9 +14254,9 @@ a.img_popup:after {
     background: #1ccdca;
     color: #fff;
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 35px;
-    padding: 17px 25px 26px;
+    padding: 27px 25px 26px;
 }
 
 .post_format_con.hm_quote > span:after {
