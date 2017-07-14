@@ -7,9 +7,9 @@
             <h6 class="widget_title">检索</h6>
             <div class="search_block">
                 <form action="" method="get" onkeydown="if(event.keyCode==13)return false;" class="widget_search">
-                    <input type="search" placeholder="检索文章..." id="s" name="s"
+                    <input type="search" placeholder="检索文章..." id="searchText" name="s"
                            class="serch_input" @keyup.enter="inputSearch($event)">
-                    <button class="search_btn" id="searchsubmit" type="submit">
+                    <button class="search_btn" id="searchsubmit" type="button" @click="clickSearch">
                         <i class="ico-search2"></i>
                     </button>
                     <div class="clear"></div>
@@ -23,6 +23,7 @@
         <div class="widget_block">
             <h6 class="widget_title">标签云</h6>
             <div class="tagcloud style2 clearfix">
+                <a href="javascript:;" @click="clickTag()"><span class="tag">全部</span></a>
                 <template v-for="item in tagList">
                     <a href="javascript:;" @click="clickTag(item)"><span class="tag">{{item.name}}</span><span
                             class="num">{{item.count}}</span></a>
@@ -35,6 +36,9 @@
         <div class="widget_block">
             <h6 class="widget_title">文章分类</h6>
             <ul class="cat_list_widget">
+                <li>
+                    <a href="javascript:;" @click="clickCategory()">全部</a>
+                </li>
                 <template v-for="item in categoryList">
                     <li>
                         <a href="javascript:;" @click="clickCategory(item)">{{item.name}}</a>
@@ -138,7 +142,7 @@
     <!-- End sidebar -->
 </template>
 <script type="es6">
-    import {changeURLPara} from '../script/js-utils'
+    import {changeURLPara, removeURLPara} from '../script/js-utils'
 
     import category from '../demo/category.json'
     import tag from '../demo/tag.json'
@@ -156,7 +160,7 @@
             }
         },
         mounted(){
-            var me = this;
+            const me = this;
             me._fetchCategory();
             me._fetchTag();
             me._fetchHot();
@@ -190,23 +194,43 @@
                 me.recentlyCommentList = data.results;
             },
             clickCategory(category){
-                var me = this;
+                const me = this;
                 if (category) {
                     const path = changeURLPara(me.$route.fullPath, "category", category.id);
+                    me.$router.push(path);
+                } else {
+                    const path = removeURLPara(me.$route.fullPath, "category");
                     me.$router.push(path);
                 }
             },
             clickTag(tag){
-                var me = this;
+                const me = this;
                 if (tag) {
                     const path = changeURLPara(me.$route.fullPath, "tag", tag.id);
+                    me.$router.push(path);
+                } else {
+                    const path = removeURLPara(me.$route.fullPath, "tag");
+                    me.$router.push(path);
+                }
+            },
+            clickSearch(){
+                const me = this;
+                const value = document.querySelector('#searchText').value;
+                if (value) {
+                    const path = changeURLPara(me.$route.fullPath, "key", value);
+                    me.$router.push(path);
+                }else {
+                    const path = removeURLPara(me.$route.fullPath, "key");
                     me.$router.push(path);
                 }
             },
             inputSearch(event){
-                var me = this;
+                const me = this;
                 if (event.target.value) {
                     const path = changeURLPara(me.$route.fullPath, "key", event.target.value);
+                    me.$router.push(path);
+                } else {
+                    const path = removeURLPara(me.$route.fullPath, "key");
                     me.$router.push(path);
                 }
             }

@@ -343,6 +343,8 @@
                 me._fetchPages();
             },
             _fetchData(page){
+                console.log(page);
+                console.log(this.condition);
                 var me = this;
                 var data = list;
                 me.articleList = data.results;
@@ -362,9 +364,9 @@
             },
             _queryList(){
                 var me = this;
-                console.log("触发query变更");
                 var query = me.$route.query;
-                me._fetchData(query.page || 1);
+                me.condition = jQuery.param(query);
+                me._initTotal(1);
             }
         }
     }
