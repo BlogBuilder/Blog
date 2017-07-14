@@ -23,12 +23,9 @@
         <div class="widget_block">
             <h6 class="widget_title">标签云</h6>
             <div class="tagcloud style2 clearfix">
-                <a href="#"><span class="tag">Responnsive</span><span class="num">12</span></a>
-                <a href="#"><span class="tag">Creative</span><span class="num">24</span></a>
-                <a href="#"><span class="tag">CSS3</span><span class="num">8</span></a>
-                <a href="#"><span class="tag">Design</span><span class="num">12</span></a>
-                <a href="#"><span class="tag">Graphic</span><span class="num">4</span></a>
-                <a href="#"><span class="tag">HTML5</span><span class="num">56</span></a>
+                <template v-for="item in tagList">
+                    <a href="#"><span class="tag">{{item.name}}</span><span class="num">{{item.count}}</span></a>
+                </template>
             </div>
         </div>
         <!-- End Tag Cloud -->
@@ -37,37 +34,12 @@
         <div class="widget_block">
             <h6 class="widget_title">文章分类</h6>
             <ul class="cat_list_widget">
-                <li>
-                    <a href="#">Media</a>
-                    <span class="num_posts">61</span>
-                </li>
-                <li>
-                    <a href="#">Movies</a>
-                    <span class="num_posts">22</span>
-                </li>
-                <li>
-                    <a href="#">News</a>
-                    <span class="num_posts">78</span>
-                </li>
-                <li>
-                    <a href="#">Sound</a>
-                    <span class="num_posts">12</span>
-                </li>
-                <li>
-                    <a href="#">Tutorials</a>
-                    <span class="num_posts">7</span></li>
-                <li>
-                    <a href="#">Tweets</a>
-                    <span class="num_posts">28</span>
-                </li>
-                <li>
-                    <a href="#">Uncategorized</a>
-                    <span class="num_posts">9</span>
-                </li>
-                <li>
-                    <a href="#">Wordpress</a>
-                    <span class="num_posts">32</span>
-                </li>
+                <template v-for="item in categoryList">
+                    <li>
+                        <a href="#">{{item.name}}</a>
+                        <span class="num_posts">{{item.count}}</span>
+                    </li>
+                </template>
             </ul>
         </div>
         <!-- End Categories -->
@@ -90,100 +62,43 @@
                 <ul class="tabs-body">
                     <li data-content="inbox" class="selected">
                         <ul class="posts_widget_list2">
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb1.jpg">
-                                    <span>热门文章一</span>
-                                </a>
-                                <span class="post_date"><i class="ico-comments-o"></i>123 Comments</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb2.jpg">
-                                    <span>热门文章二</span>
-                                </a>
-                                <span class="post_date"><i class="ico-comments-o"></i>57 Comments</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb3.jpg">
-                                    <span>热门文章三</span>
-                                </a>
-                                <span class="post_date"><i class="ico-comments-o"></i>25 Comments</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb4.jpg">
-                                    <span>热门文章四</span>
-                                </a>
-                                <span class="post_date"><i class="ico-comments-o"></i>14 Comments</span>
-                            </li>
+                            <template v-for="item in hotList">
+                                <li class="clearfix">
+                                    <a href="#">
+                                        <img alt="" title="" :src="item.materials">
+                                        <span>{{item.title}}</span>
+                                    </a>
+                                    <span class="post_date"><i class="ico-comments-o"></i>{{item.comment_num}} Comments</span>
+                                </li>
+                            </template>
                         </ul>
                     </li>
 
                     <li data-content="new">
                         <ul class="posts_widget_list2">
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb1.jpg">
-                                    <span>最新文章一</span>
-                                </a>
-                                <span class="post_date">2015/01/23</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb2.jpg">
-                                    <span>最新文章二</span>
-                                </a>
-                                <span class="post_date">2015/01/23</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb3.jpg">
-                                    <span>最新文章三</span>
-                                </a>
-                                <span class="post_date">2015/01/23</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb4.jpg">
-                                    <span>最新文章四</span>
-                                </a>
-                                <span class="post_date">2015/02/12</span>
-                            </li>
+                            <template v-for="item in recentlyList">
+                                <li class="clearfix">
+                                    <a href="#">
+                                        <img alt="" title="" :src="item.materials">
+                                        <span>{{item.title}}</span>
+                                    </a>
+                                    <span class="post_date">{{item.create_time}}</span>
+                                </li>
+                            </template>
                         </ul>
                     </li>
 
                     <li data-content="gallery">
                         <ul class="posts_widget_list2">
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb1.jpg">
-                                    <span>Alan Snow:</span>
-                                </a>
-                                <span class="post_comment">There are many variations of passages of Lorem.</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb2.jpg">
-                                    <span>John Doe:</span>
-                                </a>
-                                <span class="post_comment">There are many variations of passages of Lorem.</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb3.jpg">
-                                    <span>Mary Loe:</span>
-                                </a>
-                                <span class="post_comment">Lorem Ipsum available, but the majority.</span>
-                            </li>
-                            <li class="clearfix">
-                                <a href="#">
-                                    <img alt="" title="" src="../images/blog/thumb4.jpg">
-                                    <span>Harry John:</span>
-                                </a>
-                                <span class="post_comment">Lorem Ipsum available, but the majority.</span>
-                            </li>
+                            <template v-for="item in recentlyCommentList">
+                                <li class="clearfix">
+                                    <a href="#">
+                                        <img alt="" title="" :src="item.materials">
+                                        <span>{{item.name}}:</span>
+                                    </a>
+                                    <span class="post_comment">{{item.content}}</span>
+                                </li>
+                            </template>
                         </ul>
                     </li>
                 </ul>
@@ -203,17 +118,17 @@
                 <a href="#" target="_blank" class="linkedin"><i class="ico-linkedin3"></i></a>
                 <a href="#" target="_blank" class="vimeo"><i class="ico-vimeo"></i></a>
 
-                <!-- <a href="skype:#?call" class="skype"><i class="ico-skype2"></i></a>
-                <a href="#" target="_blank" class="rss"><i class="ico-rss"></i></a>
-                <a href="#" target="_blank" class="flickr"><i class="ico-flickr2"></i></a>
-                <a href="#" target="_blank" class="picasa"><i class="ico-picassa"></i></a>
-                <a href="#" target="_blank" class="tumblr"><i class="ico-tumblr"></i></a>
+                <!--<a href="skype:#?call" class="skype"><i class="ico-skype2"></i></a>-->
+                <!--<a href="#" target="_blank" class="rss"><i class="ico-rss"></i></a>-->
+                <!--<a href="#" target="_blank" class="flickr"><i class="ico-flickr2"></i></a>-->
+                <!--<a href="#" target="_blank" class="picasa"><i class="ico-picassa"></i></a>-->
+                <!--<a href="#" target="_blank" class="tumblr"><i class="ico-tumblr"></i></a>-->
 
-                <a href="#" target="_blank" class="dribble"><i class="ico-dribbble"></i></a>
-                <a href="#" target="_blank" class="soundcloud"><i class="ico-soundcloud"></i></a>
-                <a href="#" target="_blank" class="instagram"><i class="ico-instagram3"></i></a>
-                <a href="#" target="_blank" class="pinterest"><i class="ico-pinterest-p"></i></a>
-                <a href="#" target="_blank" class="youtube"><i class="ico-youtube3"></i></a> -->
+                <!--<a href="#" target="_blank" class="dribble"><i class="ico-dribbble"></i></a>-->
+                <!--<a href="#" target="_blank" class="soundcloud"><i class="ico-soundcloud"></i></a>-->
+                <!--<a href="#" target="_blank" class="instagram"><i class="ico-instagram3"></i></a>-->
+                <!--<a href="#" target="_blank" class="pinterest"><i class="ico-pinterest-p"></i></a>-->
+                <!--<a href="#" target="_blank" class="youtube"><i class="ico-youtube3"></i></a>-->
             </div>
         </div>
         <!-- End Social Media -->
@@ -221,3 +136,56 @@
     </aside>
     <!-- End sidebar -->
 </template>
+<script type="es6">
+    import category from '../demo/category.json'
+    import tag from '../demo/tag.json'
+    import hot from '../demo/hot.json'
+    import recently from '../demo/recently.json'
+    import recentlyComment from '../demo/recentlyComment.json'
+    module.exports = {
+        data(){
+            return {
+                categoryList: [],
+                tagList: [],
+                hotList: [],
+                recentlyList: [],
+                recentlyCommentList: []
+            }
+        },
+        mounted(){
+            var me = this;
+            me._fetchCategory();
+            me._fetchTag();
+            me._fetchHot();
+            me._fetchRecently();
+            me._fetchRecentlyComment();
+        },
+        methods: {
+            _fetchCategory(){
+                const me = this;
+                const data = category;
+                me.categoryList = data.results;
+            },
+            _fetchTag(){
+                const me = this;
+                const data = tag;
+                me.tagList = data.results;
+            },
+            _fetchHot(){
+                const me = this;
+                const data = hot;
+                me.hotList = data.results;
+            },
+            _fetchRecently(){
+                const me = this;
+                const data = recently;
+                me.recentlyList = data.results;
+            },
+            _fetchRecentlyComment(){
+                const me = this;
+                const data = recentlyComment;
+                me.recentlyCommentList = data.results;
+            }
+        }
+    }
+</script>

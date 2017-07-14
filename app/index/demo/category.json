@@ -1,0 +1,44 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "name": "Media",
+      "count": "60"
+    },
+    {
+      "id": 2,
+      "name": "Movies",
+      "count": "21"
+    },
+    {
+      "id": 3,
+      "name": "News",
+      "count": "75"
+    },
+    {
+      "id": 4,
+      "name": "Sound",
+      "count": "11"
+    },
+    {
+      "id": 5,
+      "name": "Tutorials",
+      "count": "6"
+    },
+    {
+      "id": 6,
+      "name": "Tweets",
+      "count": "20"
+    },
+    {
+      "id": 7,
+      "name": "Uncategorized",
+      "count": "9"
+    },
+    {
+      "id": 8,
+      "name": "Wordpress",
+      "count": "32"
+    }
+  ]
+}
