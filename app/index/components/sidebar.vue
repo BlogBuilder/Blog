@@ -50,6 +50,104 @@
         <!-- End Categories -->
 
 
+        <!-- Time List -->
+        <div class="widget_block">
+            <h6 class="widget_title">发表时间</h6>
+            <!-- My Accordion -->
+            <div class="enar_accordion plus_minus" data-type="toggle"> <!-- accordion - toggle -->
+                <div class="enar_occ_container" data-expanded="true">
+                    <span class="enar_occ_title">Year 2017</span>
+                    <div class="enar_occ_content">
+                        <div class="acc_content">
+                            <ul class="cat_list_widget no_numbers">
+                                <li>
+                                    <a href="#">Media</a>
+                                </li>
+                                <li>
+                                    <a href="#">Movies</a>
+                                </li>
+                                <li>
+                                    <a href="#">News</a>
+                                </li>
+                                <li>
+                                    <a href="#">Sound</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="enar_occ_container" data-expanded="false">
+                    <span class="enar_occ_title">Year 2016</span>
+                    <div class="enar_occ_content">
+                        <div class="acc_content">
+                            <ul class="cat_list_widget no_numbers">
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,12)">December</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,11)">November</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,10)">October</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,9)">September</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,8)">August</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,7)">July</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,6)">June</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,5)">May</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,4)">April</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,3)">March</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,2)">February</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,1)">January</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="enar_occ_container" data-expanded="false">
+                    <span class="enar_occ_title">Year 2015</span>
+                    <div class="enar_occ_content">
+                        <div class="acc_content">
+                            <ul class="cat_list_widget no_numbers">
+                                <li>
+                                    <a href="#">Media</a>
+                                </li>
+                                <li>
+                                    <a href="#">Movies</a>
+                                </li>
+                                <li>
+                                    <a href="#">News</a>
+                                </li>
+                                <li>
+                                    <a href="#">Sound</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End My Accordion -->
+        </div>
+        <!-- Time List -->
+
+
         <!-- Tabs -->
         <div class="widget_block">
             <div class="hm-tabs tabs1">
@@ -166,6 +264,10 @@
             me._fetchHot();
             me._fetchRecently();
             me._fetchRecentlyComment();
+            me.$nextTick(() => {
+                me._initTabs();
+                me._initAccordion();
+            })
         },
         methods: {
             _fetchCategory(){
@@ -219,7 +321,7 @@
                 if (value) {
                     const path = changeURLPara(me.$route.fullPath, "key", value);
                     me.$router.push(path);
-                }else {
+                } else {
                     const path = removeURLPara(me.$route.fullPath, "key");
                     me.$router.push(path);
                 }
@@ -233,6 +335,128 @@
                     const path = removeURLPara(me.$route.fullPath, "key");
                     me.$router.push(path);
                 }
+            },
+            clickTime(year, month){
+                const me = this;
+                if (year && month) {
+                    var path = changeURLPara(me.$route.fullPath, "year", year);
+                    path = changeURLPara(path, "month", month);
+                    me.$router.push(path);
+                } else {
+                    var path = removeURLPara(me.$route.fullPath, "year");
+                    path = removeURLPara(me.$route.fullPath, "month");
+                    me.$router.push(path);
+                }
+            },
+            _initTabs(){
+                $('.hm-tabs').each(function (index) {
+                    var allparent = $(this);
+                    var all_width = allparent.width();
+
+                    var tabItems = allparent.find('.tabs-navi a'),
+                        tabContentWrapper = allparent.find('.tabs-body');
+
+                    tabItems.on('click', function (event) {
+                        event.preventDefault();
+
+                        var selectedItem = $(this);
+                        var parentlist = selectedItem.parent();
+
+                        if (parentlist.index() === 0) {
+                            selectedItem.parent().siblings("li").removeClass('prev_selected');
+                        } else {
+                            selectedItem.parent().prev().addClass('prev_selected').siblings("li").removeClass('prev_selected');
+                        }
+
+                        if (!selectedItem.hasClass('selected')) {
+                            var selectedTab = selectedItem.data('content'),
+                                selectedContent = tabContentWrapper.find('li[data-content="' + selectedTab + '"]'),
+                                slectedContentHeight = selectedContent.innerHeight();
+
+                            tabItems.removeClass('selected');
+                            selectedItem.addClass('selected');
+                            selectedContent.addClass('selected').siblings('li').removeClass('selected');
+                            //animate tabContentWrapper height when content changes
+                            tabContentWrapper.animate({
+                                'height': slectedContentHeight
+                            }, 200);
+                        }
+                    });
+
+                    //hide the .hm-tabs::after element when tabbed navigation has scrolled to the end (mobile version)
+                    checkScrolling($('.hm-tabs nav'));
+                    $(window).on('resize', function () {
+                        checkScrolling($('.hm-tabs nav'));
+                        tabContentWrapper.css('height', 'auto');
+                    });
+                    $('.hm-tabs nav').on('scroll', function () {
+                        checkScrolling($(this));
+                    });
+
+                    function checkScrolling(tabs) {
+                        var totalTabWidth = parseInt(tabs.children('.tabs-navi').width()),
+                            tabsViewport = parseInt(tabs.width());
+                        if (tabs.scrollLeft() >= totalTabWidth - tabsViewport) {
+                            tabs.parent('.hm-tabs').addClass('is-ended');
+                        } else {
+                            tabs.parent('.hm-tabs').removeClass('is-ended');
+                        }
+                    }
+
+                });
+            },
+            _initAccordion(){
+                $(".enar_accordion").each(function (index, element) {
+                    var its_type = $(this).attr("data-type");
+                    var its_item = $(this).find(".enar_occ_container");
+                    var its_item_lenth = its_item.length;
+
+                    its_item.each(function (index, element) {
+                        var item_item = $(this);
+                        var item_item_title = $(this).find(".enar_occ_title");
+                        var item_title_height = $(this).find(".enar_occ_title").outerHeight();
+                        var item_expanded = item_item.attr("data-expanded");  //false - true
+                        var item_item_content = $(this).find(".enar_occ_content");
+                        var item_item_height = item_item_content.find(".acc_content").outerHeight();
+
+                        if (item_expanded == "true") {//occ_expanded
+                            item_item.addClass("occ_expanded");
+                            item_item_content.stop(true, true).animate({
+                                height: item_item_height + 'px',
+                            }, 300);
+                        }
+                        item_item_title.unbind();
+                        item_item_title.click(function (event) {
+                            if (item_item.hasClass("occ_expanded")) {
+                                item_item.removeClass("occ_expanded");
+                                item_item_content.stop(true, true).animate({
+                                    height: '0px',
+                                }, 300);
+                                item_item_content.closest('.content_filter_item').stop(true, true).animate({
+                                    height: item_title_height + 10 + 'px',
+                                }, 300);
+
+                            } else {
+                                item_item.addClass("occ_expanded");
+                                item_item_content.stop(true, true).animate({
+                                    height: item_item_height + 'px',
+                                }, 300);
+                                item_item_content.closest('.content_filter_item').stop(true, true).animate({
+                                    height: item_item_height + item_title_height + 10 + 'px',
+                                }, 300);
+                                //--------> Accordion Type
+                                if (its_type == "accordion") {
+                                    item_item.siblings().removeClass("occ_expanded");
+                                    item_item.siblings().find(".enar_occ_content").stop(true, true).animate({
+                                        height: '0px',
+                                    }, 300);
+                                }
+                            }
+                        });
+
+                    });
+
+                });
             }
         }
     }

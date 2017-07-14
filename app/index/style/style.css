@@ -5846,6 +5846,7 @@ ul.sitemap ul::after {
 .tabs-navi {
     width: auto;
     font-size: 0;
+    margin-bottom: 0;
 }
 
 .tabs-navi li {

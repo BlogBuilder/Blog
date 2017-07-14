@@ -12,7 +12,15 @@ export const changeURLPara = (url, arg, val) => {
     return url.match(pattern) ? url.replace(eval('/(' + arg + '=)([^&]*)/gi'), replaceText) : (url.match('[\?]') ? url + '&' + replaceText : url + '?' + replaceText);
 };
 
+/**
+ * 删除URL参数
+ * @param url
+ * @param arg
+ * @returns {string}
+ */
 export const removeURLPara = (url, arg) => {
     var pattern = arg + '=([^&]*)';
     return url.match(pattern) ? url.replace(eval('/(' + arg + '=)([^&]*)/gi'), "") : (url.match('[\?]') ? url + '&' + "" : url + '?' + "");
 }
+
+
