@@ -81,7 +81,7 @@
                         </div>
                         <div class="feature_inner">
                             <div class="feature_inner_corners">
-                                <a href="../images/blog/blog5-large.jpg" class="feature_inner_ling"
+                                <a :href="article.materials" class="feature_inner_ling"
                                    data-rel="magnific-popup">
                                     <img :src="article.materials" alt="photo">
                                 </a>
@@ -261,7 +261,7 @@
 								</span>
                         </div>
                         <div class="feature_inner">
-                            <a href="#" class="quote_con">
+                            <a href="javascript:;" class="quote_con">
                                 <span>{{article.summary}}</span>
                                 <span class="quote_author">{{article.quote_author}}</span>
                             </a>
@@ -343,11 +343,14 @@
                 me._fetchPages();
             },
             _fetchData(page){
-                console.log(page);
-                console.log(this.condition);
                 var me = this;
                 var data = list;
                 me.articleList = data.results;
+                me.$nextTick(() => {
+                    me._initGallery();
+                    me._initStandard();
+                    me._initAudio();
+                })
             },
             _fetchPages () {
                 const me = this;
@@ -367,6 +370,79 @@
                 var query = me.$route.query;
                 me.condition = jQuery.param(query);
                 me._initTotal(1);
+            },
+            _initGallery(){
+                //图集图片轮播组件
+                $(".porto_galla").data('owlCarousel') && $(".porto_galla").data('owlCarousel').destroy();
+                $(".porto_galla").owlCarousel({
+                    direction: "ltr",
+                    slideSpeed: 900,
+                    autoPlay: 3000,
+                    autoHeight: false,
+                    items: 1,
+                    itemsDesktop: false,
+                    itemsDesktopSmall: false,
+                    itemsTablet: false,
+                    itemsTabletSmall: false,
+                    itemsMobile: false,
+                    stopOnHover: true,
+                    navigation: true,
+                    pagination: true,
+                    navigationText: [
+                        "<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+                        "<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
+                });
+
+                //图集图片展开组件
+                $('.porto_galla').magnificPopup({
+                    delegate: 'a',
+                    type: 'image',
+                    gallery: {
+                        enabled: true
+                    },
+                    removalDelay: 500,
+                    callbacks: {
+                        beforeOpen: function () {
+                            this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+                            this.st.mainClass = /*this.st.el.attr('data-effect')*/ "mfp-zoom-in";
+                        }
+                    },
+                    closeOnContentClick: true,
+                    midClick: true,
+                    retina: {
+                        ratio: 1,
+                        replaceSrc: function (item, ratio) {
+                            return item.src.replace(/\.\w+$/, function (m) {
+                                return '@2x' + m;
+                            });
+                        }
+                    }
+                });
+
+            },
+            _initStandard(){
+                $(".magnific-popup, a[data-rel^='magnific-popup']").magnificPopup({
+                    type: 'image',
+                    mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+
+                    zoom: {
+                        enabled: true,
+                        duration: 300,
+                        easing: 'ease-in-out',
+                        // The "opener" function should return the element from which popup will be zoomed in
+                        // and to which popup will be scaled down
+                        // By defailt it looks for an image tag:
+                        opener: function (openerElement) {
+                            // openerElement is the element on which popup was initialized, in this case its <a> tag
+                            // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                            return openerElement.is('img') ? openerElement : openerElement.find('img');
+                        }
+                    }
+
+                });
+            },
+            _initAudio(){
+                $("audio.hosted_audio").mediaelementplayer();
             }
         }
     }

@@ -113,190 +113,190 @@
 		$("#nav_menu").idealtheme({});
 		
 		//----------> Owl Start   
-		var image_menu_slide =  $(".image_menu_slide");
-		var header_on_side = "header_on_side";
-		var side_menu_res_a = $("body").hasClass(header_on_side) ? 1 : 4;
-		var side_menu_res_b = $("body").hasClass(header_on_side) ? 1 : 5;
-
-		image_menu_slide.owlCarousel({
-			 direction: site_dir,
-			 autoPlay : 3000,
-			 navigation:true,
-			 stopOnHover : true,
-			 itemsCustom : [
-				[0, 2],
-				[479, 3],
-				[768, 3],
-				[979, side_menu_res_a],
-				[1199, side_menu_res_b],
-			 ],
-			 itemsDesktop: false,
-			 itemsDesktopSmall: false,
-			 itemsTablet: false,
-			 itemsTabletSmall: false,
-			 itemsMobile: false,
-			 navigationText: [
-				"<i class='menu_img_prev ico-navigate-before'></i>",
-				"<i class='menu_img_next ico-navigate-next'></i>"
-			],
-		});
-		
-		$(".has_sub_img").owlCarousel({
-			 direction: site_dir,
-			 singleItem:true,
-			 autoPlay : 3000,
-			 itemsDesktop: false,
-			 itemsDesktopSmall: false,
-			 itemsTablet: false,
-			 itemsTabletSmall: false,
-			 itemsMobile: false,
-			 autoHeight : false,
-			 stopOnHover : true,
-			 navigation:true,
-			 navigationText: [
-				"<i class='menu_img_prev ico-caret-left'></i>",
-				"<i class='menu_img_next ico-caret-right'></i>"
-			],
-		});
-		
-		//=====> OWL Carousel Text Slider
-		$(".welcome_banner_slider").owlCarousel({
-			direction: site_dir,
-			slideSpeed : 400,
-			autoPlay : 3000,
-			itemsDesktop: false,
-			itemsDesktopSmall: false,
-			itemsTablet: false,
-			itemsTabletSmall: false,
-			itemsMobile: false,
-			autoHeight : true,
-			items:1,
-			stopOnHover : true,
-			navigation : true,
-			navigationText : [
-				"<span class='prev_simple'><i class='ico-arrow-back'></i></span>",
-				"<span class='next_simple'><i class='ico-arrow-forward'></i></span>"
-			],
-			pagination : false,
-		});
-		
-		//=====> OWL Carousel Png Slider
-
-		if(site_dir == "ltr"){
-			$(".png_slider").owlCarousel({
-				direction: site_dir,
-				slideSpeed : 900,
-				autoPlay : 3000,
-				itemsDesktop: false,
-				itemsDesktopSmall: false,
-				itemsTablet: false,
-				itemsTabletSmall: false,
-				itemsMobile: false,
-				autoHeight : true,
-				items:1,
-				stopOnHover : true,
-				navigation : true,
-				navigationText : [
-					"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
-					"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
-				pagination : true,
-				transitionStyle : "backSlide"
-			});
-		}else{
-			$(".png_slider").owlCarousel({
-				direction: site_dir,
-				slideSpeed : 900,
-				autoPlay : 3000,
-				itemsDesktop: false,
-				itemsDesktopSmall: false,
-				itemsTablet: false,
-				itemsTabletSmall: false,
-				itemsMobile: false,
-				autoHeight : true,
-				items:1,
-				stopOnHover : true,
-				navigation : true,
-				navigationText : [
-					"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
-					"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
-				pagination : true,
-				
-			});
-		}
-		
-		$(".normal_text_slider").owlCarousel({
-			direction: site_dir,
-			slideSpeed : 900,
-			autoPlay : 3000,
-			itemsDesktop: false,
-			itemsDesktopSmall: false,
-			itemsTablet: false,
-			itemsTabletSmall: false,
-			itemsMobile: false,
-			autoHeight : true,
-			items:1,
-			stopOnHover : true,
-			navigation : true,
-			navigationText : [
-				"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
-				"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
-			pagination : false,
-		});
-		
-		$(".our_client_slider").owlCarousel({
-			direction: site_dir,
-			slideSpeed : 1000,
-			autoPlay : 4000,
-			itemsDesktop: false,
-			itemsDesktopSmall: false,
-			itemsTablet: false,
-			itemsTabletSmall: false,
-			itemsMobile: false,
-			itemsCustom : [
-				[360, 2],
-				[450, 2],
-				[786, 3],
-				[1200, 5]
-			],
-			stopOnHover : true,
-			navigation : true,
-			navigationText : [
-				"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
-				"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
-			pagination : false,
-		});
-		
-		var owl_news = $(".hm_new_bar_slider");
-		owl_news.owlCarousel({
-			direction: site_dir,
-			loop:true,
-			autoWidth:true,
-			itemsDesktop: false,
-			itemsDesktopSmall: false,
-			itemsTablet: false,
-			itemsTabletSmall: false,
-			itemsMobile: false,
-			itemsCustom : [
-				[0, 1],
-				[450, 2],
-				[786, 3],
-				[1200, 4],
-				[1600, 5]
-			],
-			slideSpeed : 2000,
-			autoPlay : 2000,
-			stopOnHover : true,
-		});
-		$('.hm_new_bar_controll_btn').on('click', function(event){
-			event.preventDefault();
-			if($(this).hasClass('pause')){
-				$(this).removeClass("pause").addClass("play");
-				owl_news.trigger('owl.play', 2000);
-			}else{
-				$(this).removeClass("play").addClass("pause");	
-				owl_news.trigger('owl.stop', 2000);			
-			}
-		});
+		// var image_menu_slide =  $(".image_menu_slide");
+		// var header_on_side = "header_on_side";
+		// var side_menu_res_a = $("body").hasClass(header_on_side) ? 1 : 4;
+		// var side_menu_res_b = $("body").hasClass(header_on_side) ? 1 : 5;
+        //
+		// image_menu_slide.owlCarousel({
+		// 	 direction: site_dir,
+		// 	 autoPlay : 3000,
+		// 	 navigation:true,
+		// 	 stopOnHover : true,
+		// 	 itemsCustom : [
+		// 		[0, 2],
+		// 		[479, 3],
+		// 		[768, 3],
+		// 		[979, side_menu_res_a],
+		// 		[1199, side_menu_res_b],
+		// 	 ],
+		// 	 itemsDesktop: false,
+		// 	 itemsDesktopSmall: false,
+		// 	 itemsTablet: false,
+		// 	 itemsTabletSmall: false,
+		// 	 itemsMobile: false,
+		// 	 navigationText: [
+		// 		"<i class='menu_img_prev ico-navigate-before'></i>",
+		// 		"<i class='menu_img_next ico-navigate-next'></i>"
+		// 	],
+		// });
+		//
+		// $(".has_sub_img").owlCarousel({
+		// 	 direction: site_dir,
+		// 	 singleItem:true,
+		// 	 autoPlay : 3000,
+		// 	 itemsDesktop: false,
+		// 	 itemsDesktopSmall: false,
+		// 	 itemsTablet: false,
+		// 	 itemsTabletSmall: false,
+		// 	 itemsMobile: false,
+		// 	 autoHeight : false,
+		// 	 stopOnHover : true,
+		// 	 navigation:true,
+		// 	 navigationText: [
+		// 		"<i class='menu_img_prev ico-caret-left'></i>",
+		// 		"<i class='menu_img_next ico-caret-right'></i>"
+		// 	],
+		// });
+		//
+		// //=====> OWL Carousel Text Slider
+		// $(".welcome_banner_slider").owlCarousel({
+		// 	direction: site_dir,
+		// 	slideSpeed : 400,
+		// 	autoPlay : 3000,
+		// 	itemsDesktop: false,
+		// 	itemsDesktopSmall: false,
+		// 	itemsTablet: false,
+		// 	itemsTabletSmall: false,
+		// 	itemsMobile: false,
+		// 	autoHeight : true,
+		// 	items:1,
+		// 	stopOnHover : true,
+		// 	navigation : true,
+		// 	navigationText : [
+		// 		"<span class='prev_simple'><i class='ico-arrow-back'></i></span>",
+		// 		"<span class='next_simple'><i class='ico-arrow-forward'></i></span>"
+		// 	],
+		// 	pagination : false,
+		// });
+		//
+		// //=====> OWL Carousel Png Slider
+        //
+		// if(site_dir == "ltr"){
+		// 	$(".png_slider").owlCarousel({
+		// 		direction: site_dir,
+		// 		slideSpeed : 900,
+		// 		autoPlay : 3000,
+		// 		itemsDesktop: false,
+		// 		itemsDesktopSmall: false,
+		// 		itemsTablet: false,
+		// 		itemsTabletSmall: false,
+		// 		itemsMobile: false,
+		// 		autoHeight : true,
+		// 		items:1,
+		// 		stopOnHover : true,
+		// 		navigation : true,
+		// 		navigationText : [
+		// 			"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+		// 			"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
+		// 		pagination : true,
+		// 		transitionStyle : "backSlide"
+		// 	});
+		// }else{
+		// 	$(".png_slider").owlCarousel({
+		// 		direction: site_dir,
+		// 		slideSpeed : 900,
+		// 		autoPlay : 3000,
+		// 		itemsDesktop: false,
+		// 		itemsDesktopSmall: false,
+		// 		itemsTablet: false,
+		// 		itemsTabletSmall: false,
+		// 		itemsMobile: false,
+		// 		autoHeight : true,
+		// 		items:1,
+		// 		stopOnHover : true,
+		// 		navigation : true,
+		// 		navigationText : [
+		// 			"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+		// 			"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
+		// 		pagination : true,
+		//
+		// 	});
+		// }
+		//
+		// $(".normal_text_slider").owlCarousel({
+		// 	direction: site_dir,
+		// 	slideSpeed : 900,
+		// 	autoPlay : 3000,
+		// 	itemsDesktop: false,
+		// 	itemsDesktopSmall: false,
+		// 	itemsTablet: false,
+		// 	itemsTabletSmall: false,
+		// 	itemsMobile: false,
+		// 	autoHeight : true,
+		// 	items:1,
+		// 	stopOnHover : true,
+		// 	navigation : true,
+		// 	navigationText : [
+		// 		"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+		// 		"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
+		// 	pagination : false,
+		// });
+		//
+		// $(".our_client_slider").owlCarousel({
+		// 	direction: site_dir,
+		// 	slideSpeed : 1000,
+		// 	autoPlay : 4000,
+		// 	itemsDesktop: false,
+		// 	itemsDesktopSmall: false,
+		// 	itemsTablet: false,
+		// 	itemsTabletSmall: false,
+		// 	itemsMobile: false,
+		// 	itemsCustom : [
+		// 		[360, 2],
+		// 		[450, 2],
+		// 		[786, 3],
+		// 		[1200, 5]
+		// 	],
+		// 	stopOnHover : true,
+		// 	navigation : true,
+		// 	navigationText : [
+		// 		"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+		// 		"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
+		// 	pagination : false,
+		// });
+		//
+		// var owl_news = $(".hm_new_bar_slider");
+		// owl_news.owlCarousel({
+		// 	direction: site_dir,
+		// 	loop:true,
+		// 	autoWidth:true,
+		// 	itemsDesktop: false,
+		// 	itemsDesktopSmall: false,
+		// 	itemsTablet: false,
+		// 	itemsTabletSmall: false,
+		// 	itemsMobile: false,
+		// 	itemsCustom : [
+		// 		[0, 1],
+		// 		[450, 2],
+		// 		[786, 3],
+		// 		[1200, 4],
+		// 		[1600, 5]
+		// 	],
+		// 	slideSpeed : 2000,
+		// 	autoPlay : 2000,
+		// 	stopOnHover : true,
+		// });
+		// $('.hm_new_bar_controll_btn').on('click', function(event){
+		// 	event.preventDefault();
+		// 	if($(this).hasClass('pause')){
+		// 		$(this).removeClass("pause").addClass("play");
+		// 		owl_news.trigger('owl.play', 2000);
+		// 	}else{
+		// 		$(this).removeClass("play").addClass("pause");
+		// 		owl_news.trigger('owl.stop', 2000);
+		// 	}
+		// });
 		//--------------------------------------> Shop Sliddes
 		var shop_slide_sideboxed_a = 4;
 		if( $("body").hasClass("site_boxed") && $("body").hasClass("header_on_side") ){
@@ -549,24 +549,24 @@
 		});
 		
 		//=====> OWL Carousel Normal Slider and Portfolio Slider
-		$(".porto_galla").owlCarousel({
-			direction: site_dir,
-			slideSpeed : 900,
-			autoPlay : 3000,
-			autoHeight : false,
-			items:1,
-            itemsDesktop: false,
-			itemsDesktopSmall: false,
-			itemsTablet: false,
-			itemsTabletSmall: false,
-			itemsMobile: false,
-			stopOnHover : true,
-			navigation : true,
-			pagination : true,
-			navigationText : [
-				"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
-				"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
-		});
+		// $(".porto_galla").owlCarousel({
+		// 	direction: site_dir,
+		// 	slideSpeed : 900,
+		// 	autoPlay : 3000,
+		// 	autoHeight : false,
+		// 	items:1,
+         //    itemsDesktop: false,
+		// 	itemsDesktopSmall: false,
+		// 	itemsTablet: false,
+		// 	itemsTabletSmall: false,
+		// 	itemsMobile: false,
+		// 	stopOnHover : true,
+		// 	navigation : true,
+		// 	pagination : true,
+		// 	navigationText : [
+		// 		"<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+		// 		"<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
+		// });
 
 		$(".related_posts_con").owlCarousel({
 			direction: site_dir,
@@ -952,51 +952,51 @@
 					return false;
 				});
 			});
-			$(".magnific-popup, a[data-rel^='magnific-popup']").magnificPopup({ 
-				type: 'image',
-				mainClass: 'mfp-with-zoom', // this class is for CSS animation below
-				
-				zoom: {
-					enabled: true,
-					duration: 300,
-					easing: 'ease-in-out',
-					// The "opener" function should return the element from which popup will be zoomed in
-					// and to which popup will be scaled down
-					// By defailt it looks for an image tag:
-					opener: function(openerElement) {
-						// openerElement is the element on which popup was initialized, in this case its <a> tag
-						// you don't need to add "opener" option if this code matches your needs, it's defailt one.
-						return openerElement.is('img') ? openerElement : openerElement.find('img');
-					}
-				}
-				
-			});
+			// $(".magnific-popup, a[data-rel^='magnific-popup']").magnificPopup({
+			// 	type: 'image',
+			// 	mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+			//
+			// 	zoom: {
+			// 		enabled: true,
+			// 		duration: 300,
+			// 		easing: 'ease-in-out',
+			// 		// The "opener" function should return the element from which popup will be zoomed in
+			// 		// and to which popup will be scaled down
+			// 		// By defailt it looks for an image tag:
+			// 		opener: function(openerElement) {
+			// 			// openerElement is the element on which popup was initialized, in this case its <a> tag
+			// 			// you don't need to add "opener" option if this code matches your needs, it's defailt one.
+			// 			return openerElement.is('img') ? openerElement : openerElement.find('img');
+			// 		}
+			// 	}
+			//
+			// });
 			
-			$('.magnific-gallery, .thumbs_gall_slider_larg, .porto_galla').magnificPopup({
-				delegate: 'a',
-				type: 'image',
-				
-				gallery: {
-					enabled: true
-				},
-				removalDelay: 500,
-				callbacks: {
-					beforeOpen: function() {
-						this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-						this.st.mainClass = /*this.st.el.attr('data-effect')*/ "mfp-zoom-in";
-					}
-				},
-				closeOnContentClick: true,
-				// allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source
-				midClick: true ,	  
-				retina: {
-					ratio: 1,
-					replaceSrc: function(item, ratio) {
-					  return item.src.replace(/\.\w+$/, function(m) { return '@2x' + m; });
-					} 
-				}
-			  
-			});
+			// $('.magnific-gallery, .thumbs_gall_slider_larg, .porto_galla').magnificPopup({
+			// 	delegate: 'a',
+			// 	type: 'image',
+			//
+			// 	gallery: {
+			// 		enabled: true
+			// 	},
+			// 	removalDelay: 500,
+			// 	callbacks: {
+			// 		beforeOpen: function() {
+			// 			this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+			// 			this.st.mainClass = /*this.st.el.attr('data-effect')*/ "mfp-zoom-in";
+			// 		}
+			// 	},
+			// 	closeOnContentClick: true,
+			// 	// allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source
+			// 	midClick: true ,
+			// 	retina: {
+			// 		ratio: 1,
+			// 		replaceSrc: function(item, ratio) {
+			// 		  return item.src.replace(/\.\w+$/, function(m) { return '@2x' + m; });
+			// 		}
+			// 	}
+			//
+			// });
 			
 			$('.popup-youtube, .popup-vimeo, .popup-gmaps, .vid_con').magnificPopup({
 				disableOn:700,
