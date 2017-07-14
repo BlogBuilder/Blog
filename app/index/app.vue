@@ -16,7 +16,14 @@
             </div>
             <!-- All Content -->
             <div class="content_spacer clearfix">
-                <list></list>
+                <!--<list></list>-->
+
+                <transition>
+                    <keep-alive>
+                        <router-view></router-view>
+                    </keep-alive>
+                </transition>
+
                 <sidebar></sidebar>
             </div>
             <!-- End All Content -->

@@ -308,17 +308,9 @@
             </template>
         </div>
         <!-- End blog List -->
-
         <!-- Pagination -->
-        <div id="pagination" class="pagination">
-            <ul class="clearfix">
-                <li class="prev_pagination"><a href="#"><i class="ico-arrow-left4"></i></a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li class="next_pagination"><a href="#"><i class="ico-arrow-right4"></i></a>
-                </li>
-            </ul>
+        <div class="pagination">
+            <div class="M-box front pull-right" style="margin-top:10px; "></div>
         </div>
         <!-- End Pagination -->
     </div>
@@ -326,28 +318,52 @@
 
 </template>
 <script type="es6">
+
     import list from '../demo/list.json'
     module.exports = {
         data(){
             return {
-                articleList: []
+                articleList: [],
+                currentPage: 1,
+                condition: "",
+                rowCount: 10
             }
         },
         mounted(){
             var me = this;
-            me._fetchData();
-            me.$nextTick(() => {
-                console.log(me.articleList);
-            });
+            me._initTotal(1);
+        },
+        watch: {
+            '$route': '_queryList'
         },
         methods: {
-            _fetchData(){
+            _initTotal(page){
+                var me = this;
+                me._fetchData(page);
+                me._fetchPages();
+            },
+            _fetchData(page){
                 var me = this;
                 var data = list;
                 me.articleList = data.results;
-                me.$nextTick(() => {
-
+            },
+            _fetchPages () {
+                const me = this;
+                const data = list;
+                jQuery(".M-box").pagination({
+                    pageCount: data.total,
+                    nextContent: '<i class="ico-arrow-right4"></i>',
+                    prevContent: '<i class="ico-arrow-left4"></i>',
+                    callback: function (data) {
+                        me._fetchData(data.getCurrent());
+                        me.currentPage = data.getCurrent();
+                    }
                 });
+            },
+            _queryList(){
+                var me = this;
+                var query = me.$route.query;
+                me._fetchData(query.page || 1);
             }
         }
     }
