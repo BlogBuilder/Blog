@@ -18,11 +18,13 @@
             <div class="content_spacer clearfix">
                 <!--<list></list>-->
 
-                <transition>
-                    <keep-alive>
-                        <router-view></router-view>
-                    </keep-alive>
-                </transition>
+                <router-view></router-view>
+
+                <!--<transition>-->
+                    <!--<keep-alive>-->
+                        <!--<router-view></router-view>-->
+                    <!--</keep-alive>-->
+                <!--</transition>-->
 
                 <sidebar></sidebar>
             </div>

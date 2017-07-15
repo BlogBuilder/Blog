@@ -240,7 +240,7 @@
     <!-- End sidebar -->
 </template>
 <script type="es6">
-    import {changeURLPara, removeURLPara} from '../script/js-utils'
+    import {changeURLPara, removeURLPara, redictURL} from '../script/js-utils'
 
     import category from '../demo/category.json'
     import tag from '../demo/tag.json'
@@ -298,53 +298,45 @@
             clickCategory(category){
                 const me = this;
                 if (category) {
-                    const path = changeURLPara(me.$route.fullPath, "category", category.id);
-                    me.$router.push(path);
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "category", category.id));
                 } else {
-                    const path = removeURLPara(me.$route.fullPath, "category");
-                    me.$router.push(path);
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "category"));
                 }
             },
             clickTag(tag){
                 const me = this;
                 if (tag) {
-                    const path = changeURLPara(me.$route.fullPath, "tag", tag.id);
-                    me.$router.push(path);
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "tag", tag.id));
                 } else {
-                    const path = removeURLPara(me.$route.fullPath, "tag");
-                    me.$router.push(path);
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "tag"));
                 }
             },
             clickSearch(){
                 const me = this;
                 const value = document.querySelector('#searchText').value;
                 if (value) {
-                    const path = changeURLPara(me.$route.fullPath, "key", value);
-                    me.$router.push(path);
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "key", value));
                 } else {
-                    const path = removeURLPara(me.$route.fullPath, "key");
-                    me.$router.push(path);
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "key"));
                 }
             },
             inputSearch(event){
                 const me = this;
                 if (event.target.value) {
-                    const path = changeURLPara(me.$route.fullPath, "key", event.target.value);
-                    me.$router.push(path);
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "key", event.target.value));
                 } else {
-                    const path = removeURLPara(me.$route.fullPath, "key");
-                    me.$router.push(path);
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "key"));
                 }
             },
             clickTime(year, month){
                 const me = this;
                 if (year && month) {
-                    var path = changeURLPara(me.$route.fullPath, "year", year);
-                    path = changeURLPara(path, "month", month);
+                    var path = redictURL(me.$route.fullPath, "/list", "add", "year", year);
+                    path = redictURL(path, "/list", "add", "month", month);
                     me.$router.push(path);
                 } else {
-                    var path = removeURLPara(me.$route.fullPath, "year");
-                    path = removeURLPara(me.$route.fullPath, "month");
+                    var path = redictURL(me.$route.fullPath, "/list", "remove", "year");
+                    path = redictURL(path, "/list", "remove", "month");
                     me.$router.push(path);
                 }
             },

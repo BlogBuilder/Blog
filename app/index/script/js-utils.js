@@ -21,6 +21,22 @@ export const changeURLPara = (url, arg, val) => {
 export const removeURLPara = (url, arg) => {
     var pattern = arg + '=([^&]*)';
     return url.match(pattern) ? url.replace(eval('/(' + arg + '=)([^&]*)/gi'), "") : (url.match('[\?]') ? url + '&' + "" : url + '?' + "");
-}
+};
 
 
+export const redictURL = (url, base_url, opt_type, arg, val) => {
+    if (url.indexOf(base_url) != -1) {
+        //说明是正确的基线地址
+        if (opt_type == "add") {
+            return changeURLPara(url, arg, val);
+        } else {
+            return removeURLPara(url, arg);
+        }
+    } else {
+        if (opt_type == "add") {
+            return changeURLPara(base_url, arg, val);
+        } else {
+            return removeURLPara(base_url, arg);
+        }
+    }
+};
