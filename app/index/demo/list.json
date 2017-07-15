@@ -1,0 +1,110 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "type": 1,
+      "title": "图集文章Demo",
+      "summary": "男人的品位来源于对工作的一丝不苟的态度，对责任的承担，对进取的不懈，对挑战的从容，对事态的隐忍，对所爱的温柔，对敌人的宽容，以及，对更好的自己的无止无尽的追求。",
+      "create_time": "February 15, 2017",
+      "comment_num": 135,
+      "category": [
+        {
+          "id": 1,
+          "name": " Photography"
+        },
+        {
+          "id": 2,
+          "name": "Tutorials"
+        }
+      ],
+      "author": "瞿龙俊",
+      "materials": [
+        "http://img.tuku.cn/file_big/201503/d8905515d1c046aeba51025f0ea842f0.jpg",
+        "http://www.pp3.cn/uploads/201503/2015030308.jpg",
+        "http://image5.tuku.cn/pic/wallpaper/fengjing/daziranshenqishanshuifengjingbizhi/012.jpg",
+        "http://tupian.enterdesk.com/2012/1029/zyz/03/14583115_1350966109847.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "type": 2,
+      "title": "标准文章Demo",
+      "summary": "“对于远离的人物，我们只要知道他们的目的，便足以笼统的臧否他们了。对于靠近的人物，我们则依据他们实现其目的的手段来作判断；我们常常反对其目的，却因为其实现目的的手段和方式而喜欢他们。",
+      "create_time": "February 14, 2017",
+      "comment_num": 67,
+      "category": [
+        {
+          "id": 3,
+          "name": " News"
+        },
+        {
+          "id": 4,
+          "name": "Events"
+        }
+      ],
+      "author": "瞿龙俊",
+      "materials": "http://pic1.win4000.com/wallpaper/5/5358e09ce4fd4.jpg"
+    },
+    {
+      "id": 3,
+      "type": 3,
+      "title": "视频文章Demo",
+      "summary": "世上最肮脏的，莫过于自尊心。社会上处久了，才发现自尊心分明就是面皮薄、意志弱，受不起挫折，经不起摔打的代名词。自尊心是颗种子，捧在手上只能枯死，非得踩进泥土，从磨难中汲取养料，成长，成熟。在没有足够的实力前，请勿过分强调你的自尊心。",
+      "create_time": "February 12, 2015",
+      "comment_num": 60,
+      "category": [
+        {
+          "id": 5,
+          "name": " Video"
+        },
+        {
+          "id": 6,
+          "name": "Training"
+        }
+      ],
+      "author": "瞿龙俊",
+      "materials": "http://open.iqiyi.com/developer/player_js/coopPlayerIndex.html?vid=e53b1c170f7e3225c6d5a9aced09f6f5&tvId=721615800&accessToken=2.f22860a2479ad60d8da7697274de9346&appKey=3955c3425820435e86d0f4cdfe56f5e7&appId=1368&height=100%&width=100%"
+    },
+    {
+      "id": 4,
+      "type": 4,
+      "title": "音频文章Demo",
+      "summary": "生命是一种长期而持续的累积过程，绝不会因为单一的事件而毁了一个人的一生，也不会因为单一的事件而救了一个人的一生。属于我们该得的，迟早会得；属于我们不该得的，即使侥幸巧取也不可能长久保有。如果我们看得清这个事实。许多所谓“人生的重大抉择”就可以淡然处之，根本无需焦虑。而所谓“人生的困境”，也往往当下就变得无足挂齿。",
+      "create_time": "February 15, 2015",
+      "comment_num": 16,
+      "category": [
+        {
+          "id": 7,
+          "name": " Audio"
+        },
+        {
+          "id": 8,
+          "name": "Music"
+        }
+      ],
+      "author": "瞿龙俊",
+      "materials": "http://fs.web.kugou.com/d1d4dc3ccdf95aac60058ed2b9af43b7/59682fb3/G017/M02/0E/13/sYYBAFU-37OAIOb1AExmrKAXGks355.mp3",
+      "audio_type": "audio/mp3"
+    },
+    {
+      "id": 5,
+      "type": 5,
+      "quote_author": "白鹿原",
+      "summary": "这些道理大家都懂，但没有人能做到，这也是凡人成不了圣人的根本原因。",
+      "create_time": "February 15, 2015",
+      "comment_num": 33,
+      "category": [
+        {
+          "id": 3,
+          "name": " News"
+        },
+        {
+          "id": 4,
+          "name": "Events"
+        }
+      ],
+      "author": "瞿龙俊"
+    }
+  ],
+  "total":10
+}
