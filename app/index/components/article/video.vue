@@ -18,9 +18,7 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
+											<a href="#">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
@@ -43,7 +41,7 @@
             <div class="feature_inner_corners">
                 <div class="embed-container">
                     <a href="http://vimeo.com/29193046" data-rel="magnific-popup"></a>
-                    <iframe :src="article.materials"
+                    <iframe :src="article.materials.material"
                             frameborder="0" allowfullscreen="true" width="100%"
                             height="100%"></iframe>
                 </div>
@@ -115,7 +113,10 @@
     module.exports = {
         data(){
             return {
-                article: {}
+                article: {
+                    category: {},
+                    materials:{}
+                }
             }
         },
         watch: {
@@ -127,12 +128,20 @@
         },
         methods: {
             _fetchData(id){
-                console.log("加载id为" + id + "的文章");
-                var me = this;
-                me.article = video;
-                me.$nextTick(() => {
-                    me._initVideo();
-                })
+                const me = this;
+                me.$http.get("/api/article/findById", {
+                    params: {
+                        id: id
+                    }
+                }).then(response => {
+                    const video = response.data;
+                    me.article = video;
+                    me.$nextTick(() => {
+                        me._initVideo();
+                    })
+                }, response => {
+
+                });
             },
             _queryArticle(){
                 const me = this;

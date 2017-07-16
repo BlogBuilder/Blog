@@ -18,9 +18,7 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
+												<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
@@ -35,7 +33,7 @@
         <div class="feature_inner">
             <div class="self_hosted_container">
                 <audio class="hosted_audio" id="audio_player_1" width="100%" preload="metadata" controls="controls">
-                    <source src="http://www.enar.ideal-theme.com/html5/files/alro7-tasry.mp3" type="audio/mp3" />
+                    <source :src="article.materials.material" type="audio/mp3"/>
 
                 </audio>
             </div>
@@ -105,7 +103,10 @@
     module.exports = {
         data(){
             return {
-                article: {}
+                article: {
+                    materials: {},
+                    category:{}
+                }
             }
         },
         watch: {
@@ -117,12 +118,21 @@
         },
         methods: {
             _fetchData(id){
-                console.log("加载id为" + id + "的文章");
-                var me = this;
-                me.article = audio;
-                me.$nextTick(() => {
-                    me._initAudio();
-                })
+                const me = this;
+                me.$http.get("/api/article/findById", {
+                    params: {
+                        id: id
+                    }
+                }).then(response => {
+                    const audio = response.data;
+                    me.article = audio;
+                    me.$nextTick(() => {
+                        me._initAudio();
+                    })
+                }, response => {
+
+                });
+
             },
             _queryArticle(){
                 const me = this;

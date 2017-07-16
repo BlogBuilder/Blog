@@ -19,9 +19,7 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
+											<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
@@ -36,7 +34,7 @@
         <div class="post_format_con">
 								<span>
 									<a href="#">
-										<i class="ico-gallery"></i>
+										<i class="ico-quote-right"></i>
 									</a>
 								</span>
         </div>
@@ -105,7 +103,9 @@
     module.exports = {
         data(){
             return {
-                article: {}
+                article: {
+                    category:{}
+                }
             }
         },
         watch: {
@@ -117,12 +117,17 @@
         },
         methods: {
             _fetchData(id){
-                console.log("加载id为" + id + "的文章");
-                var me = this;
-                me.article = quote;
-                me.$nextTick(() => {
-                    me._initGallery();
-                })
+                const me = this;
+                me.$http.get("/api/article/findById", {
+                    params: {
+                        id: id
+                    }
+                }).then(response => {
+                    const quote = response.data;
+                    me.article = quote;
+                }, response => {
+
+                });
             },
             _queryArticle(){
                 const me = this;

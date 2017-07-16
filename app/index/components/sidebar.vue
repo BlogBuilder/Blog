@@ -272,13 +272,23 @@
         methods: {
             _fetchCategory(){
                 const me = this;
-                const data = category;
-                me.categoryList = data.results;
+                me.$http.get("/api/category/list").then(response => {
+                    const data = response.data;
+                    me.categoryList = data.results;
+                }, response => {
+
+                });
+
             },
             _fetchTag(){
                 const me = this;
-                const data = tag;
-                me.tagList = data.results;
+                me.$http.get("/api/tag/list").then(response => {
+                    const data = response.data;
+                    me.tagList = data.results;
+                }, response => {
+
+                });
+
             },
             _fetchHot(){
                 const me = this;
@@ -331,12 +341,11 @@
             clickTime(year, month){
                 const me = this;
                 if (year && month) {
-                    var path = redictURL(me.$route.fullPath, "/list", "add", "year", year);
-                    path = redictURL(path, "/list", "add", "month", month);
+                    month = month < 10 ? '0' + month : month;
+                    var path = redictURL(me.$route.fullPath, "/list", "add", "time", year + "-" + month);
                     me.$router.push(path);
                 } else {
-                    var path = redictURL(me.$route.fullPath, "/list", "remove", "year");
-                    path = redictURL(path, "/list", "remove", "month");
+                    var path = redictURL(me.$route.fullPath, "/list", "remove", "time");
                     me.$router.push(path);
                 }
             },

@@ -18,9 +18,7 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
+											<a href="javascript:;">{{article.category.name}}</a> ,
 										</span>
 									</span>
 									<span class="meta_part">
@@ -41,8 +39,8 @@
         </div>
         <div class="feature_inner">
             <div class="feature_inner_corners">
-                <a :href="article.materials" class="feature_inner_ling" data-rel="magnific-popup">
-                    <img :src="article.materials" alt="Post Title">
+                <a :href="article.materials.material" class="feature_inner_ling" data-rel="magnific-popup">
+                    <img :src="article.materials.material" alt="Post Title">
                 </a>
             </div>
         </div>
@@ -123,12 +121,20 @@
         },
         methods: {
             _fetchData(id){
-                console.log("加载id为" + id + "的文章");
-                var me = this;
-                me.article = standard;
-                me.$nextTick(() => {
-                    me._initStandard();
-                })
+                const me = this;
+                me.$http.get("/api/article/findById", {
+                    params: {
+                        id: id
+                    }
+                }).then(response => {
+                    const standard = response.data;
+                    me.article = standard;
+                    me.$nextTick(() => {
+                        me._initStandard();
+                    })
+                }, response => {
+
+                });
             },
             _queryArticle(){
                 const me = this;
