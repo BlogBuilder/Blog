@@ -83,12 +83,13 @@
 										</span>
                         </div>
                         <form class="comment-form" id="commentform" method="post" action="">
-
+                            <input type="text" size="30" value="" placeholder="昵称" name="author" id="author">
+                            <br>
                             <div id="editor" class="comment-form-comment">
                             </div>
                             <p class="form-submit">
                                 <input class="send_button" type="button" value="发表评论" id="submit-comment"
-                                       name="submit">
+                                       @click="sendComment">
                             </p>
                         </form>
                     </div>
@@ -110,6 +111,7 @@
 
     import E from 'wangeditor'
 
+    var editor = null;
     module.exports = {
         components: {
             "item": item
@@ -127,7 +129,7 @@
             const me = this;
             me._queryComment();
             me._fetchAuthor();
-            const editor = new E('#editor');
+            editor = new E('#editor');
             editor.create();
         },
         methods: {
@@ -137,7 +139,12 @@
             },
             _fetchAuthor(){
                 const me = this;
-                me.author = author;
+                me.$http.get("/api/author/info").then(response => {
+                    var author = response.data;
+                    me.author = author;
+                }, response => {
+                    serverErrorInfo();
+                });
             },
             _queryComment(){
                 const me = this;
@@ -146,6 +153,29 @@
                     alert("请选择文章");
                 } else
                     me._fetchComment(id);
+            },
+            sendComment(){
+                const me = this;
+                const id = me.$route.query.id;
+                if (!id) {
+                    error("请选择一篇文章");
+                    return;
+                }
+                const comment = {
+                    name: jQuery("#author").val(),
+                    content: editor.txt.html(),
+                    id: id
+                };
+                me.$http.post("/api/comment/create", comment).then(response => {
+                    const data = response.data;
+                    codeState(data.code, {
+                        200(){
+                            alert("评论发表成功！");
+                        }
+                    })
+                }, response => {
+                    serverErrorInfo()
+                });
             }
         }
     }

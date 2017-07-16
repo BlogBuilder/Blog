@@ -128,12 +128,17 @@
                     }
                 }).then(response => {
                     const standard = response.data;
+                    if (standard.code == 504) {
+                        error("当前文章不存在！");
+                        me.$router.push("/list");
+                        return;
+                    }
                     me.article = standard;
                     me.$nextTick(() => {
                         me._initStandard();
                     })
                 }, response => {
-
+                    serverErrorInfo();
                 });
             },
             _queryArticle(){

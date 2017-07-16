@@ -348,7 +348,7 @@
                         me._initAudio();
                     })
                 }, response => {
-
+                    serverErrorInfo();
                 });
             },
             _fetchPages () {

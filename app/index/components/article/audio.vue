@@ -125,12 +125,17 @@
                     }
                 }).then(response => {
                     const audio = response.data;
+                    if (audio.code == 504) {
+                        error("当前文章不存在！");
+                        me.$router.push("/list");
+                        return;
+                    }
                     me.article = audio;
                     me.$nextTick(() => {
                         me._initAudio();
                     })
                 }, response => {
-
+                    serverErrorInfo();
                 });
 
             },

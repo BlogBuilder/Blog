@@ -135,6 +135,11 @@
                     }
                 }).then(response => {
                     const video = response.data;
+                    if (video.code == 504) {
+                        error("当前文章不存在！");
+                        me.$router.push("/list");
+                        return;
+                    }
                     me.article = video;
                     me.$nextTick(() => {
                         me._initVideo();

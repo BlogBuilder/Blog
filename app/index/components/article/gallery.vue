@@ -134,12 +134,17 @@
                     }
                 }).then(response => {
                     const gallery = response.data;
+                    if (gallery.code == 504) {
+                        error("当前文章不存在！");
+                        me.$router.push("/list");
+                        return;
+                    }
                     me.article = gallery;
                     me.$nextTick(() => {
                         me._initGallery();
                     })
                 }, response => {
-
+                    serverErrorInfo();
                 });
             },
             _queryArticle(){

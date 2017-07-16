@@ -14432,8 +14432,7 @@ a.img_popup:after {
 #commentform input[type="text"] {
     height: 40px;
     margin: 0 1.4% 1.4% 0;
-    width: 32.4%;
-    float: left;
+    width: 100%;
 }
 
 #commentform input:last-of-type {

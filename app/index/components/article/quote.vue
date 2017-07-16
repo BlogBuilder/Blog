@@ -104,7 +104,7 @@
         data(){
             return {
                 article: {
-                    category:{}
+                    category: {}
                 }
             }
         },
@@ -124,9 +124,14 @@
                     }
                 }).then(response => {
                     const quote = response.data;
+                    if (quote.code == 504) {
+                        error("当前文章不存在！");
+                        me.$router.push("/list");
+                        return;
+                    }
                     me.article = quote;
                 }, response => {
-
+                    serverErrorInfo();
                 });
             },
             _queryArticle(){
