@@ -4,14 +4,14 @@
             <!-- Comment -->
             <div class="comment-container comment-box">
                 <div class="trees_number">1.1.1.1</div>
-                <a href="#" class="avatar">
+                <a href="javascript:;" class="avatar">
                     <img width="75" height="75"
                          :src="'http://cdn.qulongjun.cn/avator/'+model.photo+'.png'" alt="author">
                 </a>
                 <div class="comment_content">
                     <h4 class="author_name"><a href="javascript:;">{{model.name}}</a></h4>
                     <span class="comment_meta">
-    <a href="#">
+    <a href="javascript:;">
     <time datetime="2015-10-01T19:56:36+00:00">{{model.create_time}}</time>
     </a>
     </span>

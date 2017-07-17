@@ -1,17 +1,17 @@
 <template>
     <div>
         <div class="post_title_con">
-            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
             <span class="meta">
 
                 <span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -23,7 +23,7 @@
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
@@ -33,13 +33,13 @@
 
         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-quote-right"></i>
 									</a>
 								</span>
         </div>
         <div class="feature_inner">
-            <div href="#" class="quote_con">
+            <div href="javascript:;" class="quote_con">
                 <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</span>
                 <span class="quote_author">Mike Ehrmantraut</span>
             </div>

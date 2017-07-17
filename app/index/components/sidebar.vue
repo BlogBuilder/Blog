@@ -201,10 +201,10 @@
             <div class="hm-tabs tabs1">
                 <nav>
                     <ul class="tabs-navi">
-                        <li><a data-content="inbox" class="selected" href="#"><span></span>热门</a>
+                        <li><a data-content="inbox" class="selected" href="javascript:;"><span></span>热门</a>
                         </li>
-                        <li><a data-content="new" href="#"><span></span>最近</a></li>
-                        <li><a data-content="gallery" href="#"><i
+                        <li><a data-content="new" href="javascript:;"><span></span>最近</a></li>
+                        <li><a data-content="gallery" href="javascript:;"><i
                                 class="icon_alone ico-comment-o"></i></a>
                         </li>
                     </ul>
@@ -262,24 +262,24 @@
         <div class="widget_block">
             <h6 class="widget_title">社交媒体</h6>
             <div class="social_links_widget clearfix">
-                <a href="#" target="_blank" class="twitter"><i class="ico-twitter4"></i></a>
-                <a href="#" target="_blank" class="facebook"><i class="ico-facebook4"></i></a>
-                <a href="#" target="_blank" class="googleplus"><i
+                <a href="javascript:;" target="_blank" class="twitter"><i class="ico-twitter4"></i></a>
+                <a href="javascript:;" target="_blank" class="facebook"><i class="ico-facebook4"></i></a>
+                <a href="javascript:;" target="_blank" class="googleplus"><i
                         class="ico-google-plus"></i></a>
-                <a href="#" target="_blank" class="linkedin"><i class="ico-linkedin3"></i></a>
-                <a href="#" target="_blank" class="vimeo"><i class="ico-vimeo"></i></a>
+                <a href="javascript:;" target="_blank" class="linkedin"><i class="ico-linkedin3"></i></a>
+                <a href="javascript:;" target="_blank" class="vimeo"><i class="ico-vimeo"></i></a>
 
                 <!--<a href="skype:#?call" class="skype"><i class="ico-skype2"></i></a>-->
-                <!--<a href="#" target="_blank" class="rss"><i class="ico-rss"></i></a>-->
-                <!--<a href="#" target="_blank" class="flickr"><i class="ico-flickr2"></i></a>-->
-                <!--<a href="#" target="_blank" class="picasa"><i class="ico-picassa"></i></a>-->
-                <!--<a href="#" target="_blank" class="tumblr"><i class="ico-tumblr"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="rss"><i class="ico-rss"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="flickr"><i class="ico-flickr2"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="picasa"><i class="ico-picassa"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="tumblr"><i class="ico-tumblr"></i></a>-->
 
-                <!--<a href="#" target="_blank" class="dribble"><i class="ico-dribbble"></i></a>-->
-                <!--<a href="#" target="_blank" class="soundcloud"><i class="ico-soundcloud"></i></a>-->
-                <!--<a href="#" target="_blank" class="instagram"><i class="ico-instagram3"></i></a>-->
-                <!--<a href="#" target="_blank" class="pinterest"><i class="ico-pinterest-p"></i></a>-->
-                <!--<a href="#" target="_blank" class="youtube"><i class="ico-youtube3"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="dribble"><i class="ico-dribbble"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="soundcloud"><i class="ico-soundcloud"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="instagram"><i class="ico-instagram3"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="pinterest"><i class="ico-pinterest-p"></i></a>-->
+                <!--<a href="javascript:;" target="_blank" class="youtube"><i class="ico-youtube3"></i></a>-->
             </div>
         </div>
         <!-- End Social Media -->

@@ -29,20 +29,20 @@
 										<img alt="client name" :src="author.photo">
 									</span>
                         <div class="about_auther_details">
-                            <a href="#" class="auther_link">{{author.name}}</a>
+                            <a href="javascript:;" class="auther_link">{{author.name}}</a>
                             <span class="desc">{{author.desp}}
 										</span>
                             <div class="social_media clearfix">
-                                <a href="#" target="_blank" class="twitter">
+                                <a href="javascript:;" target="_blank" class="twitter">
                                     <i class="ico-twitter4"></i>
                                 </a>
-                                <a href="#" target="_blank" class="facebook">
+                                <a href="javascript:;" target="_blank" class="facebook">
                                     <i class="ico-facebook4"></i>
                                 </a>
-                                <a href="#" target="_blank" class="googleplus">
+                                <a href="javascript:;" target="_blank" class="googleplus">
                                     <i class="ico-google-plus"></i>
                                 </a>
-                                <a href="#" target="_blank" class="linkedin">
+                                <a href="javascript:;" target="_blank" class="linkedin">
                                     <i class="ico-linkedin3"></i>
                                 </a>
                             </div>

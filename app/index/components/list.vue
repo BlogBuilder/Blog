@@ -6,7 +6,7 @@
                     <div class="blog_grid_block clearfix">
                         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-gallery"></i>
 									</a>
 								</span>
@@ -23,16 +23,16 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -40,11 +40,11 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-												<a href="#">{{article.category.name}}</a>
+												<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
@@ -69,7 +69,7 @@
                     <div class="blog_grid_block clearfix">
                         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-pencil4"></i>
 									</a>
 								</span>
@@ -83,16 +83,16 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -100,11 +100,11 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<a href="#">{{article.category.name}}</a>
+											<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
@@ -128,7 +128,7 @@
                     <div class="blog_grid_block clearfix">
                         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-video-camera"></i>
 									</a>
 								</span>
@@ -145,16 +145,16 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -162,11 +162,11 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<a href="#">{{article.category.name}}</a>
+											<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
@@ -199,16 +199,16 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -216,11 +216,11 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<a href="#">{{article.category.name}}</a>
+											<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
@@ -244,7 +244,7 @@
                     <div class="blog_grid_block format_quote clearfix">
                         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-quote-right"></i>
 									</a>
 								</span>
@@ -258,13 +258,13 @@
                         <div class="blog_grid_con">
 								<span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -272,11 +272,11 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-												<a href="#">{{article.category.name}}</a>
+												<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
