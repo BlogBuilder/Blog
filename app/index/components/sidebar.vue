@@ -56,7 +56,7 @@
             <!-- My Accordion -->
             <div class="enar_accordion plus_minus" data-type="toggle"> <!-- accordion - toggle -->
                 <div class="enar_occ_container" data-expanded="true">
-                    <span class="enar_occ_title">Year 2017</span>
+                    <span class="enar_occ_title" data-year="2017">Year 2017</span>
                     <div class="enar_occ_content">
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="enar_occ_container" data-expanded="false">
-                    <span class="enar_occ_title">Year 2016</span>
+                    <span class="enar_occ_title" data-year="2016">Year 2016</span>
                     <div class="enar_occ_content">
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div class="enar_occ_container" data-expanded="false">
-                    <span class="enar_occ_title">Year 2015</span>
+                    <span class="enar_occ_title" data-year="2015">Year 2015</span>
                     <div class="enar_occ_content">
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
@@ -315,6 +315,7 @@
             me.$nextTick(() => {
                 me._initTabs();
                 me._initAccordion();
+                me._initYears();
             })
         },
         methods: {
@@ -517,6 +518,16 @@
 
                     });
 
+                });
+            },
+            _initYears(){
+                const me = this;
+                jQuery(".enar_occ_title").on("click", (e) => {
+                    const oSpan = jQuery(e.target);
+                    const year = oSpan.data("year");
+                    if (window.location.search.indexOf("time=" + year) != -1) {
+                        me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "time"));
+                    }
                 });
             },
             viewDetails(article){
