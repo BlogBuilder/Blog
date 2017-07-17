@@ -123,6 +123,22 @@ export const codeState = (code, opt) => {
     }
 };
 
+
+export const _backBottom = (dom) => {
+    $('body,html').animate({
+            scrollTop: dom.offset().top,
+        }, {queue: false, duration: 900, easing: "easeInOutExpo"}
+    );
+};
+export const _backPosition = (position) => {
+    $('body,html').animate({
+            scrollTop: position,
+        }, {queue: false, duration: 900, easing: "easeInOutExpo"}
+    );
+};
+
+
 window.alert = alert;
 window.error = error;
 window.serverErrorInfo = serverErrorInfo;
+window.codeState = codeState;

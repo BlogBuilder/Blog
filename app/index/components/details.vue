@@ -83,13 +83,22 @@
 										</span>
                         </div>
                         <form class="comment-form" id="commentform" method="post" action="">
-                            <input type="text" size="30" value="" placeholder="昵称" name="author" id="author">
+                            <span v-if="desp" style="font-size: 17px;font-weight: 300">{{desp}}</span><a
+                                class="main_button small_btn cancel-reply"
+                                style="float: right;" target="_self"
+                                href="javascript:;" v-if="desp" @click="cancelReply">
+                            <i class="in_left ico-cancel"></i>取 消
+                        </a>
+                            <input type="text" size="30" value="" placeholder="昵称" name="author" v-model="name"
+                                   id="author">
                             <br>
                             <div id="editor" class="comment-form-comment">
                             </div>
                             <p class="form-submit">
-                                <input class="send_button" type="button" value="发表评论" id="submit-comment"
-                                       @click="sendComment">
+                                <input class="send_button4" type="button" value="回 复"
+                                       @click="sendComment(1)" v-if="desp">
+                                <input class="send_button" type="button" value="新评论" id="submit-comment"
+                                       @click="sendComment(0)">
                             </p>
                         </form>
                     </div>
@@ -110,6 +119,7 @@
 
 
     import E from 'wangeditor'
+    import {_backBottom, _backPosition} from '../script/js-utils'
 
     var editor = null;
     module.exports = {
@@ -119,7 +129,11 @@
         data(){
             return {
                 author: {},
-                commentList: []
+                commentList: [],
+                parent: "",
+                name: "佚名",
+                desp: "",
+                backTop: 0
             }
         },
         watch: {
@@ -135,7 +149,16 @@
         methods: {
             _fetchComment(id){
                 const me = this;
-                me.commentList = comment.results;
+                me.$http.get("/api/comment/list", {
+                    params: {
+                        id: id
+                    }
+                }).then(response => {
+                    const data = response.data;
+                    me.commentList = data.results;
+                }, response => {
+                    serverErrorInfo();
+                });
             },
             _fetchAuthor(){
                 const me = this;
@@ -154,7 +177,7 @@
                 } else
                     me._fetchComment(id);
             },
-            sendComment(){
+            sendComment(isReply){
                 const me = this;
                 const id = me.$route.query.id;
                 if (!id) {
@@ -162,20 +185,42 @@
                     return;
                 }
                 const comment = {
-                    name: jQuery("#author").val(),
+                    name: me.name,
                     content: editor.txt.html(),
-                    id: id
+                    id: id,
+                    parent: isReply == 0 ? '' : me.parent,
+                    photo: Math.floor(Math.random() * 824)
                 };
+                if (!comment.name) comment.name = "佚名";
                 me.$http.post("/api/comment/create", comment).then(response => {
                     const data = response.data;
                     codeState(data.code, {
                         200(){
                             alert("评论发表成功！");
+                            me._fetchComment(id);
+                            editor.txt.clear();
+                            me.$nextTick(() => {
+                                if (isReply) {
+                                    _backPosition(me.backTop);
+                                }
+                            })
                         }
                     })
                 }, response => {
                     serverErrorInfo()
                 });
+            },
+            replyComment(comment, event){
+                const me = this;
+                me.backTop = jQuery(event.target).parents('li').offset().top;
+                me.desp = "回复【" + comment.name + "】于【" + comment.create_time + "】的评论：";
+                me.parent = comment.id;
+                _backBottom(jQuery('#comments-form'));
+            },
+            cancelReply(){
+                const me = this;
+                me.desp = "";
+                me.parent = "";
             }
         }
     }

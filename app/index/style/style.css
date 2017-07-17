@@ -14431,7 +14431,7 @@ a.img_popup:after {
 
 #commentform input[type="text"] {
     height: 40px;
-    margin: 0 1.4% 1.4% 0;
+    margin: 1.4% 1.4% 1.4% 0;
     width: 100%;
 }
 
@@ -18310,6 +18310,7 @@ table.check_out_table {
         font-size: 16px;
         line-height: 27px;
     }
+
 
     .send_button {
         padding: 8px 11px;
