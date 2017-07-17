@@ -51,8 +51,8 @@
         <div class="post_next_prev_con clearfix">
             <!-- Next and Prev Post-->
             <div class="post_next_prev clearfix">
-                <a href="javascript:;" @click="clickOther(article.prev)"><i class="ico-arrow-back"></i><span class="t">Prev</span></a>
-                <a href="javascript:;" @click="clickOther(article.next)"><span class="t">Next</span><i
+                <a href="javascript:;" @click="clickOther(article.prev)"><i class="ico-arrow-back"></i><span class="t">上一篇</span></a>
+                <a href="javascript:;" @click="clickOther(article.next)"><span class="t">下一篇</span><i
                         class="ico-arrow-forward"></i></a>
             </div>
             <!-- End Next and Prev Post-->
@@ -105,7 +105,7 @@
             return {
                 article: {
                     materials: {},
-                    category:{}
+                    category: {}
                 }
             }
         },
@@ -115,6 +115,7 @@
         mounted(){
             const me = this;
             me._queryArticle();
+            $('.hm_go_top').trigger("click");
         },
         methods: {
             _fetchData(id){
@@ -154,9 +155,26 @@
                 const me = this;
                 me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "tag", item.id));
             },
-            clickOther(id){
+            clickOther(article){
                 const me = this;
-                me.$router.push("/detail/standard?id=" + id);
+                switch (article.type) {
+                    case 1:
+                        me.$router.push("/detail/gallery?id=" + article.id);
+                        break;
+                    case 2:
+                        me.$router.push("/detail/standard?id=" + article.id);
+                        break;
+                    case 3:
+                        me.$router.push("/detail/video?id=" + article.id);
+                        break;
+                    case 4:
+                        me.$router.push("/detail/audio?id=" + article.id);
+                        break;
+                    case 5:
+                        me.$router.push("/detail/quote?id=" + article.id);
+                        break;
+                }
+
             }
         }
     }
