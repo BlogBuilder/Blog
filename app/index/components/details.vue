@@ -32,20 +32,6 @@
                             <a href="javascript:;" class="auther_link">{{author.name}}</a>
                             <span class="desc">{{author.desp}}
 										</span>
-                            <div class="social_media clearfix">
-                                <a href="javascript:;" target="_blank" class="twitter">
-                                    <i class="ico-twitter4"></i>
-                                </a>
-                                <a href="javascript:;" target="_blank" class="facebook">
-                                    <i class="ico-facebook4"></i>
-                                </a>
-                                <a href="javascript:;" target="_blank" class="googleplus">
-                                    <i class="ico-google-plus"></i>
-                                </a>
-                                <a href="javascript:;" target="_blank" class="linkedin">
-                                    <i class="ico-linkedin3"></i>
-                                </a>
-                            </div>
                         </div>
 
                     </div>

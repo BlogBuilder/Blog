@@ -262,24 +262,17 @@
         <div class="widget_block">
             <h6 class="widget_title">社交媒体</h6>
             <div class="social_links_widget clearfix">
-                <a href="javascript:;" target="_blank" class="twitter"><i class="ico-twitter4"></i></a>
-                <a href="javascript:;" target="_blank" class="facebook"><i class="ico-facebook4"></i></a>
-                <a href="javascript:;" target="_blank" class="googleplus"><i
-                        class="ico-google-plus"></i></a>
-                <a href="javascript:;" target="_blank" class="linkedin"><i class="ico-linkedin3"></i></a>
-                <a href="javascript:;" target="_blank" class="vimeo"><i class="ico-vimeo"></i></a>
-
-                <!--<a href="skype:#?call" class="skype"><i class="ico-skype2"></i></a>-->
-                <!--<a href="javascript:;" target="_blank" class="rss"><i class="ico-rss"></i></a>-->
-                <!--<a href="javascript:;" target="_blank" class="flickr"><i class="ico-flickr2"></i></a>-->
-                <!--<a href="javascript:;" target="_blank" class="picasa"><i class="ico-picassa"></i></a>-->
-                <!--<a href="javascript:;" target="_blank" class="tumblr"><i class="ico-tumblr"></i></a>-->
-
-                <!--<a href="javascript:;" target="_blank" class="dribble"><i class="ico-dribbble"></i></a>-->
-                <!--<a href="javascript:;" target="_blank" class="soundcloud"><i class="ico-soundcloud"></i></a>-->
-                <!--<a href="javascript:;" target="_blank" class="instagram"><i class="ico-instagram3"></i></a>-->
-                <!--<a href="javascript:;" target="_blank" class="pinterest"><i class="ico-pinterest-p"></i></a>-->
-                <!--<a href="javascript:;" target="_blank" class="youtube"><i class="ico-youtube3"></i></a>-->
+                <a href="http://github.com/qulongjun" target="_blank"><img src="../image/social/github.png"
+                                                                           style="width: 23px;height: 23px;"></a>
+                <a href="http://wpa.qq.com/msgrd?V=1&Uin=154256698" target="_blank"><img src="../image/social/qq.png"
+                                                                                         style="width: 27px;height: 27px;"></a>
+                <a href="javascript:;" @click="social('wechat')" target="_blank"><img src="../image/social/wechat.png"
+                                                                                      style="width: 20px;height: 20px;"></a>
+                <a href="https://www.yinxiang.com/" target="_blank"><img
+                        src="../image/social/evernote.png"
+                        style="width: 20px;height: 20px;"></a>
+                <a href="mailto:qulongjun12@163.com" target="_blank"><img src="../image/social/mail.png"
+                                                                          style="width: 20px;height: 20px;"></a>
             </div>
         </div>
         <!-- End Social Media -->
@@ -547,6 +540,15 @@
                         break;
                     case 5:
                         me.$router.push("/detail/quote?id=" + article.id);
+                        break;
+                }
+            },
+            social(type){
+                switch (type) {
+                    case "wechat":
+                        alert("WeChat:qulongjun1992");
+                        break;
+                    case "evernote":
                         break;
                 }
             }
