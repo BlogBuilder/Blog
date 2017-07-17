@@ -329,18 +329,18 @@
                 var query = me.$route.query;
                 me.condition = jQuery.param(query);
                 me._fetchData(page);
-                me._fetchPages();
+                me._fetchPages(page);
             },
             _fetchData(page){
-                var me = this;
+                const me = this;
                 me.$http.get("/api/article/list", {
                     params: {
-                        rowCount: 10,
+                        rowCount: 5,
                         currentPage: page,
                         condition: me.condition
                     }
                 }).then(response => {
-                    var data = response.data;
+                    const data = response.data;
                     me.articleList = data.results;
                     me.$nextTick(() => {
                         me._initGallery();
@@ -351,17 +351,27 @@
                     serverErrorInfo();
                 });
             },
-            _fetchPages () {
+            _fetchPages (page) {
                 const me = this;
-                const data = list;
-                jQuery(".M-box").pagination({
-                    pageCount: data.total,
-                    nextContent: '<i class="ico-arrow-right4"></i>',
-                    prevContent: '<i class="ico-arrow-left4"></i>',
-                    callback: function (data) {
-                        me._fetchData(data.getCurrent());
-                        me.currentPage = data.getCurrent();
+                me.$http.get("/api/article/list", {
+                    params: {
+                        rowCount: 5,
+                        currentPage: page,
+                        condition: me.condition
                     }
+                }).then(response => {
+                    const data = response.data;
+                    jQuery(".M-box").pagination({
+                        pageCount: data.totalPage,
+                        nextContent: '<i class="ico-arrow-right4"></i>',
+                        prevContent: '<i class="ico-arrow-left4"></i>',
+                        callback: function (data) {
+                            me._fetchData(data.getCurrent());
+                            me.currentPage = data.getCurrent();
+                        }
+                    });
+                }, response => {
+                    serverErrorInfo();
                 });
             },
             _queryList(){

@@ -68,29 +68,6 @@
                         class="ico-arrow-forward"></i></a>
             </div>
             <!-- End Next and Prev Post-->
-
-            <!-- Social Share-->
-            <div class="single_pro_row">
-                <div id="share_on_socials">
-                    <!-- <h6>Share:</h6> -->
-                    <a class="facebook"
-                       href="http://www.facebook.com/sharer.php?s=100&amp;p[url]=http://www.yourlink.com&amp;p[title]=your-post-title&amp;p[summary]=your-content-here&amp;p[images[0]=http://www.yourlink.com/image.jpg"
-                       target="_blank"><i class="ico-facebook4"></i></a>
-                    <a class="twitter" href="http://twitter.com/home?status=your-post-title+http://www.yourlink.com"
-                       target="_blank"><i class="ico-twitter4"></i></a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=http://www.yourlink.com"
-                       target="_blank"><i class="ico-google-plus"></i></a>
-                    <a class="pinterest"
-                       href="http://pinterest.com/pin/create/bookmarklet/?media=http://www.yourlink.com/image.jpg&amp;url=http://www.yourlink.com&amp;is_video=false&amp;description=your-post-title"
-                       target="_blank"><i class="ico-pinterest-p"></i></a>
-
-                    <a class="linkedin"
-                       href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.yourlink.com&amp;title=your-post-title&amp;source=http://www.yourlink.com"
-                       target="_blank"><i class="ico-linkedin3"></i></a>
-
-                </div>
-            </div>
-            <!-- End Social Share-->
         </div>
         <!-- End Next / Prev and Social Share-->
         <!-- Tags -->

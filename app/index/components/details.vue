@@ -64,7 +64,7 @@
                 </div>
                 <ol class="comments_list clearfix" id="comment_container">
                     <template v-if="commentList.length == 0">
-                        <span>尚未有用户评论。</span>
+                        <span style="padding-left: 20px;">暂无用户评论。</span>
                     </template>
                     <template v-for="comment in commentList">
                         <item :model="comment"></item>

@@ -61,16 +61,40 @@
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
                                 <li>
-                                    <a href="#">Media</a>
+                                    <a href="javascript:;" @click="clickTime(2017,12)">December</a>
                                 </li>
                                 <li>
-                                    <a href="#">Movies</a>
+                                    <a href="javascript:;" @click="clickTime(2017,11)">November</a>
                                 </li>
                                 <li>
-                                    <a href="#">News</a>
+                                    <a href="javascript:;" @click="clickTime(2017,10)">October</a>
                                 </li>
                                 <li>
-                                    <a href="#">Sound</a>
+                                    <a href="javascript:;" @click="clickTime(2017,9)">September</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,8)">August</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,7)">July</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,6)">June</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,5)">May</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,4)">April</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,3)">March</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,2)">February</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,1)">January</a>
                                 </li>
                             </ul>
                         </div>
@@ -127,16 +151,40 @@
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
                                 <li>
-                                    <a href="#">Media</a>
+                                    <a href="javascript:;" @click="clickTime(2015,12)">December</a>
                                 </li>
                                 <li>
-                                    <a href="#">Movies</a>
+                                    <a href="javascript:;" @click="clickTime(2015,11)">November</a>
                                 </li>
                                 <li>
-                                    <a href="#">News</a>
+                                    <a href="javascript:;" @click="clickTime(2015,10)">October</a>
                                 </li>
                                 <li>
-                                    <a href="#">Sound</a>
+                                    <a href="javascript:;" @click="clickTime(2015,9)">September</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,8)">August</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,7)">July</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,6)">June</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,5)">May</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,4)">April</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,3)">March</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,2)">February</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,1)">January</a>
                                 </li>
                             </ul>
                         </div>
@@ -167,8 +215,8 @@
                         <ul class="posts_widget_list2">
                             <template v-for="item in hotList">
                                 <li class="clearfix">
-                                    <a href="#">
-                                        <img alt="" title="" :src="item.materials">
+                                    <a href="javascript:;" @click="viewDetails(item)">
+                                        <img alt="" title="" :src="item.materials.material">
                                         <span>{{item.title}}</span>
                                     </a>
                                     <span class="post_date"><i class="ico-comments-o"></i>{{item.comment_num}} Comments</span>
@@ -181,8 +229,8 @@
                         <ul class="posts_widget_list2">
                             <template v-for="item in recentlyList">
                                 <li class="clearfix">
-                                    <a href="#">
-                                        <img alt="" title="" :src="item.materials">
+                                    <a href="javascript:;" @click="viewDetails(item)">
+                                        <img alt="" title="" :src="item.materials.material">
                                         <span>{{item.title}}</span>
                                     </a>
                                     <span class="post_date">{{item.create_time}}</span>
@@ -195,11 +243,11 @@
                         <ul class="posts_widget_list2">
                             <template v-for="item in recentlyCommentList">
                                 <li class="clearfix">
-                                    <a href="#">
-                                        <img alt="" title="" :src="item.materials">
+                                    <a href="javascript:;">
+                                        <img alt="" title="" :src="'http://cdn.qulongjun.cn/avator/'+item.photo+'.png'">
                                         <span>{{item.name}}:</span>
                                     </a>
-                                    <span class="post_comment">{{item.content}}</span>
+                                    <span class="post_comment" v-html="item.content"></span>
                                 </li>
                             </template>
                         </ul>
@@ -292,18 +340,30 @@
             },
             _fetchHot(){
                 const me = this;
-                const data = hot;
-                me.hotList = data.results;
+                me.$http.get("/api/article/hot").then(response => {
+                    const data = response.data;
+                    me.hotList = data.results;
+                }, response => {
+                    serverErrorInfo();
+                });
             },
             _fetchRecently(){
                 const me = this;
-                const data = recently;
-                me.recentlyList = data.results;
+                me.$http.get("/api/article/recently").then(response => {
+                    const data = response.data;
+                    me.recentlyList = data.results;
+                }, response => {
+                    serverErrorInfo();
+                });
             },
             _fetchRecentlyComment(){
                 const me = this;
-                const data = recentlyComment;
-                me.recentlyCommentList = data.results;
+                me.$http.get("/api/comment/recently").then(response => {
+                    const data = response.data;
+                    me.recentlyCommentList = data.results;
+                }, response => {
+                    serverErrorInfo();
+                });
             },
             clickCategory(category){
                 const me = this;
@@ -458,6 +518,26 @@
                     });
 
                 });
+            },
+            viewDetails(article){
+                const me = this;
+                switch (article.type) {
+                    case 1:
+                        me.$router.push("/detail/gallery?id=" + article.id);
+                        break;
+                    case 2:
+                        me.$router.push("/detail/standard?id=" + article.id);
+                        break;
+                    case 3:
+                        me.$router.push("/detail/video?id=" + article.id);
+                        break;
+                    case 4:
+                        me.$router.push("/detail/audio?id=" + article.id);
+                        break;
+                    case 5:
+                        me.$router.push("/detail/quote?id=" + article.id);
+                        break;
+                }
             }
         }
     }

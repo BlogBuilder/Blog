@@ -11,6 +11,7 @@ import './script/jquery.pagination'
 import 'jquery.easing'
 import './script/plugin'
 import './script/js-utils'
+
 //===========导入Vue组件==============
 import App from './app.vue'
 import sideBar from './components/sidebar.vue'
