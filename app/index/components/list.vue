@@ -1,14 +1,12 @@
 <template>
-
     <div class="content_block col-md-9 f_left">
         <div class="hm_blog_full_list hm_blog_list clearfix">
-
             <template v-for="article in articleList">
                 <template v-if="article.type==1">
                     <div class="blog_grid_block clearfix">
                         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-gallery"></i>
 									</a>
 								</span>
@@ -17,24 +15,24 @@
                             <div class="feature_inner_corners">
                                 <div class="porto_galla">
                                     <template v-for="item in article.materials">
-                                        <a :href="item" class="feature_inner_ling">
-                                            <img :src="item" alt="gallery photos">
+                                        <a :href="item.material" class="feature_inner_ling">
+                                            <img :src="item.material" alt="gallery photos">
                                         </a>
                                     </template>
                                 </div>
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -42,21 +40,18 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
-
+												<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
 									</span>
 								</span>
                             <p class="desc">{{article.summary}}</p>
-                            <a class="btn_a" href="#">
+                            <a class="btn_a" href="javascript:;" @click="viewDetails(article)">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -74,30 +69,30 @@
                     <div class="blog_grid_block clearfix">
                         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-pencil4"></i>
 									</a>
 								</span>
                         </div>
                         <div class="feature_inner">
                             <div class="feature_inner_corners">
-                                <a :href="article.materials" class="feature_inner_ling"
+                                <a :href="article.materials.material" class="feature_inner_ling"
                                    data-rel="magnific-popup">
-                                    <img :src="article.materials" alt="photo">
+                                    <img :src="article.materials.material" alt="photo">
                                 </a>
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -105,20 +100,18 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
+											<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
 									</span>
 								</span>
                             <p class="desc">{{article.summary}}</p>
-                            <a class="btn_a" href="#">
+                            <a class="btn_a" href="javascript:;" @click="viewDetails(article)">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -135,7 +128,7 @@
                     <div class="blog_grid_block clearfix">
                         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-video-camera"></i>
 									</a>
 								</span>
@@ -144,7 +137,7 @@
                             <div class="feature_inner_corners">
                                 <div class="embed-container">
                                     <a href="http://vimeo.com/29193046" data-rel="magnific-popup"></a>
-                                    <iframe :src="article.materials"
+                                    <iframe :src="article.materials.material"
                                             frameborder="0" allowfullscreen="true" width="100%"
                                             height="100%"></iframe>
                                 </div>
@@ -152,16 +145,16 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -169,20 +162,18 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
+											<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
 									</span>
 								</span>
                             <p class="desc">{{article.summary}}</p>
-                            <a class="btn_a" href="#">
+                            <a class="btn_a" href="javascript:;" @click="viewDetails(article)">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -201,23 +192,23 @@
                             <div class="self_hosted_container">
                                 <audio class="hosted_audio" id="audio_player_1" width="100%" preload="metadata"
                                        controls="controls">
-                                    <source :src="article.materials"
+                                    <source :src="article.materials.material"
                                             :type="article.audio_type"/>
 
                                 </audio>
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="#">{{article.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -225,20 +216,18 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
+											<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
 									</span>
 								</span>
                             <p class="desc">{{article.summary}}</p>
-                            <a class="btn_a" href="#">
+                            <a class="btn_a" href="javascript:;" @click="viewDetails(article)">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -255,7 +244,7 @@
                     <div class="blog_grid_block format_quote clearfix">
                         <div class="post_format_con">
 								<span>
-									<a href="#">
+									<a href="javascript:;">
 										<i class="ico-quote-right"></i>
 									</a>
 								</span>
@@ -269,13 +258,13 @@
                         <div class="blog_grid_con">
 								<span class="meta">
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 										</a>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 										</a>
@@ -283,19 +272,17 @@
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
 										<span>
-											<template v-for="item in article.category">
-												<a href="#">{{item.name}}</a> ,
-											</template>
+												<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
 									<span class="meta_part">
-										<a href="#">
+										<a href="javascript:;">
 											<i class="ico-user5"></i>
 											<span>{{article.author}}</span>
 										</a>
 									</span>
 								</span>
-                            <a class="btn_a" href="#">
+                            <a class="btn_a" href="javascript:;" @click="viewDetails(article)">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -339,36 +326,56 @@
         methods: {
             _initTotal(page){
                 var me = this;
+                var query = me.$route.query;
+                me.condition = jQuery.param(query);
                 me._fetchData(page);
-                me._fetchPages();
+                me._fetchPages(page);
             },
             _fetchData(page){
-                var me = this;
-                var data = list;
-                me.articleList = data.results;
-                me.$nextTick(() => {
-                    me._initGallery();
-                    me._initStandard();
-                    me._initAudio();
-                })
-            },
-            _fetchPages () {
                 const me = this;
-                const data = list;
-                jQuery(".M-box").pagination({
-                    pageCount: data.total,
-                    nextContent: '<i class="ico-arrow-right4"></i>',
-                    prevContent: '<i class="ico-arrow-left4"></i>',
-                    callback: function (data) {
-                        me._fetchData(data.getCurrent());
-                        me.currentPage = data.getCurrent();
+                me.$http.get("/api/article/list", {
+                    params: {
+                        rowCount: 5,
+                        currentPage: page,
+                        condition: me.condition
                     }
+                }).then(response => {
+                    const data = response.data;
+                    me.articleList = data.results;
+                    me.$nextTick(() => {
+                        me._initGallery();
+                        me._initStandard();
+                        me._initAudio();
+                    })
+                }, response => {
+                    serverErrorInfo();
+                });
+            },
+            _fetchPages (page) {
+                const me = this;
+                me.$http.get("/api/article/list", {
+                    params: {
+                        rowCount: 5,
+                        currentPage: page,
+                        condition: me.condition
+                    }
+                }).then(response => {
+                    const data = response.data;
+                    jQuery(".M-box").pagination({
+                        pageCount: data.totalPage,
+                        nextContent: '<i class="ico-arrow-right4"></i>',
+                        prevContent: '<i class="ico-arrow-left4"></i>',
+                        callback: function (data) {
+                            me._fetchData(data.getCurrent());
+                            me.currentPage = data.getCurrent();
+                        }
+                    });
+                }, response => {
+                    serverErrorInfo();
                 });
             },
             _queryList(){
                 var me = this;
-                var query = me.$route.query;
-                me.condition = jQuery.param(query);
                 me._initTotal(1);
             },
             _initGallery(){
@@ -443,6 +450,26 @@
             },
             _initAudio(){
                 $("audio.hosted_audio").mediaelementplayer();
+            },
+            viewDetails(article){
+                const me = this;
+                switch (article.type) {
+                    case 1:
+                        me.$router.push("/detail/gallery?id=" + article.id);
+                        break;
+                    case 2:
+                        me.$router.push("/detail/standard?id=" + article.id);
+                        break;
+                    case 3:
+                        me.$router.push("/detail/video?id=" + article.id);
+                        break;
+                    case 4:
+                        me.$router.push("/detail/audio?id=" + article.id);
+                        break;
+                    case 5:
+                        me.$router.push("/detail/quote?id=" + article.id);
+                        break;
+                }
             }
         }
     }

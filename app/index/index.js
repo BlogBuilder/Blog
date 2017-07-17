@@ -10,6 +10,7 @@ import 'mediaelement/'
 import './script/jquery.pagination'
 import 'jquery.easing'
 import './script/plugin'
+import './script/js-utils'
 
 //===========导入Vue组件==============
 import App from './app.vue'
@@ -41,6 +42,12 @@ $(window).load(function () {
     _preLoad();
     _topSearchFunc();
     _backTop();
+    jQuery("#githubSearch").keydown(function (e) {
+        if (e.keyCode == 13) {
+            const value = e.target.value;
+            window.open("https://github.com/search?utf8=%E2%9C%93&q=" + value);
+        }
+    })
 });
 
 $(window).resize(function () {

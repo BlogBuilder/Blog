@@ -41,24 +41,26 @@
 </div>
 <div id="main_wrapper">
     <header id="site_header">
-        <div id="navigation_bar">
-            <div class="content">
-                <div id="logo">
-                    <a href="index.html">
-                        <img class="logo_dark" src="./image/logo-dark.png" alt="Enar Logo">
-                        <img class="logo_light" src="./image/logo-light.png" alt="Enar Logo">
-                    </a>
-                </div>
-                <!-- Top Search -->
-                <form class="top_search clearfix small_top_search">
-                    <div class="top_search_con">
-                        <input type="text" class="s" placeholder="Github Search ...">
-                        <span class="top_search_icon"><i class="ico-search4"></i></span>
-                        <input type="submit" class="top_search_submit">
+        <div id="navigation_bar-sticky-wrapper" class="sticky-wrapper">
+            <div id="navigation_bar">
+                <div class="content">
+                    <div id="logo">
+                        <a href="/list">
+                            <img class="logo_dark" src="./image/logo-dark.png" alt="Enar Logo">
+                            <img class="logo_light" src="./image/logo-light.png" alt="Enar Logo">
+                        </a>
                     </div>
-                </form>
-                <!-- End Top Search -->
-                <div class="clear"></div>
+                    <!-- Top Search -->
+                    <form class="top_search clearfix small_top_search" onkeydown="if(event.keyCode==13)return false;">
+                        <div class="top_search_con">
+                            <input type="text" class="s" id="githubSearch" placeholder="Github Search ...">
+                            <span class="top_search_icon"><i class="ico-search4"></i></span>
+                            <input type="submit" class="top_search_submit">
+                        </div>
+                    </form>
+                    <!-- End Top Search -->
+                    <div class="clear"></div>
+                </div>
             </div>
         </div>
     </header>
@@ -71,25 +73,23 @@
         <div class="footer_copyright">
             <div class="container clearfix">
                 <div class="col-md-6">
-                    <span class="footer_copy_text">Copyright &copy; 2017 Powered By <a href="#">瞿龙俊</a> - Enar - All Rights Reserved</span>
+                    <span class="footer_copy_text">Copyright &copy; 2017 Powered By <a href="javascript:;">瞿龙俊</a> - Enar - All Rights Reserved</span>
                 </div>
                 <div class="col-md-6 clearfix">
                     <ul class="footer_menu clearfix">
-                        <li><a href="#"><span>Blog</span></a></li>
+                        <li><a href="/list"><span>Blog</span></a></li>
                         <li>/</li>
-                        <li><a href="#"><span>Resume</span></a></li>
+                        <li><a href="http://resume.qulongjun.cn/"><span>Resume</span></a></li>
                         <li>/</li>
-                        <li><a href="#"><span>Contact</span></a></li>
+                        <li><a href="javascript:;"><span>Contact</span></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
     <!-- End footer -->
-    <a href="#" class="hm_go_top"></a>
+    <a href="javascript:;" class="hm_go_top"></a>
 </div>
-
-
 
 
 </body>

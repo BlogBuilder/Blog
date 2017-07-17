@@ -56,28 +56,52 @@
             <!-- My Accordion -->
             <div class="enar_accordion plus_minus" data-type="toggle"> <!-- accordion - toggle -->
                 <div class="enar_occ_container" data-expanded="true">
-                    <span class="enar_occ_title">Year 2017</span>
+                    <span class="enar_occ_title" data-year="2017">Year 2017</span>
                     <div class="enar_occ_content">
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
                                 <li>
-                                    <a href="#">Media</a>
+                                    <a href="javascript:;" @click="clickTime(2017,12)">December</a>
                                 </li>
                                 <li>
-                                    <a href="#">Movies</a>
+                                    <a href="javascript:;" @click="clickTime(2017,11)">November</a>
                                 </li>
                                 <li>
-                                    <a href="#">News</a>
+                                    <a href="javascript:;" @click="clickTime(2017,10)">October</a>
                                 </li>
                                 <li>
-                                    <a href="#">Sound</a>
+                                    <a href="javascript:;" @click="clickTime(2017,9)">September</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,8)">August</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,7)">July</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,6)">June</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,5)">May</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,4)">April</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,3)">March</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,2)">February</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2017,1)">January</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="enar_occ_container" data-expanded="false">
-                    <span class="enar_occ_title">Year 2016</span>
+                    <span class="enar_occ_title" data-year="2016">Year 2016</span>
                     <div class="enar_occ_content">
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
@@ -122,21 +146,45 @@
                     </div>
                 </div>
                 <div class="enar_occ_container" data-expanded="false">
-                    <span class="enar_occ_title">Year 2015</span>
+                    <span class="enar_occ_title" data-year="2015">Year 2015</span>
                     <div class="enar_occ_content">
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
                                 <li>
-                                    <a href="#">Media</a>
+                                    <a href="javascript:;" @click="clickTime(2015,12)">December</a>
                                 </li>
                                 <li>
-                                    <a href="#">Movies</a>
+                                    <a href="javascript:;" @click="clickTime(2015,11)">November</a>
                                 </li>
                                 <li>
-                                    <a href="#">News</a>
+                                    <a href="javascript:;" @click="clickTime(2015,10)">October</a>
                                 </li>
                                 <li>
-                                    <a href="#">Sound</a>
+                                    <a href="javascript:;" @click="clickTime(2015,9)">September</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,8)">August</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,7)">July</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,6)">June</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,5)">May</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,4)">April</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,3)">March</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,2)">February</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2015,1)">January</a>
                                 </li>
                             </ul>
                         </div>
@@ -153,10 +201,10 @@
             <div class="hm-tabs tabs1">
                 <nav>
                     <ul class="tabs-navi">
-                        <li><a data-content="inbox" class="selected" href="#"><span></span>热门</a>
+                        <li><a data-content="inbox" class="selected" href="javascript:;"><span></span>热门</a>
                         </li>
-                        <li><a data-content="new" href="#"><span></span>最近</a></li>
-                        <li><a data-content="gallery" href="#"><i
+                        <li><a data-content="new" href="javascript:;"><span></span>最近</a></li>
+                        <li><a data-content="gallery" href="javascript:;"><i
                                 class="icon_alone ico-comment-o"></i></a>
                         </li>
                     </ul>
@@ -167,8 +215,8 @@
                         <ul class="posts_widget_list2">
                             <template v-for="item in hotList">
                                 <li class="clearfix">
-                                    <a href="#">
-                                        <img alt="" title="" :src="item.materials">
+                                    <a href="javascript:;" @click="viewDetails(item)">
+                                        <img alt="" title="" :src="item.materials.material">
                                         <span>{{item.title}}</span>
                                     </a>
                                     <span class="post_date"><i class="ico-comments-o"></i>{{item.comment_num}} Comments</span>
@@ -181,8 +229,8 @@
                         <ul class="posts_widget_list2">
                             <template v-for="item in recentlyList">
                                 <li class="clearfix">
-                                    <a href="#">
-                                        <img alt="" title="" :src="item.materials">
+                                    <a href="javascript:;" @click="viewDetails(item)">
+                                        <img alt="" title="" :src="item.materials.material">
                                         <span>{{item.title}}</span>
                                     </a>
                                     <span class="post_date">{{item.create_time}}</span>
@@ -195,11 +243,11 @@
                         <ul class="posts_widget_list2">
                             <template v-for="item in recentlyCommentList">
                                 <li class="clearfix">
-                                    <a href="#">
-                                        <img alt="" title="" :src="item.materials">
+                                    <a href="javascript:;">
+                                        <img alt="" title="" :src="'http://cdn.qulongjun.cn/avator/'+item.photo+'.png'">
                                         <span>{{item.name}}:</span>
                                     </a>
-                                    <span class="post_comment">{{item.content}}</span>
+                                    <span class="post_comment" v-html="item.content"></span>
                                 </li>
                             </template>
                         </ul>
@@ -214,24 +262,17 @@
         <div class="widget_block">
             <h6 class="widget_title">社交媒体</h6>
             <div class="social_links_widget clearfix">
-                <a href="#" target="_blank" class="twitter"><i class="ico-twitter4"></i></a>
-                <a href="#" target="_blank" class="facebook"><i class="ico-facebook4"></i></a>
-                <a href="#" target="_blank" class="googleplus"><i
-                        class="ico-google-plus"></i></a>
-                <a href="#" target="_blank" class="linkedin"><i class="ico-linkedin3"></i></a>
-                <a href="#" target="_blank" class="vimeo"><i class="ico-vimeo"></i></a>
-
-                <!--<a href="skype:#?call" class="skype"><i class="ico-skype2"></i></a>-->
-                <!--<a href="#" target="_blank" class="rss"><i class="ico-rss"></i></a>-->
-                <!--<a href="#" target="_blank" class="flickr"><i class="ico-flickr2"></i></a>-->
-                <!--<a href="#" target="_blank" class="picasa"><i class="ico-picassa"></i></a>-->
-                <!--<a href="#" target="_blank" class="tumblr"><i class="ico-tumblr"></i></a>-->
-
-                <!--<a href="#" target="_blank" class="dribble"><i class="ico-dribbble"></i></a>-->
-                <!--<a href="#" target="_blank" class="soundcloud"><i class="ico-soundcloud"></i></a>-->
-                <!--<a href="#" target="_blank" class="instagram"><i class="ico-instagram3"></i></a>-->
-                <!--<a href="#" target="_blank" class="pinterest"><i class="ico-pinterest-p"></i></a>-->
-                <!--<a href="#" target="_blank" class="youtube"><i class="ico-youtube3"></i></a>-->
+                <a href="http://github.com/qulongjun" target="_blank"><img src="../image/social/github.png"
+                                                                           style="width: 23px;height: 23px;"></a>
+                <a href="http://wpa.qq.com/msgrd?V=1&Uin=154256698" target="_blank"><img src="../image/social/qq.png"
+                                                                                         style="width: 27px;height: 27px;"></a>
+                <a href="javascript:;" @click="social('wechat')" target="_blank"><img src="../image/social/wechat.png"
+                                                                                      style="width: 20px;height: 20px;"></a>
+                <a href="https://www.yinxiang.com/" target="_blank"><img
+                        src="../image/social/evernote.png"
+                        style="width: 20px;height: 20px;"></a>
+                <a href="mailto:qulongjun12@163.com" target="_blank"><img src="../image/social/mail.png"
+                                                                          style="width: 20px;height: 20px;"></a>
             </div>
         </div>
         <!-- End Social Media -->
@@ -267,33 +308,56 @@
             me.$nextTick(() => {
                 me._initTabs();
                 me._initAccordion();
+                me._initYears();
             })
         },
         methods: {
             _fetchCategory(){
                 const me = this;
-                const data = category;
-                me.categoryList = data.results;
+                me.$http.get("/api/category/list").then(response => {
+                    const data = response.data;
+                    me.categoryList = data.results;
+                }, response => {
+
+                });
+
             },
             _fetchTag(){
                 const me = this;
-                const data = tag;
-                me.tagList = data.results;
+                me.$http.get("/api/tag/list").then(response => {
+                    const data = response.data;
+                    me.tagList = data.results;
+                }, response => {
+
+                });
+
             },
             _fetchHot(){
                 const me = this;
-                const data = hot;
-                me.hotList = data.results;
+                me.$http.get("/api/article/hot").then(response => {
+                    const data = response.data;
+                    me.hotList = data.results;
+                }, response => {
+                    serverErrorInfo();
+                });
             },
             _fetchRecently(){
                 const me = this;
-                const data = recently;
-                me.recentlyList = data.results;
+                me.$http.get("/api/article/recently").then(response => {
+                    const data = response.data;
+                    me.recentlyList = data.results;
+                }, response => {
+                    serverErrorInfo();
+                });
             },
             _fetchRecentlyComment(){
                 const me = this;
-                const data = recentlyComment;
-                me.recentlyCommentList = data.results;
+                me.$http.get("/api/comment/recently").then(response => {
+                    const data = response.data;
+                    me.recentlyCommentList = data.results;
+                }, response => {
+                    serverErrorInfo();
+                });
             },
             clickCategory(category){
                 const me = this;
@@ -331,12 +395,11 @@
             clickTime(year, month){
                 const me = this;
                 if (year && month) {
-                    var path = redictURL(me.$route.fullPath, "/list", "add", "year", year);
-                    path = redictURL(path, "/list", "add", "month", month);
+                    month = month < 10 ? '0' + month : month;
+                    var path = redictURL(me.$route.fullPath, "/list", "add", "time", year + "-" + month);
                     me.$router.push(path);
                 } else {
-                    var path = redictURL(me.$route.fullPath, "/list", "remove", "year");
-                    path = redictURL(path, "/list", "remove", "month");
+                    var path = redictURL(me.$route.fullPath, "/list", "remove", "time");
                     me.$router.push(path);
                 }
             },
@@ -449,6 +512,45 @@
                     });
 
                 });
+            },
+            _initYears(){
+                const me = this;
+                jQuery(".enar_occ_title").on("click", (e) => {
+                    const oSpan = jQuery(e.target);
+                    const year = oSpan.data("year");
+                    if (window.location.search.indexOf("time=" + year) != -1) {
+                        me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "time"));
+                    }
+                });
+            },
+            viewDetails(article){
+                const me = this;
+                switch (article.type) {
+                    case 1:
+                        me.$router.push("/detail/gallery?id=" + article.id);
+                        break;
+                    case 2:
+                        me.$router.push("/detail/standard?id=" + article.id);
+                        break;
+                    case 3:
+                        me.$router.push("/detail/video?id=" + article.id);
+                        break;
+                    case 4:
+                        me.$router.push("/detail/audio?id=" + article.id);
+                        break;
+                    case 5:
+                        me.$router.push("/detail/quote?id=" + article.id);
+                        break;
+                }
+            },
+            social(type){
+                switch (type) {
+                    case "wechat":
+                        alert("WeChat:qulongjun1992");
+                        break;
+                    case "evernote":
+                        break;
+                }
             }
         }
     }
