@@ -61,8 +61,10 @@
         <div class="post_next_prev_con clearfix">
             <!-- Next and Prev Post-->
             <div class="post_next_prev clearfix">
-                <a href="javascript:;" @click="clickOther(article.prev)"><i class="ico-arrow-back"></i><span class="t">上一篇</span></a>
-                <a href="javascript:;" @click="clickOther(article.next)"><span class="t">下一篇</span><i
+                <a href="javascript:;" @click="clickOther(article.prev)" v-if="article.prev!=null"><i
+                        class="ico-arrow-back"></i><span class="t">上一篇</span></a>
+                <a href="javascript:;" @click="clickOther(article.next)" v-if="article.next!=null"><span
+                        class="t">下一篇</span><i
                         class="ico-arrow-forward"></i></a>
             </div>
             <!-- End Next and Prev Post-->
