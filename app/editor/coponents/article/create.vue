@@ -118,28 +118,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group form-md-line-input" v-if="type==2">
+                        <div class="form-group form-md-line-input">
                             <label class="control-label col-md-2">上传素材</label>
                             <div class="col-md-8">
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput"
-                                         style="width: 200px; height: 150px;">
-                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
-                                             alt=""/>
-                                    </div>
-                                    <div>
-                                      <span class="btn green btn-outline btn-file">
-                                          <span class="fileinput-new"> 选择图片 </span>
-                                      <span class="fileinput-exists"> 更换 </span>
-                                      <input type="file" name="file" id="file"> </span>
-                                        <a href="javascript:;" class="btn red fileinput-exists"
-                                           data-dismiss="fileinput"> 删除 </a>
-                                        <a href="javascript:;" class="btn purple fileinput-exists"
-                                           @click="_uploadResource">
-                                            上传 </a>
+                                <div id="myId" class="dropzone">
+                                    <div class="dz-message">
+                                        将文件拖至此处或点击上传.<br>
+                                        <span class="note"
+                                              style="border: none;">上传与博客文章类型相对应的文件。 目前 <strong>支持</strong> 图片格式、视频格式、音频格式。</span>
                                     </div>
                                 </div>
-
                                 <div class="clearfix margin-top-10">
                                     <span class="label label-success">通知</span> 图像预览仅在 IE10+, FF3.6+, Safari6.0+,
                                     Chrome6.0+ and Opera11.1+ 浏览器中正常工作。
@@ -148,33 +136,31 @@
 
                             </div>
                         </div>
-                        <div class="form-group form-md-line-input" v-if="type==1">
-                            <label class="control-label col-md-2">上传素材</label>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">线上素材</label>
                             <div class="col-md-8">
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput"
-                                         style="width: 200px; height: 150px;">
-                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
-                                             alt=""/>
-                                    </div>
-                                    <div>
-                                      <span class="btn green btn-outline btn-file">
-                                          <span class="fileinput-new"> 选择图片 </span>
-                                      <span class="fileinput-exists"> 更换 </span>
-                                      <input type="file" name="file" id="file"> </span>
-                                        <a href="javascript:;" class="btn red fileinput-exists"
-                                           data-dismiss="fileinput"> 删除 </a>
-                                        <a href="javascript:;" class="btn purple fileinput-exists"
-                                           @click="_uploadResource">
-                                            上传 </a>
-                                    </div>
-                                </div>
+                                <textarea class="form-control" rows="3"
+                                          placeholder="线上地址请直接粘贴，多个地址请用英文分号隔开。" v-model="parseUrl"
+                                          @blur="parseResource"></textarea>
                                 <div class="clearfix margin-top-10">
                                     <span class="label label-success">通知</span> 图像预览仅在 IE10+, FF3.6+, Safari6.0+,
                                     Chrome6.0+ and Opera11.1+ 浏览器中正常工作。
                                 </div>
                                 <!-- </form> -->
 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">选中素材</label>
+                            <div class="col-md-8">
+                                <template v-if="resource.length==0">暂无选中素材</template>
+                                <ul>
+                                    <template v-for="item in resource">
+                                        <li style="margin: 10px 0"><a :href="item" target="_blank">{{item}}</a>
+                                            <a href="javascript:;" class="btn btn-danger" @click="removeResource(item)">删 除</a>
+                                        </li>
+                                    </template>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -195,7 +181,10 @@
 </template>
 <script>
     import E from 'wangeditor';
+    import Dropzone from 'mod/dropzone';
+    import 'style/dropzone';
     var editor = null;
+    var elementDropzone = null;
     const _handleValidation = () => {
         var form1 = $('#article_add');
         var error1 = $('.alert-danger', form1);
@@ -262,7 +251,8 @@
                 summary: "",
                 tags: [],
                 resource: [],
-                type: 2
+                type: 2,
+                parseUrl: ""
             }
         },
         mounted () {
@@ -272,6 +262,26 @@
             me.fetchCategory();
             me.fetchTag();
             _handleValidation();
+            elementDropzone = new Dropzone("div#myId", {
+                url: "/api/file/upload",
+                paramName: "file", // The name that will be used to transfer the file
+                maxFilesize: 2, // MB
+                uploadMultiple: false,
+                addRemoveLinks: true,
+                previewsContainer: null,
+                acceptedFiles: ".png,.jpg,.jpeg,.gif",
+                dictInvalidFileType: "文件类型不匹配",
+                dictRemoveFile: "取消上传",
+                dictRemoveLinks: "x",
+                dictCancelUpload: "x"
+            });
+            elementDropzone.on("success", function (file, finished) {
+                codeState(finished.code, {
+                    200: function () {
+                        me.resource.push(finished.path);
+                    }
+                })
+            });
         },
         methods: {
             _initSelect(){
@@ -320,6 +330,7 @@
                 const me = this;
                 const result = jQuery("#article_add").valid();
                 if (!result) return;
+
                 if (me.resource.length == 0) {
                     confirm({
                         content: "您尚未设置封面，是否使用默认封面？",
@@ -345,25 +356,19 @@
                     });
                 }
             },
-            _uploadResource () {
+            removeResource(item){
                 const me = this;
-                jQuery.ajaxFileUpload({
-                    url: '/api/file/upload', //用于文件上传的服务器端请求地址
-                    secureuri: false, //是否需要安全协议，一般设置为false
-                    fileElementId: 'file', //文件上传域的ID
-                    dataType: 'json', //返回值类型 一般设置为json
-                    success: (data, status) => { //服务器成功响应处理函数
-                        codeState(data.code, {
-                            200: function () {
-                                me.resource.push(data.path);
-                                alert("资源上传成功！");
-                            }
-                        })
-                    },
-                    error: (data, status, e) => { //服务器响应失败处理函数
-                        serverErrorInfo();
+                me.resource.splice(me.resource.indexOf(item), 1);
+            },
+            parseResource(){
+                const me = this;
+                const splitUrl = me.parseUrl.split(";");
+                splitUrl.forEach((item) => {
+                    if (item && me.resource.indexOf(item) == -1) {
+                        me.resource.push(item);
                     }
-                })
+                });
+
             }
         }
     };

@@ -54,6 +54,9 @@ module.exports = {
             'mod/theme': path.resolve(JsPath, 'app.js'),
             'mod/layout': path.resolve(PluginsPath, 'layout/scripts/layout.js'),
             'mod/layout_demo': path.resolve(PluginsPath, 'layout/scripts/demo.js'),
+            'mod/dropzone': path.resolve(PluginsPath, 'dropzone/dropzone-amd-module.js'),
+            'style/dropzone': path.resolve(PluginsPath, 'dropzone/dropzone.css'),
+
 
             'style/font_sans': path.resolve(StylePath, 'font_sans.css'),
             'style/font_awesome': path.resolve(PluginsPath, 'font-awesome/css/font-awesome.min.css'),
