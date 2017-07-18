@@ -15,9 +15,22 @@ config.plugins = [
     new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'html-withimg-loader!' + path.resolve(__dirname, '../app/index/index.html'),
-        inject: true
+        inject: true,
+        chunks:['index']
     }),
-    new ExtractTextPlugin("styles.css")
+    new HtmlWebpackPlugin({
+        filename: 'editor.html',
+        template: 'html-withimg-loader!' + path.resolve(__dirname, '../app/editor/index.html'),
+        inject: true,
+        chunks:['editor']
+    }),
+    new HtmlWebpackPlugin({
+        filename: 'login.html',
+        template: 'html-withimg-loader!' + path.resolve(__dirname, '../app/login/index.html'),
+        inject: true,
+        chunks:['login']
+    }),
+    new ExtractTextPlugin("[name].[hash].css")
 ];
 
 // 动态向入口配置中注入 webpack-hot-middleware/client
