@@ -3734,7 +3734,7 @@ tbody.collapse.in {
       margin-left: 0; } }
 
 .navbar-static-top {
-  z-index: 9995;
+  z-index: 10003;
   border-width: 0 0 1px; }
   @media (min-width: 768px) {
     .navbar-static-top {

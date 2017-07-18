@@ -44,7 +44,16 @@ module.exports = {
             'mod/iziToast': path.resolve(PluginsPath, 'iziToast/dist/js/iziToast.js'),
             'mod/iziModal': path.resolve(PluginsPath, 'iziModal/js/iziModal.js'),
             'mod／utils': path.resolve(JsPath, 'BlogUtils.js'),
-
+            'mod/pagination':path.resolve(PluginsPath,'jquery.pagination.js'),
+            'mod/sidebar': path.resolve(JsPath, 'quick-sidebar.js'),
+            'mod/nav': path.resolve(JsPath, 'quick-nav.js'),
+            'mod/multiselect': path.resolve(PluginsPath, 'jquery-multi-select/js/jquery.multi-select.js'),
+            'mod/fileinput': path.resolve(PluginsPath, 'bootstrap-fileinput/bootstrap-fileinput.js'),
+            'mod/select': path.resolve(PluginsPath, 'bootstrap-select/js/bootstrap-select.js'),
+            'mod/ajaxFileUpload': path.resolve(PluginsPath, 'ajaxfileupload.js'),
+            'mod/theme': path.resolve(JsPath, 'app.js'),
+            'mod/layout': path.resolve(PluginsPath, 'layout/scripts/layout.js'),
+            'mod/layout_demo': path.resolve(PluginsPath, 'layout/scripts/demo.js'),
 
             'style/font_sans': path.resolve(StylePath, 'font_sans.css'),
             'style/font_awesome': path.resolve(PluginsPath, 'font-awesome/css/font-awesome.min.css'),
@@ -58,7 +67,14 @@ module.exports = {
             'style/component': path.resolve(StylePath, 'components.min.css'),
             'style/plugins': path.resolve(StylePath, 'plugins.min.css'),
             'style/iziToast': path.resolve(PluginsPath, 'iziToast/dist/css/iziToast.css'),
-            'style/iziModal': path.resolve(PluginsPath, 'iziModal/css/iziModal.css')
+            'style/iziModal': path.resolve(PluginsPath, 'iziModal/css/iziModal.css'),
+            'style/pagination':path.resolve(StylePath,'pagination.css'),
+            'style/multiselect': path.resolve(PluginsPath, 'jquery-multi-select/css/multi-select.css'),
+            'style/fileinput': path.resolve(PluginsPath, 'bootstrap-fileinput/bootstrap-fileinput.css'),
+            'style/select': path.resolve(PluginsPath, 'bootstrap-select/css/bootstrap-select.css'),
+            'style/layout': path.resolve(PluginsPath, 'layout/css/layout.min.css'),
+            'style/theme': path.resolve(PluginsPath, 'layout/css/themes/grey.min.css'),
+            'style/custom': path.resolve(PluginsPath, 'layout/css/custom.min.css')
         }
     },
     module: {
