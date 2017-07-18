@@ -116,6 +116,9 @@
                                             <span class="box"></span> 引用文章 </label>
                                     </div>
                                 </div>
+                                <div class="clearfix margin-top-10">
+                                    <span class="label label-danger">注意</span> 图集类型支持多个素材文件，引用类型不支持素材文件，其他类型支持一个素材文件。
+                                </div>
                             </div>
                         </div>
                         <div class="form-group form-md-line-input">
@@ -330,10 +333,25 @@
                 const me = this;
                 const result = jQuery("#article_add").valid();
                 if (!result) return;
-
+                switch (me.type) {
+                    case 2:
+                    case 3:
+                    case 4:
+                        if (me.resource.length > 1) {
+                            error("当前文章类型仅支持一个素材文件！");
+                            return;
+                        }
+                        break;
+                    case 5:
+                        if (me.resource.length > 0) {
+                            error("当前文章类型不支持素材文件！");
+                            return;
+                        }
+                        break;
+                }
                 if (me.resource.length == 0) {
                     confirm({
-                        content: "您尚未设置封面，是否使用默认封面？",
+                        content: "您尚未设置素材，是否使用默认素材？",
                         success: () => {
                             me.$http.post("/api/article/create", {
                                 title: me.title,
