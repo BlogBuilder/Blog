@@ -11,7 +11,7 @@
                             <button class="close" data-close="alert"></button>
                             表单尚未填写完整。
                         </div>
-                        <div class="form-group form-md-line-input">
+                        <div class="form-group">
                             <label class="col-md-2 control-label" for="title">标题
                                 <span class="required">*</span>
                             </label>
@@ -57,7 +57,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group form-md-line-input">
+                        <div class="form-group">
                             <label class="col-md-2 control-label" for="summary">摘要
                                 <span class="required">*</span>
                             </label>
@@ -121,6 +121,21 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">引用来源</label>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-user"></i>
+                                                        </span>
+                                    <input type="text" class="form-control" v-model="quote_author"></div>
+                                <div class="clearfix margin-top-10">
+                                    <span class="label label-danger">注意</span> 非引用类文章，请勿填写此项
+                                </div>
+                                <!-- </form> -->
+
+                            </div>
+                        </div>
                         <div class="form-group form-md-line-input">
                             <label class="control-label col-md-2">上传素材</label>
                             <div class="col-md-8">
@@ -160,7 +175,8 @@
                                 <ul>
                                     <template v-for="item in resource">
                                         <li style="margin: 10px 0"><a :href="item" target="_blank">{{item}}</a>
-                                            <a href="javascript:;" class="btn btn-danger" @click="removeResource(item)">删 除</a>
+                                            <a href="javascript:;" class="btn btn-danger" @click="removeResource(item)">删
+                                                除</a>
                                         </li>
                                     </template>
                                 </ul>
@@ -255,7 +271,8 @@
                 tags: [],
                 resource: [],
                 type: 2,
-                parseUrl: ""
+                parseUrl: "",
+                quote_author: ""
             }
         },
         mounted () {
@@ -359,7 +376,9 @@
                                 categoryId: me.categoryId,
                                 summary: me.summary,
                                 tags: me.tags,
-                                resource: me.resource
+                                resource: me.resource,
+                                type: me.type,
+                                quote_author: me.quote_author
                             }).then(response => {
                                 var data = response.data;
                                 codeState(data.code, {
