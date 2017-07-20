@@ -311,7 +311,7 @@
             },
             _initEditor(){
                 editor = new E('#editor');
-                editor.customConfig.uploadImgServer = '/api/upload/imgUpload';
+                editor.customConfig.uploadImgServer = '/api/file/upload';
                 editor.create();
             },
             fetchCategory(){
