@@ -135,12 +135,15 @@
                         </div>
                         <div class="feature_inner">
                             <div class="feature_inner_corners">
-                                <div class="embed-container">
-                                    <a href="http://vimeo.com/29193046" data-rel="magnific-popup"></a>
-                                    <iframe :src="article.materials.material"
-                                            frameborder="0" allowfullscreen="true" width="100%"
-                                            height="100%"></iframe>
-                                </div>
+                                <!--<div class="embed-container">-->
+                                <!--<a href="http://vimeo.com/29193046" data-rel="magnific-popup"></a>-->
+                                <!--<iframe :src="article.materials.material"-->
+                                <!--frameborder="0" allowfullscreen="true" width="100%"-->
+                                <!--height="100%"></iframe>-->
+                                <!--</div>-->
+                                <video controls>
+                                    <source :src="article.materials.material" type="video/mp4">
+                                </video>
 
                             </div>
                         </div>
@@ -307,6 +310,8 @@
 <script type="es6">
 
     import list from '../demo/list.json'
+    import plyr from 'plyr'
+    import 'plyr/dist/plyr.css'
     module.exports = {
         data(){
             return {
@@ -346,6 +351,7 @@
                         me._initGallery();
                         me._initStandard();
                         me._initAudio();
+                        plyr.setup();
                     })
                 }, response => {
                     serverErrorInfo();

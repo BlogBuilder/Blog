@@ -43,6 +43,7 @@
     "less": "^2.7.2",
     "less-loader": "^2.0.0",
     "mediaelement": "^4.2.2",
+    "plyr": "^2.0.13",
     "style": "0.0.3",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
