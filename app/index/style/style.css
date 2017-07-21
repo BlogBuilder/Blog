@@ -2108,13 +2108,15 @@ blockquote footer {
 
 blockquote p {
     line-height: inherit;
+    margin-bottom: 0!important;
 }
 
 blockquote > i {
     color: #1ccdca;
     font-size: 32px;
     position: absolute;
-    top: 28px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 blockquote .quote_text {
@@ -13568,6 +13570,7 @@ a.img_popup:after {
 
 .blog_grid_con p:not(.desc) {
     margin-bottom: 20px;
+    font-size: 17.5px;
 }
 
 .post .blog_grid_con > p:last-child {
@@ -18310,7 +18313,6 @@ table.check_out_table {
         font-size: 16px;
         line-height: 27px;
     }
-
 
     .send_button {
         padding: 8px 11px;
