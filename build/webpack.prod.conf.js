@@ -12,6 +12,7 @@ config.vue = {
 };
 
 config.plugins = [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: '"production"'
@@ -25,9 +26,9 @@ config.plugins = [
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     // 提取css为单文件
-    new ExtractTextPlugin("../[name].css"),
+    new ExtractTextPlugin("[name].[hash].css"),
     new HtmlWebpackPlugin({
-        filename: '../index.html',
+        filename: 'index.html',
         template: 'html-withimg-loader!' +path.resolve(__dirname, '../app/index/index.html'),
         inject: true
     })
