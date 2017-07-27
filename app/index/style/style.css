@@ -18783,6 +18783,7 @@ table.check_out_table {
     blockquote > i {
         left: 50%;
         margin-left: -10px;
+        top: 5%;
     }
 
     blockquote {

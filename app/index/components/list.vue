@@ -134,18 +134,13 @@
 								</span>
                         </div>
                         <div class="feature_inner">
-                            <div class="feature_inner_corners">
-                                <!--<div class="embed-container">-->
-                                <!--<a href="http://vimeo.com/29193046" data-rel="magnific-popup"></a>-->
-                                <!--<iframe :src="article.materials.material"-->
-                                <!--frameborder="0" allowfullscreen="true" width="100%"-->
-                                <!--height="100%"></iframe>-->
-                                <!--</div>-->
-                                <video controls>
-                                    <source :src="article.materials.material" type="video/mp4">
-                                </video>
+                            <!--<div class="feature_inner_corners">-->
+                                <!---->
 
-                            </div>
+                            <!--</div>-->
+							<video controls style="width: 100%" id="js-player">
+								<source :src="article.materials.material" type="video/mp4">
+							</video>
                         </div>
                         <div class="blog_grid_con">
                             <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
@@ -351,7 +346,7 @@
                         me._initGallery();
                         me._initStandard();
                         me._initAudio();
-                        plyr.setup();
+                        plyr.setup(document.querySelector('#js-player'));
                     })
                 }, response => {
                     serverErrorInfo();
