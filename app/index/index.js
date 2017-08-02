@@ -12,6 +12,8 @@ import 'jquery.easing'
 import './script/plugin'
 import './script/js-utils'
 import NProgress from 'nprogress'
+import '../global/plugins/snippet/sh_javascript.min'
+import '../global/plugins/snippet/jquery.snippet'
 
 //===========导入Vue组件==============
 import App from './app.vue'
@@ -27,6 +29,7 @@ import './style/animate.min.css'
 import './style/icon-fonts.css'
 import './style/pagination.css'
 import 'nprogress/nprogress.css'
+import '../global/plugins/snippet/jquery.snippet.css'
 
 
 window.NProgress = NProgress;

@@ -122,6 +122,9 @@
                     me.article = standard;
                     me.$nextTick(() => {
                         me._initStandard();
+                        $("pre").snippet("javascript",{
+                            style: "whitengrey"
+                        });
                         NProgress.done();
                     })
                 }, response => {
