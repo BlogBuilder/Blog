@@ -39,13 +39,9 @@
         </div>
         <div class="feature_inner">
             <div class="feature_inner_corners">
-                <div class="embed-container">
-                    <a href="http://vimeo.com/29193046" data-rel="magnific-popup"></a>
-                    <iframe :src="article.materials.material"
-                            frameborder="0" allowfullscreen="true" width="100%"
-                            height="100%"></iframe>
-                </div>
-
+                <video controls style="width: 100%">
+                    <source :src="article.materials.material" type="video/mp4">
+                </video>
             </div>
         </div>
         <div class="blog_grid_con">
@@ -88,14 +84,15 @@
     </div>
 </template>
 <script type="es6">
-    import video from '../../demo/video.json'
     import {redictURL} from '../../script/js-utils'
+    import plyr from 'plyr'
+    import 'plyr/dist/plyr.css'
     module.exports = {
         data(){
             return {
                 article: {
                     category: {},
-                    materials:{}
+                    materials: {}
                 }
             }
         },
@@ -110,11 +107,13 @@
         methods: {
             _fetchData(id){
                 const me = this;
+                NProgress.start();
                 me.$http.get("/api/article/findById", {
                     params: {
                         id: id
                     }
                 }).then(response => {
+                    NProgress.set(0.5);
                     const video = response.data;
                     if (video.code == 504) {
                         error("当前文章不存在！");
@@ -124,6 +123,7 @@
                     me.article = video;
                     me.$nextTick(() => {
                         me._initVideo();
+                        NProgress.done();
                     })
                 }, response => {
 
@@ -138,8 +138,7 @@
                     me._fetchData(id);
             },
             _initVideo(){
-
-
+                plyr.setup();
             },
             _fetchTag(item){
                 const me = this;

@@ -108,11 +108,13 @@
         methods: {
             _fetchData(id){
                 const me = this;
+                NProgress.start();
                 me.$http.get("/api/article/findById", {
                     params: {
                         id: id
                     }
                 }).then(response => {
+                    NProgress.set(0.5);
                     const gallery = response.data;
                     if (gallery.code == 504) {
                         error("当前文章不存在！");
@@ -122,6 +124,7 @@
                     me.article = gallery;
                     me.$nextTick(() => {
                         me._initGallery();
+                        NProgress.done();
                     })
                 }, response => {
                     serverErrorInfo();

@@ -1,36 +1,5 @@
 <template>
     <div>
-        <div class="post_title_con">
-            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
-            <span class="meta">
-
-                <span class="meta_part">
-										<a href="javascript:;">
-											<i class="ico-clock7"></i>
-											<span>{{article.create_time}}</span>
-										</a>
-									</span>
-									<span class="meta_part">
-										<a href="javascript:;">
-											<i class="ico-comment-o"></i>
-											<span>{{article.comment_num}} Comments</span>
-										</a>
-									</span>
-									<span class="meta_part">
-										<i class="ico-folder-open-o"></i>
-										<span>
-											<a href="javascript:;">{{article.category.name}}</a>
-										</span>
-									</span>
-									<span class="meta_part">
-										<a href="javascript:;">
-											<i class="ico-user5"></i>
-											<span>{{article.author}}</span>
-										</a>
-									</span>
-								</span>
-        </div>
-
         <div class="post_format_con">
 								<span>
 									<a href="javascript:;">
@@ -40,13 +9,10 @@
         </div>
         <div class="feature_inner">
             <div href="javascript:;" class="quote_con">
-                <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</span>
-                <span class="quote_author">Mike Ehrmantraut</span>
+                <span>{{article.summary}}</span>
+                <span class="quote_author">{{article.quote_author}}</span>
             </div>
         </div>
-        <div class="blog_grid_con" v-html="article.content">
-        </div>
-
         <!-- Next / Prev and Social Share-->
         <div class="post_next_prev_con clearfix">
             <!-- Next and Prev Post-->
@@ -99,11 +65,13 @@
         methods: {
             _fetchData(id){
                 const me = this;
+                NProgress.start();
                 me.$http.get("/api/article/findById", {
                     params: {
                         id: id
                     }
                 }).then(response => {
+                    NProgress.set(0.5);
                     const quote = response.data;
                     if (quote.code == 504) {
                         error("当前文章不存在！");
@@ -111,6 +79,7 @@
                         return;
                     }
                     me.article = quote;
+                    NProgress.done();
                 }, response => {
                     serverErrorInfo();
                 });

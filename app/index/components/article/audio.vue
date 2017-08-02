@@ -78,8 +78,9 @@
     </div>
 </template>
 <script type="es6">
-    import audio from '../../demo/audio.json'
     import {redictURL} from '../../script/js-utils'
+    import plyr from 'plyr'
+    import 'plyr/dist/plyr.css'
     module.exports = {
         data(){
             return {
@@ -100,11 +101,13 @@
         methods: {
             _fetchData(id){
                 const me = this;
+                NProgress.start();
                 me.$http.get("/api/article/findById", {
                     params: {
                         id: id
                     }
                 }).then(response => {
+                    NProgress.set(0.5);
                     const audio = response.data;
                     if (audio.code == 504) {
                         error("当前文章不存在！");
@@ -114,6 +117,7 @@
                     me.article = audio;
                     me.$nextTick(() => {
                         me._initAudio();
+                        NProgress.done();
                     })
                 }, response => {
                     serverErrorInfo();
@@ -129,7 +133,7 @@
                     me._fetchData(id);
             },
             _initAudio(){
-                $("audio.hosted_audio").mediaelementplayer();
+                plyr.setup();
             },
             _fetchTag(item){
                 const me = this;
