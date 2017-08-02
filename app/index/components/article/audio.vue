@@ -117,6 +117,7 @@
                     me.article = audio;
                     me.$nextTick(() => {
                         me._initAudio();
+                        $("pre").snippet("javascript");
                         NProgress.done();
                     })
                 }, response => {

@@ -79,7 +79,10 @@
                         return;
                     }
                     me.article = quote;
-                    NProgress.done();
+                    me.$nextTick(()=>{
+                        $("pre").snippet("javascript");
+                        NProgress.done();
+                    });
                 }, response => {
                     serverErrorInfo();
                 });

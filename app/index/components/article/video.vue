@@ -123,6 +123,7 @@
                     me.article = video;
                     me.$nextTick(() => {
                         me._initVideo();
+                        $("pre").snippet("javascript");
                         NProgress.done();
                     })
                 }, response => {

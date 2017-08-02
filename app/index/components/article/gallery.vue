@@ -124,6 +124,7 @@
                     me.article = gallery;
                     me.$nextTick(() => {
                         me._initGallery();
+                        $("pre").snippet("javascript");
                         NProgress.done();
                     })
                 }, response => {
