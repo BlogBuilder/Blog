@@ -333,6 +333,7 @@
             },
             _fetchData(page){
                 const me = this;
+                NProgress.start();
                 me.$http.get("/api/article/list", {
                     params: {
                         rowCount: 5,
@@ -347,6 +348,9 @@
                         me._initStandard();
                         me._initAudio();
                         plyr.setup(document.querySelector('#js-player'));
+                        me.$nextTick(() => {
+                            NProgress.done();
+                        });
                     })
                 }, response => {
                     serverErrorInfo();

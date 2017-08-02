@@ -65,11 +65,13 @@
         methods: {
             _fetchData(id){
                 const me = this;
+                NProgress.start();
                 me.$http.get("/api/article/findById", {
                     params: {
                         id: id
                     }
                 }).then(response => {
+                    NProgress.set(0.5);
                     const quote = response.data;
                     if (quote.code == 504) {
                         error("当前文章不存在！");
@@ -77,6 +79,7 @@
                         return;
                     }
                     me.article = quote;
+                    NProgress.done();
                 }, response => {
                     serverErrorInfo();
                 });

@@ -110,11 +110,13 @@
         methods: {
             _fetchData(id){
                 const me = this;
+                NProgress.start();
                 me.$http.get("/api/article/findById", {
                     params: {
                         id: id
                     }
                 }).then(response => {
+                    NProgress.set(0.5);
                     const video = response.data;
                     if (video.code == 504) {
                         error("当前文章不存在！");
@@ -124,6 +126,7 @@
                     me.article = video;
                     me.$nextTick(() => {
                         me._initVideo();
+                        NProgress.done();
                     })
                 }, response => {
 

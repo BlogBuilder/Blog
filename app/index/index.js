@@ -11,6 +11,7 @@ import './script/jquery.pagination'
 import 'jquery.easing'
 import './script/plugin'
 import './script/js-utils'
+import NProgress from 'nprogress'
 
 //===========导入Vue组件==============
 import App from './app.vue'
@@ -25,7 +26,10 @@ import './style/magnific-popup.css'
 import './style/animate.min.css'
 import './style/icon-fonts.css'
 import './style/pagination.css'
+import 'nprogress/nprogress.css'
 
+
+window.NProgress = NProgress;
 Vue.config.debug = true;//开启错误提示
 Vue.use(VueResource);
 Vue.http.options.emulateJSON = true;
@@ -37,6 +41,7 @@ new Vue({
     render: h => h(App),
     router
 }).$mount('#app');
+
 
 $(window).load(function () {
     _preLoad();
