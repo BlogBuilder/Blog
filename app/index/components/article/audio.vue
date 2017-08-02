@@ -78,8 +78,9 @@
     </div>
 </template>
 <script type="es6">
-    import audio from '../../demo/audio.json'
     import {redictURL} from '../../script/js-utils'
+    import plyr from 'plyr'
+    import 'plyr/dist/plyr.css'
     module.exports = {
         data(){
             return {
@@ -132,7 +133,7 @@
                     me._fetchData(id);
             },
             _initAudio(){
-                $("audio.hosted_audio").mediaelementplayer();
+                plyr.setup();
             },
             _fetchTag(item){
                 const me = this;

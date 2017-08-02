@@ -134,13 +134,9 @@
 								</span>
                         </div>
                         <div class="feature_inner">
-                            <!--<div class="feature_inner_corners">-->
-                                <!---->
-
-                            <!--</div>-->
-							<video controls style="width: 100%" id="js-player">
-								<source :src="article.materials.material" type="video/mp4">
-							</video>
+                            <video controls style="width: 100%">
+                                <source :src="article.materials.material" type="video/mp4">
+                            </video>
                         </div>
                         <div class="blog_grid_con">
                             <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
@@ -346,8 +342,7 @@
                     me.$nextTick(() => {
                         me._initGallery();
                         me._initStandard();
-                        me._initAudio();
-                        plyr.setup(document.querySelector('#js-player'));
+                        plyr.setup();
                         me.$nextTick(() => {
                             NProgress.done();
                         });
@@ -453,9 +448,6 @@
                     }
 
                 });
-            },
-            _initAudio(){
-                $("audio.hosted_audio").mediaelementplayer();
             },
             viewDetails(article){
                 const me = this;
