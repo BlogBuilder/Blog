@@ -368,6 +368,7 @@
                         callback: function (data) {
                             me._fetchData(data.getCurrent());
                             me.currentPage = data.getCurrent();
+                            $('.hm_go_top').trigger("click");
                         }
                     });
                 }, response => {
