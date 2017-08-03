@@ -219,7 +219,7 @@
                                         <img alt="" title="" :src="item.materials.material">
                                         <span>{{item.title}}</span>
                                     </a>
-                                    <span class="post_date"><i class="ico-comments-o"></i>{{item.comment_num}} Comments</span>
+                                    <span class="post_date"><i class="ico-eye2"></i>{{item.view_count}} Visitors</span>
                                 </li>
                             </template>
                         </ul>

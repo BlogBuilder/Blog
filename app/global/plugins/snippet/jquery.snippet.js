@@ -31,7 +31,7 @@
         }
 
         var defaults = {
-            style: "whitengrey",
+            style: "rand01",
             showNum: true,
             transparent: false,
             collapse: false,
