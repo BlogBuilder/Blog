@@ -30,6 +30,7 @@ import './style/icon-fonts.css'
 import './style/pagination.css'
 import 'nprogress/nprogress.css'
 import '../global/plugins/snippet/jquery.snippet.css'
+import './style/preload.css'
 
 
 window.NProgress = NProgress;
