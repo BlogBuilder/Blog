@@ -2108,7 +2108,7 @@ blockquote footer {
 
 blockquote p {
     line-height: inherit;
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
 }
 
 blockquote > i {
@@ -13570,7 +13570,9 @@ a.img_popup:after {
 
 .blog_grid_con p:not(.desc) {
     margin-bottom: 20px;
-    font-size: 17.5px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7em;
 }
 
 .post .blog_grid_con > p:last-child {
