@@ -87,10 +87,10 @@
         <div class="blog_grid_con" v-if="article.summary">
             <blockquote>
                 <i class="ico-quote"></i>
-                <span class="quote_text">{{article.summary}}</span>
+                <span class="quote_text typo">{{article.summary}}</span>
             </blockquote>
         </div>
-        <div class="blog_grid_con" v-html="article.content">
+        <div class="typo" id="content" v-html="article.content">
         </div>
 
         <!-- Next / Prev and Social Share-->

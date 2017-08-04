@@ -20,6 +20,7 @@ import App from './app.vue'
 import sideBar from './components/sidebar.vue'
 
 //==========导入CSS文件===============
+
 import './style/style.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import './style/mediaelementplayer.css'
@@ -31,6 +32,8 @@ import './style/pagination.css'
 import 'nprogress/nprogress.css'
 import '../global/plugins/snippet/jquery.snippet.css'
 import './style/preload.css'
+
+import './style/typo.css'
 
 
 window.NProgress = NProgress;

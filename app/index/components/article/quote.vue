@@ -48,7 +48,7 @@
 								</span>
         </div>
         <div class="feature_inner" v-if="article.summary">
-            <div href="javascript:;" class="quote_con">
+            <div class="quote_con">
                 <span>{{article.summary}}</span>
                 <span class="quote_author">{{article.quote_author}}</span>
             </div>
