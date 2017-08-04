@@ -100,8 +100,6 @@ img, object, embed {
 
 p {
     margin-bottom: 15px;
-    line-height: 24px;
-    font-family: "Lucida Grande", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Noto Sans CJK SC", "Heiti SC", "Microsoft YaHei", "WenQuanYi Microhei", sans-serif;
 }
 
 ul {
@@ -13683,7 +13681,7 @@ a.img_popup:after {
 .blog_grid_con .title, .post_title_con .title {
     font-weight: 500;
     margin-bottom: 10px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-size: 16px;
 }
 
@@ -14135,7 +14133,7 @@ a.img_popup:after {
 
 .hm_blog_list .blog_grid_con .desc {
     color: #555;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .hm_blog_list .feature_inner_ling:before {

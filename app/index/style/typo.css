@@ -350,3 +350,7 @@
 .typo img {
     max-width: 100%;
 }
+
+.typo p {
+    text-indent: 2em;
+}
