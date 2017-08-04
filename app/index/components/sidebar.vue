@@ -262,17 +262,11 @@
         <div class="widget_block">
             <h6 class="widget_title">社交媒体</h6>
             <div class="social_links_widget clearfix">
-                <a href="http://github.com/qulongjun" target="_blank"><img src="../image/social/github.png"
-                                                                           style="width: 23px;height: 23px;"></a>
-                <a href="http://wpa.qq.com/msgrd?V=1&Uin=154256698" target="_blank"><img src="../image/social/qq.png"
-                                                                                         style="width: 27px;height: 27px;"></a>
-                <a href="javascript:;" @click="social('wechat')" target="_blank"><img src="../image/social/wechat.png"
-                                                                                      style="width: 20px;height: 20px;"></a>
-                <a href="https://www.yinxiang.com/" target="_blank"><img
-                        src="../image/social/evernote.png"
-                        style="width: 20px;height: 20px;"></a>
-                <a href="mailto:qulongjun12@163.com" target="_blank"><img src="../image/social/mail.png"
-                                                                          style="width: 20px;height: 20px;"></a>
+                <a href="http://github.com/qulongjun" target="_blank" class="github"><i class="ico-github6"></i></a>
+                <a href="https://www.linkedin.com/in/qulongjun" target="_blank" class="linkedin"><i class="ico-linkedin3"></i></a>
+                <a href="http://cv.qulongjun.cn" target="_blank" class="user"><i class="ico-user"></i></a>
+                <a href="tel:17717567217" target="_blank" class="user"><i class="ico-phone"></i></a>
+                <a href="mailto:qulongjun12@163.com" target="_blank" class="email"><i class="ico-mail6"></i></a>
             </div>
         </div>
         <!-- End Social Media -->

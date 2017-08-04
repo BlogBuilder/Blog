@@ -1,7 +1,8 @@
 <template>
     <div>
-        <div class="preloader" style="opacity: 1; " v-if="!article.summary">
-            <svg version="1.1" id="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve" style="opacity: 1; margin-left: 0px; margin-top: 0px;">
+        <div id="preloader_container" v-if="!article.summary">
+            <div class="preloader" style="opacity: 1; ">
+                <svg version="1.1" id="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve" style="opacity: 1; margin-left: 0px; margin-top: 0px;">
                 <g>
                   <path fill="none" d="M6.942,3.876c-0.4-0.692-1.146-1.123-1.946-1.123c-0.392,0-0.779,0.104-1.121,0.301c-1.072,0.619-1.44,1.994-0.821,3.067C3.454,6.815,4.2,7.245,5,7.245c0.392,0,0.779-0.104,1.121-0.301C6.64,6.644,7.013,6.159,7.167,5.581C7.321,5,7.243,4.396,6.942,3.876z M6.88,5.505C6.745,6.007,6.423,6.427,5.973,6.688C5.676,6.858,5.34,6.948,5,6.948c-0.695,0-1.343-0.373-1.69-0.975C2.774,5.043,3.093,3.849,4.024,3.312C4.32,3.14,4.656,3.05,4.996,3.05c0.695,0,1.342,0.374,1.69,0.975C6.946,4.476,7.015,5,6.88,5.505z"></path>
                   <path fill="none" d="M8.759,2.828C8.718,2.757,8.626,2.732,8.556,2.774L7.345,3.473c-0.07,0.041-0.094,0.132-0.053,0.202C7.319,3.723,7.368,3.75,7.419,3.75c0.025,0,0.053-0.007,0.074-0.02l1.211-0.699C8.774,2.989,8.8,2.899,8.759,2.828z"></path>
@@ -23,21 +24,22 @@
                 <path fill="none" d="M8.528,5.624H8.247c-0.085,0-0.156-0.068-0.156-0.154c0-0.694-0.563-1.257-1.257-1.257c-0.098,0-0.197,0.013-0.3,0.038C6.493,4.259,6.45,4.252,6.415,4.229C6.38,4.208,6.356,4.172,6.348,4.131C6.117,3.032,5.135,2.235,4.01,2.235c-1.252,0-2.297,0.979-2.379,2.23c-0.004,0.056-0.039,0.108-0.093,0.13C1.076,4.793,0.776,5.249,0.776,5.752c0,0.693,0.564,1.257,1.257,1.257h6.495c0.383,0,0.695-0.31,0.695-0.692S8.911,5.624,8.528,5.624z"></path>
               </svg>
 
-            <div class="rain">
-                <span class="drop"></span>
-                <span class="drop"></span>
-                <span class="drop"></span>
-                <span class="drop"></span>
-                <span class="drop"></span>
-                <span class="drop"></span>
-                <span class="drop"></span>
-                <span class="drop"></span>
-                <span class="drop"></span>
-                <span class="drop"></span>
-            </div>
+                <div class="rain">
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                    <span class="drop"></span>
+                </div>
 
-            <div class="text">
-                精彩文章即将展现...
+                <div class="text">
+                    美好的事情即将发生...
+                </div>
             </div>
         </div>
         <div class="post_format_con" v-if="article.summary">

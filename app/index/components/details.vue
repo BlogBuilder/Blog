@@ -32,6 +32,23 @@
                             <a href="javascript:;" class="auther_link">{{author.name}}</a>
                             <span class="desc">{{author.desp}}
 										</span>
+                            <div class="social_media clearfix">
+                                <a href="http://github.com/qulongjun" target="_blank" class="github">
+                                    <i class="ico-github6"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/qulongjun" target="_blank" class="linkedin">
+                                    <i class="ico-linkedin3"></i>
+                                </a>
+                                <a href="http://cv.qulongjun.cn" target="_blank" class="user">
+                                    <i class="ico-user"></i>
+                                </a>
+                                <a href="tel:17717567217" target="_blank" class="phone">
+                                    <i class="ico-phone"></i>
+                                </a>
+                                <a href="mailto:qulongjun12@163.com" target="_blank" class="email">
+                                    <i class="ico-mail6"></i>
+                                </a>
+                            </div>
                         </div>
 
                     </div>
