@@ -54,6 +54,7 @@ $(window).load(function () {
     _preLoad();
     _topSearchFunc();
     _backTop();
+    contractMe();
     jQuery("#githubSearch").keydown(function (e) {
         if (e.keyCode == 13) {
             const value = e.target.value;
@@ -146,5 +147,20 @@ function _backTop() {
         } else {
             $("#side_heder").removeClass("start_side_offset");
         }
+    });
+}
+
+function contractMe() {
+    $('.popup-with-zoom-anim').magnificPopup({
+        type: 'inline',
+        fixedContentPos: true,
+        fixedBgPos: true,
+        overflowY: 'auto',
+        closeBtnInside: true,
+        preloader: false,
+        midClick: true,
+        removalDelay: 300,
+        width: 'auto',
+        mainClass: 'my-mfp-zoom-in'
     });
 }

@@ -514,7 +514,7 @@ img.mfp-img {
 /*--------------------------------*/
 .small-dialog {
 	background: white;
-	padding: 20px 30px;
+	padding: 20px 10px;
 	text-align: left;
 	max-width: 500px;
 	margin: 40px auto;
