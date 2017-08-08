@@ -263,13 +263,83 @@
             <h6 class="widget_title">社交媒体</h6>
             <div class="social_links_widget clearfix">
                 <a href="http://github.com/qulongjun" target="_blank" class="github"><i class="ico-github6"></i></a>
-                <a href="https://www.linkedin.com/in/qulongjun" target="_blank" class="linkedin"><i class="ico-linkedin3"></i></a>
+                <a href="https://www.linkedin.com/in/qulongjun" target="_blank" class="linkedin"><i
+                        class="ico-linkedin3"></i></a>
                 <a href="http://cv.qulongjun.cn" target="_blank" class="user"><i class="ico-user"></i></a>
                 <a href="tel:17717567217" target="_blank" class="user"><i class="ico-phone"></i></a>
                 <a href="mailto:qulongjun12@163.com" target="_blank" class="email"><i class="ico-mail6"></i></a>
             </div>
         </div>
         <!-- End Social Media -->
+
+
+        <!-- Related Posts Slider -->
+        <div class="widget_block">
+            <h6 class="widget_title">友情链接</h6>
+            <div class="related_slider_widget centered">
+                <div class="related_posts_slide">
+                    <div class="related_img_con">
+                        <a href="https://juejin.im/" target="_blank" class="related_img">
+                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/xitu.png">
+                            <span><i class="ico-quote-right"></i></span>
+                        </a>
+                    </div>
+                    <a class="related_title" href="https://juejin.im/" target="_blank">稀土·掘金</a>
+                    <span class="post_date">高质量的技术社区</span>
+                </div>
+                <div class="related_posts_slide">
+                    <div class="related_img_con">
+                        <a href="http://www.qdfuns.com/" target="_blank" class="related_img">
+                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/qdfuns.png">
+                            <span><i class="ico-quote-right"></i></span>
+                        </a>
+                    </div>
+                    <a class="related_title" href="http://www.qdfuns.com/" target="_blank">前端网</a>
+                    <span class="post_date">专注于Web前端开发的综合性门户网站</span>
+                </div>
+                <div class="related_posts_slide">
+                    <div class="related_img_con">
+                        <a href="http://www.imooc.com/" target="_blank" class="related_img">
+                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/imooc.png">
+                            <span><i class="ico-quote-right"></i></span>
+                        </a>
+                    </div>
+                    <a class="related_title" href="http://www.imooc.com/" target="_blank">慕课网</a>
+                    <span class="post_date">程序员的梦工厂</span>
+                </div>
+                <div class="related_posts_slide">
+                    <div class="related_img_con">
+                        <a href="https://www.v2ex.com/" target="_blank" class="related_img">
+                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/v2ex.png">
+                            <span><i class="ico-quote-right"></i></span>
+                        </a>
+                    </div>
+                    <a class="related_title" href="https://www.v2ex.com/" target="_blank">V2EX</a>
+                    <span class="post_date">汇集各类奇妙好玩的话题和流行动向</span>
+                </div>
+                <div class="related_posts_slide">
+                    <div class="related_img_con">
+                        <a href="http://www.guokr.com/" target="_blank" class="related_img">
+                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/guokr.png">
+                            <span><i class="ico-quote-right"></i></span>
+                        </a>
+                    </div>
+                    <a class="related_title" href="http://www.guokr.com/" target="_blank">果壳网</a>
+                    <span class="post_date">开放、多元的泛科技兴趣社区</span>
+                </div>
+                <div class="related_posts_slide">
+                    <div class="related_img_con">
+                        <a href="https://www.zhihu.com/" target="_blank" class="related_img">
+                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/zhihu.jpg">
+                            <span><i class="ico-comment2"></i></span>
+                        </a>
+                    </div>
+                    <a class="related_title" href="https://www.zhihu.com/" target="_blank">知乎</a>
+                    <span class="post_date">与世界分享你的知识、经验和见解</span>
+                </div>
+            </div>
+        </div>
+        <!-- End Related Posts Slider -->
 
     </aside>
     <!-- End sidebar -->
@@ -299,6 +369,7 @@
             me._fetchHot();
             me._fetchRecently();
             me._fetchRecentlyComment();
+            me._relatedLink();
             me.$nextTick(() => {
                 me._initTabs();
                 me._initAccordion();
@@ -537,14 +608,25 @@
                         break;
                 }
             },
-            social(type){
-                switch (type) {
-                    case "wechat":
-                        alert("WeChat:qulongjun1992");
-                        break;
-                    case "evernote":
-                        break;
-                }
+            _relatedLink(){
+                $(".related_slider_widget").owlCarousel({
+                    direction: 'ltr',
+                    slideSpeed: 900,
+                    autoPlay: 3000,
+                    autoHeight: true,
+                    items: 1,
+                    itemsDesktop: false,
+                    itemsDesktopSmall: false,
+                    itemsTablet: false,
+                    itemsTabletSmall: false,
+                    itemsMobile: false,
+                    stopOnHover: true,
+                    navigation: true,
+                    pagination: true,
+                    navigationText: [
+                        "<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
+                        "<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
+                });
             }
         }
     }

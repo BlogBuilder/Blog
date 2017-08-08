@@ -8753,6 +8753,11 @@ a.img_popup:after {
     left: 0;
 }
 
+.related_posts_slide .related_img img {
+    width: 265px;
+    height: 170px;
+}
+
 .related_posts_slide .related_img_con {
     position: relative;
 }
