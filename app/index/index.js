@@ -164,3 +164,13 @@ function contractMe() {
         mainClass: 'my-mfp-zoom-in'
     });
 }
+
+
+//百度统计代码，勿删
+var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f2fe63740c9029388d85bf8cc1e56dc6";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
