@@ -18,9 +18,15 @@ import '../global/plugins/snippet/jquery.snippet'
 //===========导入Vue组件==============
 import App from './app.vue'
 import sideBar from './components/sidebar.vue'
+import Header from './components/common/header.vue'
+import Container from './components/common/container.vue'
+import Footer from './components/common/footer.vue'
+
+import Overlay from './components/common/overlay.vue'
 
 //==========导入CSS文件===============
 
+import './style/index.css'
 import './style/style.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import './style/mediaelementplayer.css'
@@ -43,6 +49,11 @@ Vue.http.options.emulateJSON = true;
 
 //注册全局组件
 Vue.component('sidebar', sideBar);
+Vue.component('content-component', Container);  //正文部分Container
+Vue.component('footer-component', Footer); //页面顶部Header
+Vue.component('header-component',Header); //页面底部Footer
+Vue.component('overlay-component',Overlay); //页面悬浮层Overlay
+
 
 new Vue({
     render: h => h(App),
@@ -50,7 +61,7 @@ new Vue({
 }).$mount('#app');
 
 
-$(window).load(function () {
+(function () {
     _preLoad();
     _topSearchFunc();
     _backTop();
@@ -61,7 +72,7 @@ $(window).load(function () {
             window.open("https://github.com/search?utf8=%E2%9C%93&q=" + value);
         }
     })
-});
+})();
 
 $(window).resize(function () {
     _topSearchFunc();
