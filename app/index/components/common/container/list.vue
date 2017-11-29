@@ -300,7 +300,7 @@
 </template>
 <script type="es6">
 
-    import list from '../demo/list.json'
+    import list from '../../../demo/list.json'
     import plyr from 'plyr'
     import 'plyr/dist/plyr.css'
     module.exports = {
@@ -327,6 +327,14 @@
                 me._fetchData(page);
                 me._fetchPages(page);
             },
+            _fetchLatest(){
+                let me = this;
+                me.$http.get("/api/article/getLatest").then(response => {
+
+                }, response => {
+
+                });
+            },
             _fetchData(page){
                 const me = this;
                 NProgress.start();
@@ -348,7 +356,7 @@
                         });
                     })
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
             },
             _fetchPages (page) {
@@ -372,7 +380,7 @@
                         }
                     });
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
             },
             _queryList(){

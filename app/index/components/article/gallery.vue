@@ -170,7 +170,7 @@
                         NProgress.done();
                     })
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
             },
             _queryArticle(){

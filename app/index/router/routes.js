@@ -1,5 +1,5 @@
-import List from '../components/list.vue'
-import Detail from '../components/details.vue'
+import List from '../components/common/container/list.vue'
+import Detail from '../components/common/container/details.vue'
 import Standard from '../components/article/standard.vue'
 import Gallery from '../components/article/gallery.vue'
 import Quote from '../components/article/quote.vue'

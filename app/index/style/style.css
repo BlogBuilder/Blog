@@ -571,7 +571,12 @@ textarea:-moz-placeholder {
     -webkit-transform: translateZ(0);
 }
 
+#site_header {
+    z-index: 9999;
+}
+
 .content_section {
+    z-index: 9998;
     position: relative;
 }
 
@@ -1248,7 +1253,7 @@ h2.title2 span {
     bottom: 0;
     height: 1px;
     position: absolute;
-    width: 33%;
+    width: 20%;
 }
 
 .main_title .line:before {

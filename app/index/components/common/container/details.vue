@@ -115,14 +115,14 @@
     <!-- End All Content -->
 </template>
 <script type="es6">
-    import comment from '../demo/comment.json'
-    import author from '../demo/author.json'
+    import comment from '../../../demo/comment.json'
+    import author from '../../../demo/author.json'
 
     import item from './comment.vue'
 
 
     import E from 'wangeditor'
-    import {_backBottom, _backPosition} from '../script/js-utils'
+    import {_backBottom, _backPosition} from '../../../script/js-utils'
 
     var editor = null;
     module.exports = {
@@ -160,7 +160,7 @@
                     const data = response.data;
                     me.commentList = data.results;
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
             },
             _fetchAuthor(){
@@ -169,7 +169,7 @@
                     var author = response.data;
                     me.author = author;
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
             },
             _queryComment(){
@@ -210,7 +210,7 @@
                         }
                     })
                 }, response => {
-                    serverErrorInfo()
+                    serviceErrorInfo()
                 });
             },
             replyComment(comment, event){

@@ -42,7 +42,7 @@ export const alert = (content) => {
     });
 };
 
-export const serverErrorInfo = () => {
+export const serviceErrorInfo = () => {
     error("服务器错误")
 };
 
@@ -140,5 +140,5 @@ export const _backPosition = (position) => {
 
 window.alert = alert;
 window.error = error;
-window.serverErrorInfo = serverErrorInfo;
+window.serviceErrorInfo = serviceErrorInfo;
 window.codeState = codeState;

@@ -163,7 +163,7 @@
                         NProgress.done();
                     })
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
 
             },

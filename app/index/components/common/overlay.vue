@@ -86,3 +86,64 @@
         <a href="javascript:;" class="hm_go_top"></a>
     </div>
 </template>
+<script type="es6">
+    module.exports = {
+        mounted(){
+            let me = this;
+            $('#preloader').fadeOut('slow', function () {
+                $(this).remove();
+            });
+            me._backTop();
+            me._contractMe();
+        },
+        methods: {
+            _backTop(){
+                let to_top_offset = 300,
+                    to_top_offset_opacity = 1200,
+                    scroll_top_duration = 900,
+                    $back_to_top = $('.hm_go_top');
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > to_top_offset) {
+                        $back_to_top.addClass('hm_go_is-visible');
+                    } else {
+                        $back_to_top.removeClass('hm_go_is-visible hm_go_fade-out');
+                    }
+                    if ($(this).scrollTop() > to_top_offset_opacity) {
+                        $back_to_top.addClass('hm_go_fade-out');
+                    }
+                    return false;
+                });
+                $back_to_top.on('click', function (event) {
+                    event.preventDefault();
+                    $('body,html').animate({
+                            scrollTop: 0,
+                            //easing : "easeOutElastic"
+                        }, {queue: false, duration: scroll_top_duration, easing: "easeInOutExpo"}
+                    );
+                });
+
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 30 && $("body").hasClass("site_boxed") && $("body").hasClass("header_on_side")) {
+                        $("#side_heder").addClass("start_side_offset");
+                    } else {
+                        $("#side_heder").removeClass("start_side_offset");
+                    }
+                });
+            },
+            _contractMe(){
+                $('.popup-with-zoom-anim').magnificPopup({
+                    type: 'inline',
+                    fixedContentPos: true,
+                    fixedBgPos: true,
+                    overflowY: 'auto',
+                    closeBtnInside: true,
+                    preloader: false,
+                    midClick: true,
+                    removalDelay: 300,
+                    width: 'auto',
+                    mainClass: 'my-mfp-zoom-in'
+                });
+            }
+        }
+    };
+</script>
