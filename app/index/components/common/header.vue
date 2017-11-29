@@ -5,8 +5,7 @@
                 <div class="content">
                     <div id="logo">
                         <a href="/list">
-                            <img class="logo_dark" src="../../image/logo-dark.png" alt="Enar Logo">
-                            <img class="logo_light" src="../../image/logo-light.png" alt="Enar Logo">
+                            <img src="../../image/logo-with-icon.png" alt="Enar Logo">
                         </a>
                     </div>
                     <!-- Top Search -->

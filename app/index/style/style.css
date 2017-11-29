@@ -576,7 +576,7 @@ textarea:-moz-placeholder {
 }
 
 .content_section {
-    z-index: 9998;
+    /*z-index: 9998;*/
     position: relative;
 }
 
