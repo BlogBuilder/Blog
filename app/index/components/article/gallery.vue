@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="post_detail">
         <div id="preloader_container" v-if="!article.title">
             <div class="preloader" style="opacity: 1; ">
                 <svg version="1.1" id="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve" style="opacity: 1; margin-left: 0px; margin-top: 0px;">

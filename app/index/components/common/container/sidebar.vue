@@ -55,6 +55,51 @@
             <h6 class="widget_title">发表时间</h6>
             <!-- My Accordion -->
             <div class="enar_accordion plus_minus" data-type="toggle"> <!-- accordion - toggle -->
+                <div class="enar_occ_container" data-expanded="false">
+                    <span class="enar_occ_title" data-year="2016">Year 2016</span>
+                    <div class="enar_occ_content">
+                        <div class="acc_content">
+                            <ul class="cat_list_widget no_numbers">
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,12)">December</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,11)">November</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,10)">October</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,9)">September</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,8)">August</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,7)">July</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,6)">June</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,5)">May</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,4)">April</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,3)">March</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,2)">February</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,1)">January</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="enar_occ_container" data-expanded="true">
                     <span class="enar_occ_title" data-year="2017">Year 2017</span>
                     <div class="enar_occ_content">
@@ -101,90 +146,45 @@
                     </div>
                 </div>
                 <div class="enar_occ_container" data-expanded="false">
-                    <span class="enar_occ_title" data-year="2016">Year 2016</span>
+                    <span class="enar_occ_title" data-year="2018">Year 2018</span>
                     <div class="enar_occ_content">
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,12)">December</a>
+                                    <a href="javascript:;" @click="clickTime(2018,12)">December</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,11)">November</a>
+                                    <a href="javascript:;" @click="clickTime(2018,11)">November</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,10)">October</a>
+                                    <a href="javascript:;" @click="clickTime(2018,10)">October</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,9)">September</a>
+                                    <a href="javascript:;" @click="clickTime(2018,9)">September</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,8)">August</a>
+                                    <a href="javascript:;" @click="clickTime(2018,8)">August</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,7)">July</a>
+                                    <a href="javascript:;" @click="clickTime(2018,7)">July</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,6)">June</a>
+                                    <a href="javascript:;" @click="clickTime(2018,6)">June</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,5)">May</a>
+                                    <a href="javascript:;" @click="clickTime(2018,5)">May</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,4)">April</a>
+                                    <a href="javascript:;" @click="clickTime(2018,4)">April</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,3)">March</a>
+                                    <a href="javascript:;" @click="clickTime(2018,3)">March</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,2)">February</a>
+                                    <a href="javascript:;" @click="clickTime(2018,2)">February</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,1)">January</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="enar_occ_container" data-expanded="false">
-                    <span class="enar_occ_title" data-year="2015">Year 2015</span>
-                    <div class="enar_occ_content">
-                        <div class="acc_content">
-                            <ul class="cat_list_widget no_numbers">
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,12)">December</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,11)">November</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,10)">October</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,9)">September</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,8)">August</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,7)">July</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,6)">June</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,5)">May</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,4)">April</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,3)">March</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,2)">February</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,1)">January</a>
+                                    <a href="javascript:;" @click="clickTime(2018,1)">January</a>
                                 </li>
                             </ul>
                         </div>

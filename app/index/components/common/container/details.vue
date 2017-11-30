@@ -6,7 +6,7 @@
             <!-- Post Container -->
             <div id="post-1"
                  class="post-1 post type-post status-publish format-gallery has-post-thumbnail category-media tag-photos clearfix">
-                
+
 
                 <router-view></router-view>
 
@@ -210,6 +210,7 @@
             },
             replyComment(comment, event){
                 const me = this;
+                debugger
                 me.backTop = jQuery(event.target).parents('li').offset().top;
                 me.desp = "回复【" + comment.name + "】于【" + comment.create_time + "】的评论：";
                 me.parent = comment.id;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="post_detail">
         <div id="preloader_container" v-if="!article.title">
             <div class="preloader" style="opacity: 1; ">
                 <svg version="1.1" id="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve" style="opacity: 1; margin-left: 0px; margin-top: 0px;">
@@ -81,8 +81,8 @@
         </div>
         <div class="feature_inner" v-if="article.materials.material">
             <div class="feature_inner_corners">
-                <a :href="article.materials.material" class="feature_inner_ling" data-rel="magnific-popup">
-                    <img :src="article.materials.material">
+                <a :href="article.materials.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'" class="feature_inner_ling" data-rel="magnific-popup">
+                    <img :src="article.materials.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'">
                 </a>
             </div>
         </div>
