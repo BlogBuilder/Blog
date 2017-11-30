@@ -35,6 +35,7 @@ router.beforeEach((to, from, next) => {
  */
 router.afterEach((to, from) => {
     //TODO
+    scrollTo(0)
 });
 
 module.exports = router;

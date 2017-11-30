@@ -13759,7 +13759,7 @@ a.img_popup:after {
 }
 
 .hm_blog_full_list .feature_inner_ling:after {
-    background: none;
+    /*background: none;*/
 }
 
 .feature_inner_btns {

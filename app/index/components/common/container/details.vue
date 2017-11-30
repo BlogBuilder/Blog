@@ -6,12 +6,7 @@
             <!-- Post Container -->
             <div id="post-1"
                  class="post-1 post type-post status-publish format-gallery has-post-thumbnail category-media tag-photos clearfix">
-
-                <!--<transition>-->
-                <!--<keep-alive>-->
-                <!--<router-view></router-view>-->
-                <!--</keep-alive>-->
-                <!--</transition>-->
+                
 
                 <router-view></router-view>
 

@@ -143,7 +143,6 @@
         mounted(){
             const me = this;
             me._queryArticle();
-            $('.hm_go_top').trigger("click");
         },
         methods: {
             _fetchData(id){

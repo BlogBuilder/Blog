@@ -27,18 +27,21 @@ export const removeURLPara = (url, arg) => {
 
 export const error = (content) => {
     iziToast.error({
-        title: '警告',
+        // title: '警告',
         message: content,
-        position: 'topRight'
+        position: 'topRight',
+        // icon:""
     });
 };
 
 export const alert = (content) => {
     iziToast.success({
-        title: '通知',
+        // title: '通知',
         message: content,
         position: 'topRight',
-        progressBarColor: 'rgb(0, 255, 184)'
+        progressBarColor: 'rgb(0, 255, 184)',
+        // timeout:0,
+        icon: "ico-check2"
     });
 };
 
@@ -124,6 +127,22 @@ export const codeState = (code, opt) => {
 };
 
 
+const scrollTo = function (scrollNum) {
+    $('body,html').animate({
+            scrollTop: scrollNum,
+        }, {queue: false, duration: 900, easing: "easeInOutExpo"}
+    );
+};
+
+
+const showPreLoader = function () {
+    $('#preloader_list').fadeIn(500);
+};
+
+const hidePreLoader = function () {
+    $('#preloader_list').fadeOut(500);
+};
+
 export const _backBottom = (dom) => {
     $('body,html').animate({
             scrollTop: dom.offset().top,
@@ -142,3 +161,6 @@ window.alert = alert;
 window.error = error;
 window.serviceErrorInfo = serviceErrorInfo;
 window.codeState = codeState;
+window.scrollTo = scrollTo;
+window.showPreLoader = showPreLoader;
+window.hidePreLoader = hidePreLoader;

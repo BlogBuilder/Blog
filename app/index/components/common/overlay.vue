@@ -115,11 +115,7 @@
                 });
                 $back_to_top.on('click', function (event) {
                     event.preventDefault();
-                    $('body,html').animate({
-                            scrollTop: 0,
-                            //easing : "easeOutElastic"
-                        }, {queue: false, duration: scroll_top_duration, easing: "easeInOutExpo"}
-                    );
+                    scrollTo(0);
                 });
 
                 $(window).scroll(function () {
