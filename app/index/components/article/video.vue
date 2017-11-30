@@ -63,12 +63,6 @@
 											<a href="javascript:;">{{article.category.name}}</a>
 										</span>
 									</span>
-									<span class="meta_part">
-										<a href="javascript:;">
-											<i class="ico-user5"></i>
-											<span>{{article.author}}</span>
-										</a>
-									</span>
 								</span>
         </div>
 
