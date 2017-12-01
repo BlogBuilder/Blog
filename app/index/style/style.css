@@ -571,7 +571,12 @@ textarea:-moz-placeholder {
     -webkit-transform: translateZ(0);
 }
 
+#site_header {
+    z-index: 9999;
+}
+
 .content_section {
+    /*z-index: 9998;*/
     position: relative;
 }
 
@@ -1248,7 +1253,7 @@ h2.title2 span {
     bottom: 0;
     height: 1px;
     position: absolute;
-    width: 33%;
+    width: 20%;
 }
 
 .main_title .line:before {
@@ -9301,6 +9306,7 @@ a.img_popup:after {
 .main_button.small_btn {
     font-size: 12px;
     padding: 7px 10px;
+    box-sizing: content-box;
 }
 
 .main_button.small_btn i {
@@ -13741,6 +13747,10 @@ a.img_popup:after {
     opacity: 0;
 }
 
+.post_detail .feature_inner_ling:after {
+    background: none;
+}
+
 .feature_inner_ling:before {
     box-shadow: 0px -5px 3px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow: 0px -5px 3px rgba(0, 0, 0, 0.1) inset;
@@ -13754,7 +13764,7 @@ a.img_popup:after {
 }
 
 .hm_blog_full_list .feature_inner_ling:after {
-    background: none;
+    /*background: none;*/
 }
 
 .feature_inner_btns {
@@ -14411,6 +14421,7 @@ a.img_popup:after {
     font-weight: 400;
     margin: 0 0 10px;
     text-transform: uppercase;
+    margin-bottom: 0px;
 }
 
 #comments h4.author_name a:hover {
@@ -14419,8 +14430,10 @@ a.img_popup:after {
 
 #comments span.comment_meta {
     display: block;
-    margin-bottom: 8px;
+    /*margin-bottom: 8px;*/
     text-transform: uppercase;
+    color: #aaa;
+    font-size: 12px;
 }
 
 #comments span.comment_meta a {
@@ -14431,6 +14444,16 @@ a.img_popup:after {
 #comments .comment_said_text {
     color: #777;
     font-size: 14px;
+}
+
+#comments .comment_said_text ul, #comments .comment_said_text ul li {
+    list-style: disc;
+    margin-left: 10px;
+}
+
+#comments .comment_said_text ol, #comments .comment_said_text ol li {
+    list-style: decimal;
+    margin-left: 10px;
 }
 
 #comments .comment_said_text p {
@@ -14478,6 +14501,10 @@ a.img_popup:after {
 }
 
 #commentform #submit-comment {
+    margin: 10px 0 0;
+}
+
+#commentform #reply-comment {
     margin: 10px 0 0;
 }
 

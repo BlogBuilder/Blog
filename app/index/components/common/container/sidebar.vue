@@ -55,6 +55,51 @@
             <h6 class="widget_title">发表时间</h6>
             <!-- My Accordion -->
             <div class="enar_accordion plus_minus" data-type="toggle"> <!-- accordion - toggle -->
+                <div class="enar_occ_container" data-expanded="false">
+                    <span class="enar_occ_title" data-year="2016">Year 2016</span>
+                    <div class="enar_occ_content">
+                        <div class="acc_content">
+                            <ul class="cat_list_widget no_numbers">
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,12)">December</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,11)">November</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,10)">October</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,9)">September</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,8)">August</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,7)">July</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,6)">June</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,5)">May</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,4)">April</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,3)">March</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,2)">February</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" @click="clickTime(2016,1)">January</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="enar_occ_container" data-expanded="true">
                     <span class="enar_occ_title" data-year="2017">Year 2017</span>
                     <div class="enar_occ_content">
@@ -101,90 +146,45 @@
                     </div>
                 </div>
                 <div class="enar_occ_container" data-expanded="false">
-                    <span class="enar_occ_title" data-year="2016">Year 2016</span>
+                    <span class="enar_occ_title" data-year="2018">Year 2018</span>
                     <div class="enar_occ_content">
                         <div class="acc_content">
                             <ul class="cat_list_widget no_numbers">
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,12)">December</a>
+                                    <a href="javascript:;" @click="clickTime(2018,12)">December</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,11)">November</a>
+                                    <a href="javascript:;" @click="clickTime(2018,11)">November</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,10)">October</a>
+                                    <a href="javascript:;" @click="clickTime(2018,10)">October</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,9)">September</a>
+                                    <a href="javascript:;" @click="clickTime(2018,9)">September</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,8)">August</a>
+                                    <a href="javascript:;" @click="clickTime(2018,8)">August</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,7)">July</a>
+                                    <a href="javascript:;" @click="clickTime(2018,7)">July</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,6)">June</a>
+                                    <a href="javascript:;" @click="clickTime(2018,6)">June</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,5)">May</a>
+                                    <a href="javascript:;" @click="clickTime(2018,5)">May</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,4)">April</a>
+                                    <a href="javascript:;" @click="clickTime(2018,4)">April</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,3)">March</a>
+                                    <a href="javascript:;" @click="clickTime(2018,3)">March</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,2)">February</a>
+                                    <a href="javascript:;" @click="clickTime(2018,2)">February</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;" @click="clickTime(2016,1)">January</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="enar_occ_container" data-expanded="false">
-                    <span class="enar_occ_title" data-year="2015">Year 2015</span>
-                    <div class="enar_occ_content">
-                        <div class="acc_content">
-                            <ul class="cat_list_widget no_numbers">
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,12)">December</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,11)">November</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,10)">October</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,9)">September</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,8)">August</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,7)">July</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,6)">June</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,5)">May</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,4)">April</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,3)">March</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,2)">February</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" @click="clickTime(2015,1)">January</a>
+                                    <a href="javascript:;" @click="clickTime(2018,1)">January</a>
                                 </li>
                             </ul>
                         </div>
@@ -194,68 +194,6 @@
             <!-- End My Accordion -->
         </div>
         <!-- Time List -->
-
-
-        <!-- Tabs -->
-        <div class="widget_block">
-            <div class="hm-tabs tabs1">
-                <nav>
-                    <ul class="tabs-navi">
-                        <li><a data-content="inbox" class="selected" href="javascript:;"><span></span>热门</a>
-                        </li>
-                        <li><a data-content="new" href="javascript:;"><span></span>最近</a></li>
-                        <li><a data-content="gallery" href="javascript:;"><i
-                                class="icon_alone ico-comment-o"></i></a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <ul class="tabs-body">
-                    <li data-content="inbox" class="selected">
-                        <ul class="posts_widget_list2">
-                            <template v-for="item in hotList">
-                                <li class="clearfix">
-                                    <a href="javascript:;" @click="viewDetails(item)">
-                                        <img alt="" title="" :src="item.materials.material">
-                                        <span>{{item.title}}</span>
-                                    </a>
-                                    <span class="post_date"><i class="ico-eye2"></i>{{item.view_count}} Visitors</span>
-                                </li>
-                            </template>
-                        </ul>
-                    </li>
-
-                    <li data-content="new">
-                        <ul class="posts_widget_list2">
-                            <template v-for="item in recentlyList">
-                                <li class="clearfix">
-                                    <a href="javascript:;" @click="viewDetails(item)">
-                                        <img alt="" title="" :src="item.materials.material">
-                                        <span>{{item.title}}</span>
-                                    </a>
-                                    <span class="post_date">{{item.create_time}}</span>
-                                </li>
-                            </template>
-                        </ul>
-                    </li>
-
-                    <li data-content="gallery">
-                        <ul class="posts_widget_list2">
-                            <template v-for="item in recentlyCommentList">
-                                <li class="clearfix">
-                                    <a href="javascript:;">
-                                        <img alt="" title="" :src="'http://cdn.qulongjun.cn/avator/'+item.photo+'.png'">
-                                        <span>{{item.name}}:</span>
-                                    </a>
-                                    <span class="post_comment" v-html="item.content"></span>
-                                </li>
-                            </template>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- End Tabs -->
 
 
         <!-- Social Media -->
@@ -271,87 +209,17 @@
             </div>
         </div>
         <!-- End Social Media -->
-
-
-        <!-- Related Posts Slider -->
-        <div class="widget_block">
-            <h6 class="widget_title">友情链接</h6>
-            <div class="related_slider_widget centered">
-                <div class="related_posts_slide">
-                    <div class="related_img_con">
-                        <a href="https://juejin.im/" target="_blank" class="related_img">
-                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/xitu.png">
-                            <span><i class="ico-quote-right"></i></span>
-                        </a>
-                    </div>
-                    <a class="related_title" href="https://juejin.im/" target="_blank">稀土·掘金</a>
-                    <span class="post_date">高质量的技术社区</span>
-                </div>
-                <div class="related_posts_slide">
-                    <div class="related_img_con">
-                        <a href="http://www.qdfuns.com/" target="_blank" class="related_img">
-                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/qdfuns.png">
-                            <span><i class="ico-quote-right"></i></span>
-                        </a>
-                    </div>
-                    <a class="related_title" href="http://www.qdfuns.com/" target="_blank">前端网</a>
-                    <span class="post_date">专注于Web前端开发的综合性门户网站</span>
-                </div>
-                <div class="related_posts_slide">
-                    <div class="related_img_con">
-                        <a href="http://www.imooc.com/" target="_blank" class="related_img">
-                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/imooc.png">
-                            <span><i class="ico-quote-right"></i></span>
-                        </a>
-                    </div>
-                    <a class="related_title" href="http://www.imooc.com/" target="_blank">慕课网</a>
-                    <span class="post_date">程序员的梦工厂</span>
-                </div>
-                <div class="related_posts_slide">
-                    <div class="related_img_con">
-                        <a href="https://www.v2ex.com/" target="_blank" class="related_img">
-                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/v2ex.png">
-                            <span><i class="ico-quote-right"></i></span>
-                        </a>
-                    </div>
-                    <a class="related_title" href="https://www.v2ex.com/" target="_blank">V2EX</a>
-                    <span class="post_date">汇集各类奇妙好玩的话题和流行动向</span>
-                </div>
-                <div class="related_posts_slide">
-                    <div class="related_img_con">
-                        <a href="http://www.guokr.com/" target="_blank" class="related_img">
-                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/guokr.png">
-                            <span><i class="ico-quote-right"></i></span>
-                        </a>
-                    </div>
-                    <a class="related_title" href="http://www.guokr.com/" target="_blank">果壳网</a>
-                    <span class="post_date">开放、多元的泛科技兴趣社区</span>
-                </div>
-                <div class="related_posts_slide">
-                    <div class="related_img_con">
-                        <a href="https://www.zhihu.com/" target="_blank" class="related_img">
-                            <img alt="" src="http://cdn.qulongjun.cn/hotlink/zhihu.jpg">
-                            <span><i class="ico-comment2"></i></span>
-                        </a>
-                    </div>
-                    <a class="related_title" href="https://www.zhihu.com/" target="_blank">知乎</a>
-                    <span class="post_date">与世界分享你的知识、经验和见解</span>
-                </div>
-            </div>
-        </div>
-        <!-- End Related Posts Slider -->
-
     </aside>
     <!-- End sidebar -->
 </template>
 <script type="es6">
-    import {changeURLPara, removeURLPara, redictURL} from '../script/js-utils'
+    import {changeURLPara, removeURLPara, redictURL} from '../../../script/js-utils'
 
-    import category from '../demo/category.json'
-    import tag from '../demo/tag.json'
-    import hot from '../demo/hot.json'
-    import recently from '../demo/recently.json'
-    import recentlyComment from '../demo/recentlyComment.json'
+    import category from '../../../demo/category.json'
+    import tag from '../../../demo/tag.json'
+    import hot from '../../../demo/hot.json'
+    import recently from '../../../demo/recently.json'
+    import recentlyComment from '../../../demo/recentlyComment.json'
     module.exports = {
         data(){
             return {
@@ -403,7 +271,7 @@
                     const data = response.data;
                     me.hotList = data.results;
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
             },
             _fetchRecently(){
@@ -412,7 +280,7 @@
                     const data = response.data;
                     me.recentlyList = data.results;
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
             },
             _fetchRecentlyComment(){
@@ -421,7 +289,7 @@
                     const data = response.data;
                     me.recentlyCommentList = data.results;
                 }, response => {
-                    serverErrorInfo();
+                    serviceErrorInfo();
                 });
             },
             clickCategory(category){
