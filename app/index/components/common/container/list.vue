@@ -8,7 +8,6 @@
                             <div class="feature_inner_corners">
                                 <div class="feature_inner_btns">
                                     <a href="javascript:;" class="expand_image"><i class="ico-maximize"></i></a>
-                                    <a href="javascript:;" class="icon_link"><i class="ico-link3"></i></a>
                                 </div>
                                 <div class="porto_galla">
                                     <template v-for="img in item.materials">
@@ -56,7 +55,6 @@
                             <div class="feature_inner_corners">
                                 <div class="feature_inner_btns">
                                     <a href="javascript:;" class="expand_image"><i class="ico-maximize"></i></a>
-                                    <a href="javascript:;" class="icon_link"><i class="ico-link3"></i></a>
                                 </div>
                                 <a :href="item.materials.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'" class="feature_inner_ling"
                                    data-rel="magnific-popup">

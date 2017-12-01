@@ -4,22 +4,16 @@
             <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
             <span class="meta">
 									<span class="meta_part">
-										<a href="javascript:;">
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
-										</a>
 									</span>
 									<span class="meta_part">
-										<a href="javascript:;">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
-										</a>
 									</span>
 									<span class="meta_part">
 										<i class="ico-folder-open-o"></i>
-										<span>
-											<a href="javascript:;">{{article.category.name}}</a>
-										</span>
+										<span>{{article.category.name}}</span>
 									</span>
 								</span>
         </div>
