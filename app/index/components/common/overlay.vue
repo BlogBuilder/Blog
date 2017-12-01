@@ -1,15 +1,5 @@
 <template>
     <div>
-        <!--进入页面预加载-->
-        <div id="preloader">
-            <div class="spinner">
-                <div class="sk-dot1"></div>
-                <div class="sk-dot2"></div>
-                <div class="rect3"></div>
-                <div class="rect4"></div>
-                <div class="rect5"></div>
-            </div>
-        </div>
         <!--联系我-->
         <div id="popup-dialog-box" class="zoom-anim-dialog mfp-hide small-dialog">
             <section class="content_section">
@@ -90,9 +80,6 @@
     module.exports = {
         mounted(){
             let me = this;
-            $('#preloader').fadeOut('slow', function () {
-                $(this).remove();
-            });
             me._backTop();
             me._contractMe();
         },
