@@ -7,7 +7,7 @@
 											<i class="ico-clock7"></i>
 											<span>{{article.create_time}}</span>
 									</span>
-									<span class="meta_part">
+									<span class="meta_part hidden-xs">
 											<i class="ico-comment-o"></i>
 											<span>{{article.comment_num}} Comments</span>
 									</span>
