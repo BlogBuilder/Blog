@@ -5,7 +5,7 @@
                 <div class="content">
                     <div id="logo">
                         <a href="/list">
-                            <img src="../../image/logo-with-icon.png" alt="Enar Logo">
+                            <img src="../../image/logo_d2.png" alt="Logo">
                         </a>
                     </div>
                     <!-- Top Search -->

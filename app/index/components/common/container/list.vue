@@ -26,7 +26,7 @@
 											<i class="ico-clock7"></i>
 											<span>{{item.create_time}}</span>
 									</span>
-									<span class="meta_part">
+									<span class="meta_part hidden-xs">
 											<i class="ico-comment-o"></i>
 											<span>{{item.comment_num}} Comments</span>
 									</span>
@@ -70,7 +70,7 @@
 											<i class="ico-clock7"></i>
 											<span>{{item.create_time}}</span>
 									</span>
-									<span class="meta_part">
+									<span class="meta_part hidden-xs">
 											<i class="ico-comment-o"></i>
 											<span>{{item.comment_num}} Comments</span>
 									</span>
@@ -109,7 +109,7 @@
 											<i class="ico-clock7"></i>
 											<span>{{item.create_time}}</span>
 									</span>
-									<span class="meta_part">
+									<span class="meta_part hidden-xs">
 											<i class="ico-comment-o"></i>
 											<span>{{item.comment_num}} Comments</span>
 									</span>
@@ -151,7 +151,7 @@
 											<i class="ico-clock7"></i>
 											<span>{{item.create_time}}</span>
 									</span>
-									<span class="meta_part">
+									<span class="meta_part hidden-xs">
 											<i class="ico-comment-o"></i>
 											<span>{{item.comment_num}} Comments</span>
 									</span>
@@ -189,7 +189,7 @@
 											<i class="ico-clock7"></i>
 											<span>{{item.create_time}}</span>
 									</span>
-									<span class="meta_part">
+									<span class="meta_part hidden-xs">
 											<i class="ico-comment-o"></i>
 											<span>{{item.comment_num}} Comments</span>
 									</span>
