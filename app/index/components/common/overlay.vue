@@ -9,7 +9,6 @@
         mounted(){
             let me = this;
             me._backTop();
-            me._contractMe();
         },
         methods: {
             _backTop(){
