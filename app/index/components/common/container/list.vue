@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
                             <span class="meta">
 										<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -183,7 +183,7 @@
                             </a>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
+                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>

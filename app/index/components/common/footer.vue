@@ -12,7 +12,8 @@
                         <li>/</li>
                         <li><a href="http://cv.qulongjun.cn" target="_blank"><span>Resume</span></a></li>
                         <li>/</li>
-                        <li><a href="#popup-dialog-box" class="popup-with-zoom-anim"><span>Contact</span></a></li>
+                        <li><a href="mailto:Longjun.qu@cootek.cn"><span>Contact</span></a>
+                        </li>
                     </ul>
                 </div>
             </div>
