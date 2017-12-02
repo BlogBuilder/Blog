@@ -1,7 +1,7 @@
 <template>
     <div class="post_detail">
         <div class="post_title_con" v-if="article.title">
-            <h6 class="title"><a href="javascript:;">{{article.title}}</a></h6>
+            <h6 class="title">{{article.title}}</h6>
             <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
