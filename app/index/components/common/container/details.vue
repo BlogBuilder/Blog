@@ -44,8 +44,8 @@
                         <div class="feature_inner_corners">
                             <div class="porto_galla">
                                 <template v-for="item in article.materials">
-                                    <a :href="item.material" class="feature_inner_ling">
-                                        <img :src="item.material" alt="Post Title">
+                                    <a :href="item.path" class="feature_inner_ling">
+                                        <img :src="item.path" alt="Post Title">
                                     </a>
                                 </template>
                             </div>
@@ -53,16 +53,16 @@
                     </div>
                     <div class="feature_inner" v-if="article.type==2">
                         <div class="feature_inner_corners">
-                            <a :href="article.materials.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                            <a :href="article.materials[0].path+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'"
                                class="feature_inner_ling" data-rel="magnific-popup">
-                                <img :src="article.materials.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'">
+                                <img :src="article.materials[0].path+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'">
                             </a>
                         </div>
                     </div>
                     <div class="feature_inner" v-if="article.type==3">
                         <div class="feature_inner_corners">
                             <video controls style="width: 100%">
-                                <source :src="article.materials.material" type="video/mp4">
+                                <source :src="article.materials[0].path" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <div class="self_hosted_container">
                             <audio class="hosted_audio" id="audio_player_1" width="100%" preload="metadata"
                                    controls="controls">
-                                <source :src="article.materials.material" type="audio/mp3"/>
+                                <source :src="article.materials[0].path" type="audio/mp3"/>
 
                             </audio>
                         </div>
@@ -265,47 +265,43 @@
         methods: {
             _fetchComment(){
                 let me = this;
-                me.$http.get("/api/comment/list", {
-                    params: {
-                        id: me.id
-                    }
-                }).then(response => {
+                me.$http.get("/api/v1.0/comment/list/" + me.id).then(response => {
                     let data = response.data;
-                    me.commentList = data.results;
+                    codeState(data.code, {
+                        200(){
+                            me.commentList = data.data.results;
+                        }
+                    });
                 }, response => {
                     serviceErrorInfo(response);
                 });
             },
             _fetchArticle(){
                 let me = this;
-                me.$http.get("/api/article/findById", {
-                    params: {
-                        id: me.id
-                    }
-                }).then(response => {
+                me.$http.get("/api/v1.0/article/findById/" + me.id).then(response => {
                     let data = response.data;
-                    if (data.code === 504) {
-                        error("当前文章不存在！");
-                        me.$router.push("/list");
-                        return;
-                    }
-                    me.article = data;
-                    me.$nextTick(() => {
-                        switch (data.type) {
-                            case 1:
-                                me._initGallery();
-                                break;
-                            case 2:
-                                me._initStandard();
-                                break;
-                            case 3:
-                            case 4:
-                                me._initMedia();
-                                break;
-                        }
-                        $("pre").snippet("javascript");
-                        scrollTo(0);
-                    })
+                    codeState(data.code, {
+                        200(){
+                            me.article = data.data.results[0];
+                            me.$nextTick(() => {
+                                switch (data.data.results[0].type) {
+                                    case 1:
+                                        me._initGallery();
+                                        break;
+                                    case 2:
+                                        me._initStandard();
+                                        break;
+                                    case 3:
+                                    case 4:
+                                        me._initMedia();
+                                        break;
+                                }
+                                $("pre").snippet("javascript");
+                                scrollTo(0);
+                            })
+                        },
+                        503: "当前编号的文章不存在！"
+                    });
                 }, response => {
                     serviceErrorInfo(response);
                 });
@@ -332,7 +328,7 @@
                     parent: isReply == 0 ? '' : me.parent,
                     photo: Math.floor(Math.random() * 824)
                 };
-                me.$http.post("/api/comment/create", comment).then(response => {
+                me.$http.post("/api/v1.0/comment/create", comment).then(response => {
                     let data = response.data;
                     codeState(data.code, {
                         200(){

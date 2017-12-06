@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
+                            <h6 class="title"><a :href="'/article/'+item.id">{{item.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -41,7 +41,7 @@
 
 								</span>
                             <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
+                            <a class="btn_a" :href="'/article/'+item.id">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
+                            <h6 class="title"><a :href="'/article/'+item.id">{{item.title}}</a></h6>
                             <span class="meta">
 										<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -87,7 +87,7 @@
 
 								</span>
                             <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
+                            <a class="btn_a" href="javascript:;" :href="'/article/'+item.id">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
+                            <h6 class="title"><a :href="'/article/'+item.id">{{item.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -126,7 +126,7 @@
 
 								</span>
                             <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
+                            <a class="btn_a" :href="'/article/'+item.id">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                         <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
+                            <h6 class="title"><a :href="'/article/'+item.id">{{item.title}}</a></h6>
                             <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -168,45 +168,7 @@
 
 								</span>
                             <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
-									<span>
-										<i class="in_left ico-angle-right"></i>
-										<span>查看详情</span>
-										<i class="in_right ico-angle-right"></i>
-									</span>
-                            </a>
-                        </div>
-                    </div>
-                </template>
-                <template v-if="item.type==5">
-                    <div class="blog_grid_block clearfix">
-                        <div class="feature_inner">
-                            <a href="javascript:;" class="quote_con">
-                                <span>{{item.summary}}</span>
-                                <span class="quote_author">{{item.quote_author}}</span>
-                            </a>
-                        </div>
-                        <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;" @click="viewDetails(item)">{{item.title}}</a></h6>
-                            <span class="meta">
-									<span class="meta_part">
-											<i class="ico-clock7"></i>
-											<span>{{item.create_time}}</span>
-									</span>
-									<span class="meta_part hidden-xs">
-											<i class="ico-comment-o"></i>
-											<span>{{item.comment_num}} Comments</span>
-									</span>
-									<span class="meta_part">
-										<i class="ico-folder-open-o"></i>
-										<span>
-											<a href="javascript:;">{{item.category.name}}</a>
-										</span>
-									</span>
-
-								</span>
-                            <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
+                            <a class="btn_a" :href="'/article/'+item.id">
 									<span>
 										<i class="in_left ico-angle-right"></i>
 										<span>查看详情</span>
@@ -304,26 +266,6 @@
                         return false;
                     });
                 });
-            },
-            viewDetails(article){
-                const me = this;
-                switch (article.type) {
-                    case 1:
-                        me.$router.push("/detail/gallery?id=" + article.id);
-                        break;
-                    case 2:
-                        me.$router.push("/detail/standard?id=" + article.id);
-                        break;
-                    case 3:
-                        me.$router.push("/detail/video?id=" + article.id);
-                        break;
-                    case 4:
-                        me.$router.push("/detail/audio?id=" + article.id);
-                        break;
-                    case 5:
-                        me.$router.push("/detail/quote?id=" + article.id);
-                        break;
-                }
             },
             _initGallery(){
                 //图集图片轮播组件
