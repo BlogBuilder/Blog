@@ -12,33 +12,33 @@ var routes = [
         name: "/list",
         component: List
     }, {
-        path: "/detail",
-        name: "/detail",
+        path: "/article/:id",
+        name: "/article",
         component: Detail,
-        children: [
-            {
-                path: 'standard',
-                name: 'standard',
-                component: Standard
-            },
-            {
-                path: 'gallery',
-                name: 'gallery',
-                component: Gallery
-            }, {
-                path: 'quote',
-                name: 'quote',
-                component: Quote
-            }, {
-                path: 'audio',
-                name: 'audio',
-                component: Audio
-            }, {
-                path: 'video',
-                name: 'video',
-                component: Video
-            }
-        ]
+        // children: [
+        //     {
+        //         path: 'standard',
+        //         name: 'standard',
+        //         component: Standard
+        //     },
+        //     {
+        //         path: 'gallery',
+        //         name: 'gallery',
+        //         component: Gallery
+        //     }, {
+        //         path: 'quote',
+        //         name: 'quote',
+        //         component: Quote
+        //     }, {
+        //         path: 'audio',
+        //         name: 'audio',
+        //         component: Audio
+        //     }, {
+        //         path: 'video',
+        //         name: 'video',
+        //         component: Video
+        //     }
+        // ]
     }
 ];
 
