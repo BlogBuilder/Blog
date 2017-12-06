@@ -284,7 +284,8 @@
                     codeState(data.code, {
                         200(){
                             me.user = data.data;
-                        }
+                        },
+                        504(){}
                     })
                 }, response => {
                     serviceErrorInfo(response);

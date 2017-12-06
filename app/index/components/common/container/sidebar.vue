@@ -218,89 +218,60 @@
         data(){
             return {
                 categoryList: [],
-                tagList: [],
-                hotList: [],
-                recentlyList: [],
-                recentlyCommentList: []
+                tagList: []
             }
         },
         mounted(){
-            const me = this;
+            let me = this;
             me._fetchCategory();
             me._fetchTag();
             me.$nextTick(() => {
-//                me._initTabs();
                 me._initAccordion();
                 me._initYears();
             })
         },
         methods: {
             _fetchCategory(){
-                const me = this;
-                me.$http.get("/api/category/list").then(response => {
+                let me = this;
+                me.$http.get("/api/v1.0/category/list").then(response => {
                     const data = response.data;
-                    me.categoryList = data.results;
+                    codeState(data.code, {
+                        200(){
+                            me.categoryList = data.data.results;
+                        }
+                    });
                 }, response => {
-
+                    serviceErrorInfo(response);
                 });
-
             },
             _fetchTag(){
-                const me = this;
-                me.$http.get("/api/v1.0/tags/list").then(response => {
+                let me = this;
+                me.$http.get("/api/v1.0/tag/list").then(response => {
                     let result = response.data;
                     codeState(result.code, {
                         200: () => {
                             me.tagList = result.data.results;
                         }
                     });
-
                 }, response => {
                     serviceErrorInfo(response);
                 });
 
             },
-            _fetchHot(){
-                const me = this;
-                me.$http.get("/api/article/hot").then(response => {
-                    const data = response.data;
-                    me.hotList = data.results;
-                }, response => {
-                    serviceErrorInfo();
-                });
-            },
-            _fetchRecently(){
-                const me = this;
-                me.$http.get("/api/article/recently").then(response => {
-                    const data = response.data;
-                    me.recentlyList = data.results;
-                }, response => {
-                    serviceErrorInfo();
-                });
-            },
-            _fetchRecentlyComment(){
-                const me = this;
-                me.$http.get("/api/comment/recently").then(response => {
-                    const data = response.data;
-                    me.recentlyCommentList = data.results;
-                }, response => {
-                    serviceErrorInfo();
-                });
-            },
             clickCategory(category){
                 const me = this;
                 if (category) {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "category", category.id));
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "categoryId", category.id));
                 } else {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "category"));
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "categoryId"));
                 }
             },
             clickTag(tag){
                 const me = this;
                 if (tag) {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "tag", tag.id));
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "tagsId", tag.id));
                 } else {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "tag"));
+                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "tagsId"));
                 }
             },
             clickSearch(){
@@ -324,69 +295,12 @@
                 const me = this;
                 if (year && month) {
                     month = month < 10 ? '0' + month : month;
-                    var path = redictURL(me.$route.fullPath, "/list", "add", "time", year + "-" + month);
+                    var path = redictURL(me.$route.fullPath, "/list", "add", "create_time", year + "-" + month);
                     me.$router.push(path);
                 } else {
-                    var path = redictURL(me.$route.fullPath, "/list", "remove", "time");
+                    var path = redictURL(me.$route.fullPath, "/list", "remove", "create_time");
                     me.$router.push(path);
                 }
-            },
-            _initTabs(){
-                $('.hm-tabs').each(function (index) {
-                    var allparent = $(this);
-                    var all_width = allparent.width();
-
-                    var tabItems = allparent.find('.tabs-navi a'),
-                        tabContentWrapper = allparent.find('.tabs-body');
-
-                    tabItems.on('click', function (event) {
-                        event.preventDefault();
-
-                        var selectedItem = $(this);
-                        var parentlist = selectedItem.parent();
-
-                        if (parentlist.index() === 0) {
-                            selectedItem.parent().siblings("li").removeClass('prev_selected');
-                        } else {
-                            selectedItem.parent().prev().addClass('prev_selected').siblings("li").removeClass('prev_selected');
-                        }
-
-                        if (!selectedItem.hasClass('selected')) {
-                            var selectedTab = selectedItem.data('content'),
-                                selectedContent = tabContentWrapper.find('li[data-content="' + selectedTab + '"]'),
-                                slectedContentHeight = selectedContent.innerHeight();
-
-                            tabItems.removeClass('selected');
-                            selectedItem.addClass('selected');
-                            selectedContent.addClass('selected').siblings('li').removeClass('selected');
-                            //animate tabContentWrapper height when content changes
-                            tabContentWrapper.animate({
-                                'height': slectedContentHeight
-                            }, 200);
-                        }
-                    });
-
-                    //hide the .hm-tabs::after element when tabbed navigation has scrolled to the end (mobile version)
-                    checkScrolling($('.hm-tabs nav'));
-                    $(window).on('resize', function () {
-                        checkScrolling($('.hm-tabs nav'));
-                        tabContentWrapper.css('height', 'auto');
-                    });
-                    $('.hm-tabs nav').on('scroll', function () {
-                        checkScrolling($(this));
-                    });
-
-                    function checkScrolling(tabs) {
-                        var totalTabWidth = parseInt(tabs.children('.tabs-navi').width()),
-                            tabsViewport = parseInt(tabs.width());
-                        if (tabs.scrollLeft() >= totalTabWidth - tabsViewport) {
-                            tabs.parent('.hm-tabs').addClass('is-ended');
-                        } else {
-                            tabs.parent('.hm-tabs').removeClass('is-ended');
-                        }
-                    }
-
-                });
             },
             _initAccordion(){
                 $(".enar_accordion").each(function (index, element) {
@@ -449,46 +363,6 @@
                     if (window.location.search.indexOf("time=" + year) != -1) {
                         me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "time"));
                     }
-                });
-            },
-            viewDetails(article){
-                const me = this;
-                switch (article.type) {
-                    case 1:
-                        me.$router.push("/detail/gallery?id=" + article.id);
-                        break;
-                    case 2:
-                        me.$router.push("/detail/standard?id=" + article.id);
-                        break;
-                    case 3:
-                        me.$router.push("/detail/video?id=" + article.id);
-                        break;
-                    case 4:
-                        me.$router.push("/detail/audio?id=" + article.id);
-                        break;
-                    case 5:
-                        me.$router.push("/detail/quote?id=" + article.id);
-                        break;
-                }
-            },
-            _relatedLink(){
-                $(".related_slider_widget").owlCarousel({
-                    direction: 'ltr',
-                    slideSpeed: 900,
-                    autoPlay: 3000,
-                    autoHeight: true,
-                    items: 1,
-                    itemsDesktop: false,
-                    itemsDesktopSmall: false,
-                    itemsTablet: false,
-                    itemsTabletSmall: false,
-                    itemsMobile: false,
-                    stopOnHover: true,
-                    navigation: true,
-                    pagination: true,
-                    navigationText: [
-                        "<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
-                        "<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
                 });
             }
         }

@@ -11,8 +11,10 @@
                                 </div>
                                 <div class="porto_galla">
                                     <template v-for="img in item.materials">
-                                        <a :href="img.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'" class="feature_inner_ling">
-                                            <img :src="img.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'" alt="gallery photos"
+                                        <a :href="img.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                                           class="feature_inner_ling">
+                                            <img :src="img.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                                                 alt="gallery photos"
                                                  style="width: 100%;height: auto;min-height: 200px;">
                                         </a>
                                     </template>
@@ -56,9 +58,11 @@
                                 <div class="feature_inner_btns">
                                     <a href="javascript:;" class="expand_image"><i class="ico-maximize"></i></a>
                                 </div>
-                                <a :href="item.materials.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'" class="feature_inner_ling"
+                                <a :href="item.materials[0].path+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                                   class="feature_inner_ling"
                                    data-rel="magnific-popup">
-                                    <img :src="item.materials.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'" alt="photo"
+                                    <img :src="item.materials[0].path+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                                         alt="photo"
                                          style="width: 100%;height: auto;min-height: 200px;">
                                 </a>
                             </div>
@@ -249,30 +253,29 @@
             _initTotal(){
                 let me = this;
                 showPreLoader();
-                let query = me.$route.query;
-                me.condition = jQuery.param(query);
+                me.condition = me.$route.query;
                 me._fetchData();
             },
             _fetchData(){
                 let me = this;
-                me.$http.get("/api/article/list", {
-                    params: {
-                        rowCount: 5,
-                        currentPage: me.currentPage,
-                        condition: me.condition
-                    }
+                me.$http.get("/api/v1.0/article/list/" + me.currentPage, {
+                    params: me.condition
                 }).then(response => {
-                    const data = response.data;
-                    me.articleList = data.results;
-                    jQuery(".M-box").pagination({
-                        pageCount: data.totalPage,
-                        nextContent: '<i class="ico-arrow-right4"></i>',
-                        prevContent: '<i class="ico-arrow-left4"></i>',
-                        current: me.currentPage,
-                        callback: function (data) {
-                            me.currentPage = data.getCurrent();
-                            me._initTotal();
-                            scrollTo(0);
+                    let data = response.data;
+                    codeState(data.code, {
+                        200(){
+                            me.articleList = data.data.results;
+                            jQuery(".M-box").pagination({
+                                pageCount: data.data.totalPage,
+                                nextContent: '<i class="ico-arrow-right4"></i>',
+                                prevContent: '<i class="ico-arrow-left4"></i>',
+                                current: me.currentPage,
+                                callback: function (data) {
+                                    me.currentPage = data.getCurrent();
+                                    me._initTotal();
+                                    scrollTo(0);
+                                }
+                            });
                         }
                     });
                     me.$nextTick(() => {
