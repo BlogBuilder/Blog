@@ -2340,17 +2340,20 @@ i.lfc_icon {
 }
 
 .lfc_forget_pass {
-    background: #F9F9F9;
-    border-top: 1px solid #e1e1e1;
-    color: #888;
     display: block;
-    font-size: 13px;
     margin: 20px -20px -20px;
     padding: 15px 20px;
     text-align: left;
+    background: #F9F9F9;
+    border-top: 1px solid #e1e1e1;
 }
 
-.lfc_forget_pass:hover {
+.lfc_forget_pass a {
+    color: #888;
+    font-size: 13px;
+}
+
+.lfc_forget_pass a:hover {
     color: #555555;
 }
 
@@ -2781,7 +2784,7 @@ ul.list1.listfullcols li {
     max-height: 60px;
 }
 
-.top_details .title, .top_details .title a, .top_details > span > a, .top_details > span, .top_details > div, .top_details > div > a {
+.top_details .title, .top_details .title a, .top_details > span, .top_details > div, .top_details > div > a {
     color: #777777;
 }
 
@@ -14209,7 +14212,7 @@ a.img_popup:after {
     margin-bottom: 15px;
 }
 
-.hm_blog_list .blog_grid_con .title , .post_title_con .title  {
+.hm_blog_list .blog_grid_con .title, .post_title_con .title {
     color: #576162;
 }
 
@@ -19543,6 +19546,7 @@ table.check_out_table {
     .post_next_prev_con a:first-child {
         float: left;
     }
+
     .post_next_prev_con a:last-child {
         float: right;
     }
@@ -19551,7 +19555,7 @@ table.check_out_table {
         margin-bottom: 20px;
     }
 
-    .post_title_con .title{
+    .post_title_con .title {
         padding-top: 30px;
     }
 }

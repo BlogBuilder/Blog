@@ -247,11 +247,16 @@
             },
             _fetchTag(){
                 const me = this;
-                me.$http.get("/api/tag/list").then(response => {
-                    const data = response.data;
-                    me.tagList = data.results;
-                }, response => {
+                me.$http.get("/api/v1.0/tags/list").then(response => {
+                    let result = response.data;
+                    codeState(result.code, {
+                        200: () => {
+                            me.tagList = result.data.results;
+                        }
+                    });
 
+                }, response => {
+                    serviceErrorInfo(response);
                 });
 
             },

@@ -1,12 +1,5 @@
 <template>
     <section class="content_section">
-        <!--<div class="row_spacer hidden-xs" style="height: 100vh;border: 1px dotted #e9e9e9 ">-->
-        <!--<div class="text-center" style="position: relative;top: 50%;transform: translateY(-50%);">-->
-        <!--<img src="../../image/logo-dangGui.png" width="40%" height="40%"-->
-        <!--style="max-width: 100%;max-height: 100%;"/>-->
-        <!--</div>-->
-        <!--</div>-->
-
         <div class="content row_spacer">
             <div class="content_spacer clearfix">
                 <router-view></router-view>
@@ -57,40 +50,19 @@
         </div>
     </section>
 </template>
-<style>
-    #preloader_list {
-        margin-top: 80px;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        z-index: 9999;
-        background-color: rgba(255, 255, 255, 0.6);
-        display: none;
-        justify-content: center;
-    }
 
-    #preloader_list .preloader {
-        position: relative;
-        width: 200px;
-        margin: 0 auto;
-    }
-</style>
 <script type="es6">
     module.exports = {
-        data(){
-            return {}
-        },
         mounted(){
             let me = this;
             me._renderPreloader();
+            $('.body').css("background-color", "#777");
             $(window).scroll(function () {
                 me._renderPreloader();
             })
         },
         methods: {
             _renderPreloader(){
-                let me = this;
                 let scrollTop = document.documentElement.scrollTop;
                 let windowHeight = window.screen.height;
                 $(' #preloader_list .preloader').css('top', windowHeight / 2 - 200 + scrollTop);

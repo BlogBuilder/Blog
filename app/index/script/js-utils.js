@@ -67,62 +67,62 @@ export const redictURL = (url, base_url, opt_type, arg, val) => {
 };
 export const codeState = (code, opt) => {
 
-    if (!code) return;
-    if (code == 200) {
-        if (opt[200] && typeof opt[200] == "string") {
-            alert(opt[200]);
-        } else {
-            if (opt[200] && typeof opt[200] == "function") {
-                opt[200]();
-            } else {
-                alert('操作成功！');
-            }
-        }
+    if (typeof code !== "number") {
+        return;
     }
-    if (code == 500) {
-        if (opt[500] && typeof opt[500] == "string") {
-            error(opt[500]);
-            return;
-        } else {
-            opt[500] ? opt[500]() : error('服务器异常,请刷新后重新尝试！');
-        }
+    switch (code) {
+        case 200:
+            if (opt[200]) {
+                typeof opt[200] === "string" ? alert(opt[200]) : opt[200]();
+            } else alert("操作执行成功！");
+            break;
+        case 500:
+            if (opt[500]) {
+                typeof opt[500] === "string" ? error(opt[500]) : opt[500]();
+            } else error("服务器出小差了哦！");
+            break;
 
-    }
-    if (code == 501) {
-        if (opt[501] && typeof opt[501] == "string") {
-            error(opt[501]);
-            return;
-        } else {
-            opt[501] ? opt[501]() : error('数据值不能为空,请检查后重新操作！');
-        }
-    }
-    if (code == 502) {
-        if (opt[502] && typeof opt[502] == "string") {
-            error(opt[502]);
-            return;
-        }
-        opt[502] ? opt[502]() : error('请求异常,请重新尝试操作！');
-    }
-    if (code == 503) {
-        if (opt[503] && typeof opt[503] == "string") {
-            error(opt[503]);
-            return;
-        }
-        opt[503] ? opt[503]() : error('数据库中已存在当前值,不能重复操作！');
-    }
-    if (code == 504) {
-        if (opt[504] && typeof opt[504] == "string") {
-            error(opt[504]);
-            return;
-        }
-        opt[504] ? opt[504]() : error('当前操作的数据不存在,请刷新后重新尝试！');
-    }
-    if (code == 505) {
-        if (opt[505] && typeof opt[505] == "string") {
-            error(opt[505]);
-            return;
-        }
-        opt[505] ? opt[505]() : error('系统不允许您注册两次！');
+        case 501:
+            if (opt[501]) {
+                typeof opt[501] === "string" ? error(opt[501]) : opt[501]();
+            } else error("当前已经存在相同值！");
+            break;
+        case 502:
+            if (opt[502]) {
+                typeof opt[502] === "string" ? error(opt[502]) : opt[502]();
+            } else error("保存的数据格式错误！");
+            break;
+        case 503:
+            if (opt[503]) {
+                typeof opt[503] === "string" ? error(opt[503]) : opt[503]();
+            } else error("当前操作的记录值不存在！");
+            break;
+        case 504:
+            if (opt[504]) {
+                typeof opt[504] === "string" ? error(opt[504]) : opt[504]();
+            } else error("您尚未登录或登录信息过期！");
+            break;
+        case 505:
+            if (opt[505]) {
+                typeof opt[505] === "string" ? error(opt[505]) : opt[505]();
+            } else error("您的请求超时，请重新尝试！");
+            break;
+        case 506:
+            if (opt[506]) {
+                typeof opt[506] === "string" ? error(opt[506]) : opt[506]();
+            } else error("登录密码错误，请重新尝试！");
+            break;
+        case 507:
+            if (opt[507]) {
+                typeof opt[507] === "string" ? error(opt[507]) : opt[507]();
+            } else error("当前加密签名错误！");
+            break;
+
+        default:
+            if (opt[code]) {
+                typeof opt[code] === "string" ? error(opt[code]) : opt[code]();
+            } else error("未知错误！");
+            break;
     }
 };
 

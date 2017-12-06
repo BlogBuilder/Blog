@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--回到顶部-->
-        <a href="javascript:;" class="hm_go_top"></a>
+        <a href="javascript:;" class="hm_go_top"></a>.
     </div>
 </template>
 <script type="es6">
