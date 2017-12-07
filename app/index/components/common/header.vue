@@ -89,8 +89,8 @@
             <div class="my_col_half on_the_center centered clearfix">
                 <form class="login_form_colored shadow1 login_flip flip_top" id="loginForm" style="display: none;">
                     <div class="lfc_user_row">
-                        <span class="lfc_header">登录您的账号 或 <a class="sign_up_login_flip"
-                                                             href="#">注册新用户</a></span>
+                        <span class="lfc_header">登录您的账号 或 <a class="sign_up_login_flip" href="#">注册新用户</a></span>
+
                     </div>
                     <div class="lfc_user_row">
                         <label for="login_user_name">
@@ -123,14 +123,19 @@
                             </label>
                         </div>
                         <div class="clearfix">
-                            <button type="button" @click="login" name="login" class="send_button f_right margin_left_a">
+                            <button type="button" @click="_closeModal" name="login"
+                                    class="send_button f_right margin_left_a btn-default">
+                                关 闭
+                            </button>
+                            <button type="button" @click="login" name="login"
+                                    class="send_button f_right margin_left_a ">
                                 登 录
                             </button>
                         </div>
                     </div>
                     <a class="lfc_forget_pass" href="#">忘记密码?</a>
                 </form>
-                <form class="login_form_colored shadow1 owl-goDown-out" style="display: none">
+                <form class="login_form_colored shadow1 owl-goDown-out" id="registerForm" style="display: none">
                     <div class="lfc_user_row">
                         <span class="lfc_header">注册新账号 或 <a class="sign_up_login_flip" href="#">直接登录</a></span>
                     </div>
@@ -173,6 +178,10 @@
                             </label>
                         </div>
                         <div class="" style="float: right">
+                            <button type="button" @click="_closeModal" name="closeLoop"
+                                    class="send_button f_right margin_left_a btn-default">
+                                关 闭
+                            </button>
                             <button type="submit" name="login" class="send_button f_right margin_left_a">
                                 创建账号
                             </button>
@@ -328,9 +337,10 @@
                 }
             },
             _loginModal(){
+                $('#registerForm').css({"display": "none"});
                 $('.loginContent').addClass('active');
                 $('.full-width').addClass('active');
-                let $login_form = $('#loginForm')
+                let $login_form = $('#loginForm');
                 $login_form.css({"display": "block"});
                 $login_form.removeClass("owl-goDown-out").addClass("owl-goDown-in");
                 $login_form.addClass("flip_top");
@@ -364,10 +374,6 @@
                     }, 300);
 
                     return false;
-                });
-                $('.full-width').off('click').on('click', function (e) {
-                    me._closeModal();
-                    e.stopPropagation();
                 });
 
                 $(".top_search").each(function (index, element) {
