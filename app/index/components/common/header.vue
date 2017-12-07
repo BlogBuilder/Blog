@@ -11,34 +11,29 @@
 
                     <div class="top-socials box_socials f_right hidden-xs">
                         <a href="#" target="_blank">
-                            <span class="soc_name">Facebook</span>
+                            <span class="soc_name">Github</span>
                             <span class="soc_icon_bg"></span>
-                            <i class="ico-facebook4"></i>
+                            <i class="ico-github6"></i>
                         </a>
                         <a href="#" target="_blank">
-                            <span class="soc_name">Twitter</span>
+                            <span class="soc_name">LinkedIn</span>
                             <span class="soc_icon_bg"></span>
-                            <i class="ico-twitter4"></i>
+                            <i class="ico-linkedin2"></i>
                         </a>
                         <a href="#" target="_blank">
-                            <span class="soc_name">Google+</span>
+                            <span class="soc_name">Resume+</span>
                             <span class="soc_icon_bg"></span>
-                            <i class="ico-google-plus"></i>
+                            <i class="ico-user3"></i>
                         </a>
                         <a href="skype:#?call">
-                            <span class="soc_name">Skype</span>
+                            <span class="soc_name">Email</span>
                             <span class="soc_icon_bg"></span>
-                            <i class="ico-skype"></i>
+                            <i class="ico-email"></i>
                         </a>
                         <a href="#" target="_blank">
-                            <span class="soc_name">Picassa</span>
+                            <span class="soc_name">Phone</span>
                             <span class="soc_icon_bg"></span>
-                            <i class="ico-picassa"></i>
-                        </a>
-                        <a href="#" target="_blank">
-                            <span class="soc_name">Vimeo</span>
-                            <span class="soc_icon_bg"></span>
-                            <i class="ico-vimeo"></i>
+                            <i class="ico-phone"></i>
                         </a>
                     </div>
                 </div>
