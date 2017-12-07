@@ -6,10 +6,10 @@
                 <div class="trees_number">1.1.1.1</div>
                 <a href="javascript:;" class="avatar">
                     <img width="75" height="75"
-                         :src="'http://cdn.qulongjun.cn/avator/'+model.photo+'.png'" alt="author">
+                         :src="model.avatar" alt="author">
                 </a>
                 <div class="comment_content">
-                    <h4 class="author_name">{{model.name}}</h4>
+                    <h4 class="author_name">{{model.nick}}</h4>
                     <span class="comment_meta"><time
                             datetime="2015-10-01T19:56:36+00:00">{{model.create_time}}</time></span>
                     <div class="comment_said_text typo">

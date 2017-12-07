@@ -195,6 +195,13 @@
                                         aria-hidden="true">&times
                                 </button>
                             </div>
+                            <div class="alert alert-info alert-dismissable">
+                                登陆之后评论会留下您的足迹，文章最新动态我们将会通过邮件通知您。
+                                <button type="button" class="btn btn-info">点此登陆</button>
+                                <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">&times
+                                </button>
+                            </div>
                             <div style="margin-bottom: 20px;">
                                 <span v-if="desp" style="font-size: 14px;font-weight: bold;">{{desp}}</span>
                                 <a class="main_button small_btn cancel-reply btn-danger"
@@ -324,9 +331,8 @@
                 }
                 let comment = {
                     content: editor.txt.html(),
-                    id: me.id,
-                    parent: isReply == 0 ? '' : me.parent,
-                    photo: Math.floor(Math.random() * 824)
+                    articleId: me.id,
+                    id: isReply == 0 ? '' : me.parent,
                 };
                 me.$http.post("/api/v1.0/comment/create", comment).then(response => {
                     let data = response.data;
@@ -350,7 +356,7 @@
             replyComment(comment, event){
                 let me = this;
                 me.backTop = jQuery(event.target).parents('li').offset().top;
-                me.desp = "回复【" + comment.name + "】于【" + comment.create_time + "】的评论：";
+                me.desp = "回复【" + comment.nick + "】于【" + comment.create_time + "】的评论：";
                 me.detail = comment.content;
                 me.parent = comment.id;
                 _backBottom(jQuery('#comments-form'));
