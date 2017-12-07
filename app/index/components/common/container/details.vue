@@ -6,11 +6,6 @@
             <!-- Post Container -->
             <div id="post-1"
                  class="post-1 post type-post status-publish format-gallery has-post-thumbnail category-media tag-photos clearfix">
-
-
-                <!--<router-view></router-view>-->
-
-
                 <div class="post_detail">
                     <div class="post_title_con" v-if="article.title">
                         <h6 class="title">{{article.title}}</h6>
@@ -53,10 +48,8 @@
                     </div>
                     <div class="feature_inner" v-if="article.type==2">
                         <div class="feature_inner_corners">
-                            <a :href="article.materials[0].path+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'"
-                               class="feature_inner_ling" data-rel="magnific-popup">
-                                <img :src="article.materials[0].path+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'">
-                            </a>
+                            <img :src="article.materials[0].path+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                                 style="max-height: 450px;width: 100%">
                         </div>
                     </div>
                     <div class="feature_inner" v-if="article.type==3">
@@ -150,7 +143,7 @@
                                     <i class="ico-phone"></i>
                                 </a>
                                 <a href="mailto:qulongjun12@163.com" target="_blank" class="email">
-                                    <i class="ico-mail6"></i>
+                                    <i class="ico-email"></i>
                                 </a>
                             </div>
                         </div>
@@ -195,15 +188,6 @@
                                         aria-hidden="true">&times
                                 </button>
                             </div>
-                            <div class="alert alert-info alert-dismissable" v-if="!user">
-                                登陆之后评论会留下您的足迹，文章最新动态我们将会通过邮件通知您。
-                                <button type="button" class="btn btn-info"
-                                        @click="_click2Login">点此登陆
-                                </button>
-                                <button type="button" class="close" data-dismiss="alert"
-                                        aria-hidden="true">&times
-                                </button>
-                            </div>
                             <div style="margin-bottom: 20px;">
                                 <span v-if="desp" style="font-size: 14px;font-weight: bold;">{{desp}}</span>
                                 <a class="main_button small_btn cancel-reply btn-danger"
@@ -233,6 +217,11 @@
     </div>
     <!-- End All Content -->
 </template>
+<style>
+    .no-border-bottom {
+        border-bottom: none !important;
+    }
+</style>
 <script type="es6">
     import item from './comment.vue'
     import author from '../../../data/author.json'
@@ -258,8 +247,7 @@
                 article: {
                     category: {},
                     materials: {}
-                },
-                user: null
+                }
             }
         },
         watch: {
@@ -316,28 +304,12 @@
                     serviceErrorInfo(response);
                 });
             },
-            _fetchState(){
-                let me = this;
-                me.$http.get("/api/v1.0/login/fetchState").then(response => {
-                    let data = response.data;
-                    codeState(data.code, {
-                        200(){
-                            me.user = data.data;
-                        },
-                        504(){
-                        }
-                    })
-                }, response => {
-                    serviceErrorInfo(response);
-                })
-            },
             _queryArticle(){
                 let me = this;
                 showPreLoader();
                 me.id = me.$route.params.id;
                 me._fetchComment();
                 me._fetchArticle();
-                me._fetchState();
                 me.$nextTick(() => {
                     hidePreLoader();
                 })
@@ -386,15 +358,24 @@
                 me.parent = "";
                 me.detail = "";
             },
-            _click2Login(){
-                let me = this;
-                me._fetchState();
-                if (!me.user) {
-                    $('.top_login a')[0].click()
-                }
-            },
             _initStandard(){
-                $(".magnific-popup, a[data-rel^='magnific-popup']").magnificPopup({
+//                $(".magnific-popup, a[data-rel^='magnific-popup']").magnificPopup({
+//                    type: 'image',
+//                    mainClass: 'mfp-with-zoom',
+//                    zoom: {
+//                        enabled: true,
+//                        duration: 300,
+//                        easing: 'ease-in-out',
+//                        opener: function (openerElement) {
+//                            return openerElement.is('img') ? openerElement : openerElement.find('img');
+//                        }
+//                    }
+//
+//                });
+                $("#content img").each((index, item) => {
+                    $(item).wrap('<a class="magnific-popup no-border-bottom" href="' + item.src + '"></a>')
+                });
+                $(".magnific-popup").magnificPopup({
                     type: 'image',
                     mainClass: 'mfp-with-zoom',
                     zoom: {

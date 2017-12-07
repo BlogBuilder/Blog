@@ -16301,6 +16301,24 @@ table.check_out_table {
     background: #121518;
 }
 
+#preloader_list {
+    margin-top: 80px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    background-color: hsla(0, 0%, 100%, .6);
+    display: none;
+    justify-content: center;
+}
+
+#preloader_list .preloader {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+}
+
 .dark .bg_overlay:after, .dark .bg_overlay:before {
     background: none;
 }

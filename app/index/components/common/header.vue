@@ -10,30 +10,30 @@
                     </div>
 
                     <div class="top-socials box_socials f_right hidden-xs">
-                        <a href="#" target="_blank">
+                        <a href="//github.com/qulongjun" target="_blank">
                             <span class="soc_name">Github</span>
                             <span class="soc_icon_bg"></span>
                             <i class="ico-github6"></i>
                         </a>
-                        <a href="#" target="_blank">
+                        <a href="//www.linkedin.com/in/qulongjun" target="_blank">
                             <span class="soc_name">LinkedIn</span>
                             <span class="soc_icon_bg"></span>
                             <i class="ico-linkedin2"></i>
                         </a>
-                        <a href="#" target="_blank">
-                            <span class="soc_name">Resume+</span>
+                        <a href="//cv.qulongjun.cn" target="_blank">
+                            <span class="soc_name">Resume</span>
                             <span class="soc_icon_bg"></span>
                             <i class="ico-user3"></i>
                         </a>
-                        <a href="skype:#?call">
-                            <span class="soc_name">Email</span>
-                            <span class="soc_icon_bg"></span>
-                            <i class="ico-email"></i>
-                        </a>
-                        <a href="#" target="_blank">
+                        <a href="tel:17717567217" target="_blank">
                             <span class="soc_name">Phone</span>
                             <span class="soc_icon_bg"></span>
                             <i class="ico-phone"></i>
+                        </a>
+                        <a href="mailto:Longjun.qu@cootek.cn">
+                            <span class="soc_name">Email</span>
+                            <span class="soc_icon_bg"></span>
+                            <i class="ico-email"></i>
                         </a>
                     </div>
                 </div>
