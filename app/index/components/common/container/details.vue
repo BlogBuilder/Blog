@@ -195,9 +195,11 @@
                                         aria-hidden="true">&times
                                 </button>
                             </div>
-                            <div class="alert alert-info alert-dismissable">
+                            <div class="alert alert-info alert-dismissable" v-if="!user">
                                 登陆之后评论会留下您的足迹，文章最新动态我们将会通过邮件通知您。
-                                <button type="button" class="btn btn-info">点此登陆</button>
+                                <button type="button" class="btn btn-info"
+                                        @click="_click2Login">点此登陆
+                                </button>
                                 <button type="button" class="close" data-dismiss="alert"
                                         aria-hidden="true">&times
                                 </button>
@@ -256,7 +258,8 @@
                 article: {
                     category: {},
                     materials: {}
-                }
+                },
+                user: null
             }
         },
         watch: {
@@ -313,12 +316,28 @@
                     serviceErrorInfo(response);
                 });
             },
+            _fetchState(){
+                let me = this;
+                me.$http.get("/api/v1.0/login/fetchState").then(response => {
+                    let data = response.data;
+                    codeState(data.code, {
+                        200(){
+                            me.user = data.data;
+                        },
+                        504(){
+                        }
+                    })
+                }, response => {
+                    serviceErrorInfo(response);
+                })
+            },
             _queryArticle(){
                 let me = this;
                 showPreLoader();
                 me.id = me.$route.params.id;
                 me._fetchComment();
                 me._fetchArticle();
+                me._fetchState();
                 me.$nextTick(() => {
                     hidePreLoader();
                 })
@@ -366,6 +385,13 @@
                 me.desp = "";
                 me.parent = "";
                 me.detail = "";
+            },
+            _click2Login(){
+                let me = this;
+                me._fetchState();
+                if (!me.user) {
+                    $('.top_login a')[0].click()
+                }
             },
             _initStandard(){
                 $(".magnific-popup, a[data-rel^='magnific-popup']").magnificPopup({

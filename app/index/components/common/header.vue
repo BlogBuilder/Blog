@@ -13,9 +13,13 @@
 						欢迎您，<a href="javascript:;">{{user.nick}}</a>
 					</span>
                     <span style="margin-right: 5px">&nbsp;|&nbsp;</span>
-                    <span class="top_login">
-                        <i class="icon ico-comments-o" style="margin-right: 5px"></i>
-						<a href="javascript:;" @click="_loginModal" style="color: #777">足迹</a>
+                    <span class="top_login" style="margin-right: 5px">
+                        <!--<i class="icon ico-comments-o" style="margin-right: 5px"></i>-->
+						<a href="javascript:;" style="color: #777" @click="_loginModal">足迹</a>
+					</span>
+                    <span style="margin-right: 5px">&nbsp;|&nbsp;</span>
+                    <span class="top_login ">
+						<a href="javascript:;" class="text-danger" @click="logOff">注销</a>
 					</span>
                 </div>
 
@@ -277,6 +281,20 @@
                     serviceErrorInfo(response);
                 });
             },
+            logOff(){
+                let me = this;
+                me.$http.post("/api/v1.0/login/logOff").then(response => {
+                    let data = response.data;
+                    codeState(data.code, {
+                        200(){
+                            me.user = {};
+                            alert("账号注销成功！");
+                        }
+                    })
+                }, response => {
+                    serviceErrorInfo(response);
+                });
+            },
             _fetchState(){
                 let me = this;
                 me.$http.get("/api/v1.0/login/fetchState").then(response => {
@@ -285,7 +303,8 @@
                         200(){
                             me.user = data.data;
                         },
-                        504(){}
+                        504(){
+                        }
                     })
                 }, response => {
                     serviceErrorInfo(response);
