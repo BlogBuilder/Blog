@@ -1,44 +1,17 @@
 import List from '../components/common/container/list.vue'
-import Detail from '../components/common/container/details.vue'
-import Standard from '../components/article/standard.vue'
-import Gallery from '../components/article/gallery.vue'
-import Quote from '../components/article/quote.vue'
-import Audio from '../components/article/audio.vue'
-import Video from '../components/article/video.vue'
+import Article from '../components/common/container/details.vue'
+
 //路由映射
 var routes = [
     {
         path: "/list",
         name: "/list",
         component: List
-    }, {
-        path: "/detail",
-        name: "/detail",
-        component: Detail,
-        children: [
-            {
-                path: 'standard',
-                name: 'standard',
-                component: Standard
-            },
-            {
-                path: 'gallery',
-                name: 'gallery',
-                component: Gallery
-            }, {
-                path: 'quote',
-                name: 'quote',
-                component: Quote
-            }, {
-                path: 'audio',
-                name: 'audio',
-                component: Audio
-            }, {
-                path: 'video',
-                name: 'video',
-                component: Video
-            }
-        ]
+    },
+    {
+        path: "/article/:id",
+        name: "article",
+        component: Article
     }
 ];
 

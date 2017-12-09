@@ -205,7 +205,7 @@
                         class="ico-linkedin3"></i></a>
                 <a href="http://cv.qulongjun.cn" target="_blank" class="user"><i class="ico-user"></i></a>
                 <a href="tel:17717567217" target="_blank" class="user"><i class="ico-phone"></i></a>
-                <a href="mailto:qulongjun12@163.com" target="_blank" class="email"><i class="ico-mail6"></i></a>
+                <a href="mailto:qulongjun12@163.com" target="_blank" class="email"><i class="ico-email"></i></a>
             </div>
         </div>
         <!-- End Social Media -->
@@ -224,22 +224,14 @@
         data(){
             return {
                 categoryList: [],
-                tagList: [],
-                hotList: [],
-                recentlyList: [],
-                recentlyCommentList: []
+                tagList: []
             }
         },
         mounted(){
             const me = this;
             me._fetchCategory();
             me._fetchTag();
-            me._fetchHot();
-            me._fetchRecently();
-            me._fetchRecentlyComment();
-            me._relatedLink();
             me.$nextTick(() => {
-                me._initTabs();
                 me._initAccordion();
                 me._initYears();
             })
@@ -264,33 +256,6 @@
 
                 });
 
-            },
-            _fetchHot(){
-                const me = this;
-                me.$http.get("/api/article/hot").then(response => {
-                    const data = response.data;
-                    me.hotList = data.results;
-                }, response => {
-                    serviceErrorInfo();
-                });
-            },
-            _fetchRecently(){
-                const me = this;
-                me.$http.get("/api/article/recently").then(response => {
-                    const data = response.data;
-                    me.recentlyList = data.results;
-                }, response => {
-                    serviceErrorInfo();
-                });
-            },
-            _fetchRecentlyComment(){
-                const me = this;
-                me.$http.get("/api/comment/recently").then(response => {
-                    const data = response.data;
-                    me.recentlyCommentList = data.results;
-                }, response => {
-                    serviceErrorInfo();
-                });
             },
             clickCategory(category){
                 const me = this;
@@ -336,69 +301,11 @@
                     me.$router.push(path);
                 }
             },
-            _initTabs(){
-                $('.hm-tabs').each(function (index) {
-                    var allparent = $(this);
-                    var all_width = allparent.width();
-
-                    var tabItems = allparent.find('.tabs-navi a'),
-                        tabContentWrapper = allparent.find('.tabs-body');
-
-                    tabItems.on('click', function (event) {
-                        event.preventDefault();
-
-                        var selectedItem = $(this);
-                        var parentlist = selectedItem.parent();
-
-                        if (parentlist.index() === 0) {
-                            selectedItem.parent().siblings("li").removeClass('prev_selected');
-                        } else {
-                            selectedItem.parent().prev().addClass('prev_selected').siblings("li").removeClass('prev_selected');
-                        }
-
-                        if (!selectedItem.hasClass('selected')) {
-                            var selectedTab = selectedItem.data('content'),
-                                selectedContent = tabContentWrapper.find('li[data-content="' + selectedTab + '"]'),
-                                slectedContentHeight = selectedContent.innerHeight();
-
-                            tabItems.removeClass('selected');
-                            selectedItem.addClass('selected');
-                            selectedContent.addClass('selected').siblings('li').removeClass('selected');
-                            //animate tabContentWrapper height when content changes
-                            tabContentWrapper.animate({
-                                'height': slectedContentHeight
-                            }, 200);
-                        }
-                    });
-
-                    //hide the .hm-tabs::after element when tabbed navigation has scrolled to the end (mobile version)
-                    checkScrolling($('.hm-tabs nav'));
-                    $(window).on('resize', function () {
-                        checkScrolling($('.hm-tabs nav'));
-                        tabContentWrapper.css('height', 'auto');
-                    });
-                    $('.hm-tabs nav').on('scroll', function () {
-                        checkScrolling($(this));
-                    });
-
-                    function checkScrolling(tabs) {
-                        var totalTabWidth = parseInt(tabs.children('.tabs-navi').width()),
-                            tabsViewport = parseInt(tabs.width());
-                        if (tabs.scrollLeft() >= totalTabWidth - tabsViewport) {
-                            tabs.parent('.hm-tabs').addClass('is-ended');
-                        } else {
-                            tabs.parent('.hm-tabs').removeClass('is-ended');
-                        }
-                    }
-
-                });
-            },
             _initAccordion(){
                 $(".enar_accordion").each(function (index, element) {
                     var its_type = $(this).attr("data-type");
                     var its_item = $(this).find(".enar_occ_container");
                     var its_item_lenth = its_item.length;
-
                     its_item.each(function (index, element) {
                         var item_item = $(this);
                         var item_item_title = $(this).find(".enar_occ_title");
@@ -406,7 +313,6 @@
                         var item_expanded = item_item.attr("data-expanded");  //false - true
                         var item_item_content = $(this).find(".enar_occ_content");
                         var item_item_height = item_item_content.find(".acc_content").outerHeight();
-
                         if (item_expanded == "true") {//occ_expanded
                             item_item.addClass("occ_expanded");
                             item_item_content.stop(true, true).animate({
@@ -423,7 +329,6 @@
                                 item_item_content.closest('.content_filter_item').stop(true, true).animate({
                                     height: item_title_height + 10 + 'px',
                                 }, 300);
-
                             } else {
                                 item_item.addClass("occ_expanded");
                                 item_item_content.stop(true, true).animate({
@@ -441,9 +346,7 @@
                                 }
                             }
                         });
-
                     });
-
                 });
             },
             _initYears(){
@@ -456,46 +359,6 @@
                     }
                 });
             },
-            viewDetails(article){
-                const me = this;
-                switch (article.type) {
-                    case 1:
-                        me.$router.push("/detail/gallery?id=" + article.id);
-                        break;
-                    case 2:
-                        me.$router.push("/detail/standard?id=" + article.id);
-                        break;
-                    case 3:
-                        me.$router.push("/detail/video?id=" + article.id);
-                        break;
-                    case 4:
-                        me.$router.push("/detail/audio?id=" + article.id);
-                        break;
-                    case 5:
-                        me.$router.push("/detail/quote?id=" + article.id);
-                        break;
-                }
-            },
-            _relatedLink(){
-                $(".related_slider_widget").owlCarousel({
-                    direction: 'ltr',
-                    slideSpeed: 900,
-                    autoPlay: 3000,
-                    autoHeight: true,
-                    items: 1,
-                    itemsDesktop: false,
-                    itemsDesktopSmall: false,
-                    itemsTablet: false,
-                    itemsTabletSmall: false,
-                    itemsMobile: false,
-                    stopOnHover: true,
-                    navigation: true,
-                    pagination: true,
-                    navigationText: [
-                        "<span class='enar_owl_p'><i class='ico-angle-left'></i></span>",
-                        "<span class='enar_owl_n'><i class='ico-angle-right'></i></span>"],
-                });
-            }
         }
     }
 </script>
