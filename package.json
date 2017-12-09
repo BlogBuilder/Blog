@@ -64,6 +64,7 @@
     "webpack-hot-middleware": "^2.13.1"
   },
   "dependencies": {
+    "babel-loader": "^6.4.1",
     "scriptjs": "^2.5.8",
     "vue": "^2.0.3"
   }
