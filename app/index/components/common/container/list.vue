@@ -14,7 +14,7 @@
                                        class="feature_inner_ling">
                                         <img :src="img.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'"
                                              alt="gallery photos"
-                                             style="width: 100%;height: auto;min-height: 200px;">
+                                             style="width: 100%;height: 200px;min-height: 200px;">
                                     </a>
                                 </template>
                             </div>
@@ -30,7 +30,7 @@
                                data-rel="magnific-popup">
                                 <img :src="item.materials.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'"
                                      alt="photo"
-                                     style="width: 100%;height: auto;min-height: 200px;">
+                                     style="width: 100%;height: 200px;min-height: 200px;">
                             </a>
                         </div>
                     </div>
@@ -89,8 +89,8 @@
         </div>
         <!-- End blog List -->
         <!-- Pagination -->
-        <div class="pagination">
-            <div class="M-box front pull-right" style="margin-top:10px; "></div>
+        <div class="pagination" style="width: 100%;margin-top: 50px;">
+            <div class="M-box front" style="margin-top:10px; "></div>
         </div>
         <!-- End Pagination -->
     </div>
@@ -142,6 +142,7 @@
                     me.articleList = data.results;
                     jQuery(".M-box").pagination({
                         pageCount: data.totalPage,
+                        count: 1,
                         nextContent: '<i class="ico-arrow-right4"></i>',
                         prevContent: '<i class="ico-arrow-left4"></i>',
                         current: me.currentPage,

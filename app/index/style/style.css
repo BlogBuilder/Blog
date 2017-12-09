@@ -19575,6 +19575,13 @@ table.check_out_table {
     .post_title_con .title {
         padding-top: 30px;
     }
+    .pagination{
+        display: flex!important;
+        justify-content:center;
+    }
+    #site_header{
+        position: absolute!important;
+    }
 }
 
 

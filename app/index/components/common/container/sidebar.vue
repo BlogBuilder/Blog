@@ -198,7 +198,7 @@
 
         <!-- Social Media -->
         <div class="widget_block">
-            <h6 class="widget_title">社交媒体</h6>
+            <h6 class="widget_title">社交网络</h6>
             <div class="social_links_widget clearfix">
                 <a href="http://github.com/qulongjun" target="_blank" class="github"><i class="ico-github6"></i></a>
                 <a href="https://www.linkedin.com/in/qulongjun" target="_blank" class="linkedin"><i
@@ -214,12 +214,6 @@
 </template>
 <script type="es6">
     import {changeURLPara, removeURLPara, redictURL} from '../../../script/js-utils'
-
-    import category from '../../../demo/category.json'
-    import tag from '../../../demo/tag.json'
-    import hot from '../../../demo/hot.json'
-    import recently from '../../../demo/recently.json'
-    import recentlyComment from '../../../demo/recentlyComment.json'
     module.exports = {
         data(){
             return {

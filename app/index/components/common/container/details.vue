@@ -195,8 +195,12 @@
                                 <p style="padding-right: 100px;margin-top: 10px;" v-html="detail" v-if="parent"></p>
                             </div>
                             <hr v-if="parent">
-                            <div id="editor" class="comment-form-comment typo">
-                            </div>
+                            <!--<div id="editor" class="comment-form-comment typo">-->
+                                <div id="articleBar" class="toolbar"
+                                     style="border: 1px solid rgba(0, 0, 0, 0.07);flex-wrap:wrap">
+                                </div>
+                                <div id="articleContent"
+                                     style="border:1px solid rgba(0, 0, 0, 0.07);min-height: 300px"></div>
                             <p class="form-submit">
                                 <input class="send_button4" type="button" value="回复评论"
                                        @click="sendComment(1)" v-if="parent" id="reply-comment">
@@ -214,6 +218,14 @@
     </div>
     <!-- End All Content -->
 </template>
+<style>
+    .w-e-menu:first-child {
+        z-index: 111 !important;
+    }
+    .w-e-text img {
+        max-width: 100% !important;
+    }
+</style>
 <script type="es6">
     import item from './comment.vue'
     import E from 'wangeditor'
@@ -247,7 +259,11 @@
             let me = this;
             me._queryComment();
             me._fetchAuthor();
-            editor = new E('#editor');
+//            editor = new E('#editor');
+//            editor.customConfig.zIndex = 100;
+//            editor.create();
+            editor = new E('#articleBar', '#articleContent');
+            editor.customConfig.zIndex = 100;
             editor.create();
         },
         methods: {
