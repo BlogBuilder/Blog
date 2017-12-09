@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-md-6 clearfix">
                     <ul class="footer_menu clearfix">
-                        <li><a href="/list"><span>Blog</span></a></li>
+                        <li><a href="/"><span>Blog</span></a></li>
                         <li>/</li>
                         <li><a href="http://cv.qulongjun.cn" target="_blank"><span>Resume</span></a></li>
                         <li>/</li>

@@ -19,19 +19,6 @@
         </div>
         <!-- End Products Slider -->
 
-        <!-- Tag Cloud -->
-        <div class="widget_block">
-            <h6 class="widget_title">标签云</h6>
-            <div class="tagcloud style2 clearfix">
-                <a href="javascript:;" @click="clickTag()"><span class="tag">全部</span></a>
-                <template v-for="item in tagList">
-                    <a href="javascript:;" @click="clickTag(item)"><span class="tag">{{item.name}}</span><span
-                            class="num">{{item.count}}</span></a>
-                </template>
-            </div>
-        </div>
-        <!-- End Tag Cloud -->
-
         <!-- Categories -->
         <div class="widget_block">
             <h6 class="widget_title">文章分类</h6>
@@ -49,6 +36,19 @@
         </div>
         <!-- End Categories -->
 
+
+        <!-- Tag Cloud -->
+        <div class="widget_block">
+            <h6 class="widget_title">标签云</h6>
+            <div class="tagcloud style2 clearfix">
+                <a href="javascript:;" @click="clickTag()"><span class="tag">全部</span></a>
+                <template v-for="item in tagList">
+                    <a href="javascript:;" @click="clickTag(item)"><span class="tag">{{item.name}}</span><span
+                            class="num">{{item.count}}</span></a>
+                </template>
+            </div>
+        </div>
+        <!-- End Tag Cloud -->
 
         <!-- Time List -->
         <div class="widget_block">
@@ -254,44 +254,44 @@
             clickCategory(category){
                 const me = this;
                 if (category) {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "category", category.id));
+                    me.$router.push(redictURL(me.$route.fullPath, "", "add", "category", category.id));
                 } else {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "category"));
+                    me.$router.push(redictURL(me.$route.fullPath, "", "remove", "category"));
                 }
             },
             clickTag(tag){
                 const me = this;
                 if (tag) {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "tag", tag.id));
+                    me.$router.push(redictURL(me.$route.fullPath, "", "add", "tag", tag.id));
                 } else {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "tag"));
+                    me.$router.push(redictURL(me.$route.fullPath, "", "remove", "tag"));
                 }
             },
             clickSearch(){
                 const me = this;
                 const value = document.querySelector('#searchText').value;
                 if (value) {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "key", value));
+                    me.$router.push(redictURL(me.$route.fullPath, "", "add", "key", value));
                 } else {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "key"));
+                    me.$router.push(redictURL(me.$route.fullPath, "", "remove", "key"));
                 }
             },
             inputSearch(event){
                 const me = this;
                 if (event.target.value) {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "add", "key", event.target.value));
+                    me.$router.push(redictURL(me.$route.fullPath, "", "add", "key", event.target.value));
                 } else {
-                    me.$router.push(redictURL(me.$route.fullPath, "/list", "remove", "key"));
+                    me.$router.push(redictURL(me.$route.fullPath, "", "remove", "key"));
                 }
             },
             clickTime(year, month){
                 const me = this;
                 if (year && month) {
                     month = month < 10 ? '0' + month : month;
-                    var path = redictURL(me.$route.fullPath, "/list", "add", "time", year + "-" + month);
+                    var path = redictURL(me.$route.fullPath, "", "add", "time", year + "-" + month);
                     me.$router.push(path);
                 } else {
-                    var path = redictURL(me.$route.fullPath, "/list", "remove", "time");
+                    var path = redictURL(me.$route.fullPath, "", "remove", "time");
                     me.$router.push(path);
                 }
             },

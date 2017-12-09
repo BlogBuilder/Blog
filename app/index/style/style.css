@@ -797,7 +797,7 @@ textarea:-moz-placeholder {
 #logo > a {
     display: block;
     position: relative;
-    height: 45px;
+    height: 60px;
 }
 
 #logo > a img {
@@ -19581,6 +19581,9 @@ table.check_out_table {
     }
     #site_header{
         position: absolute!important;
+    }
+    #logo > a {
+        height: 40px;
     }
 }
 

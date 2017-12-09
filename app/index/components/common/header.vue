@@ -4,8 +4,8 @@
             <div id="navigation_bar">
                 <div class="content">
                     <div id="logo">
-                        <a href="/list">
-                            <img src="../../image/logo_d2.png" alt="Logo">
+                        <a href="/">
+                            <img src="../../image/logo_new.png" alt="Logo">
                         </a>
                     </div>
 
@@ -49,6 +49,7 @@
         justify-content: space-between;
         align-items: center;
     }
+
     @media (max-width: 768px) {
         #logo {
             margin: 0 auto;

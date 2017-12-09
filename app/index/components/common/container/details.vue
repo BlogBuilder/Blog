@@ -290,7 +290,7 @@
                     let data = response.data;
                     if (data.code === 504) {
                         error("当前文章不存在！");
-                        me.$router.push("/list");
+                        me.$router.push("/");
                         return;
                     }
                     me.article = data;

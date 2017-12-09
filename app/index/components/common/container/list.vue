@@ -1,6 +1,7 @@
 <template>
     <div class="content_block col-md-9 f_left" style="min-height: 100vh">
         <div class="hm_blog_list clearfix" style="margin-top: 50px;">
+            <p class="typo-p" v-if="articleList.length==0">当前目录暂无文章。</p>
             <template v-for="item in articleList">
                 <div class="blog_grid_block clearfix">
                     <div class="feature_inner" v-if="item.type==1">

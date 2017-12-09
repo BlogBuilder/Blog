@@ -4,6 +4,11 @@ import Article from '../components/common/container/details.vue'
 //路由映射
 var routes = [
     {
+        path: "/",
+        name: "/",
+        component: List
+    },
+    {
         path: "/list",
         name: "/list",
         component: List
