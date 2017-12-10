@@ -205,6 +205,12 @@
                             </div>
                             <div id="articleContent"
                                  style="border:1px solid rgba(0, 0, 0, 0.07);min-height: 300px"></div>
+                            <input type="text" placeholder="请输入消息接收邮箱地址" v-if="isFollow">
+                            <div style="margin-top: 10px">
+                                <input class="magic-checkbox" type="checkbox" v-model="isFollow" name="layout" id="c1">
+                                <label for="c1">关注本文动态</label>
+
+                            </div>
                             <p class="form-submit">
                                 <input class="send_button4" type="button" value="回复评论"
                                        @click="sendComment(1)" v-if="parent" id="reply-comment">
@@ -238,6 +244,8 @@
     import plyr from 'plyr'
     import 'plyr/dist/plyr.css'
     import scriptjs from 'scriptjs'
+    import author from '../../../data/author.json';
+    import '../../../style/magic-check.css'
     let editor = null;
     module.exports = {
         components: {
@@ -246,7 +254,7 @@
         data(){
             return {
                 id: null,
-                author: {},
+                author,
                 commentList: [],
                 parent: "",
                 desp: "",
@@ -255,19 +263,21 @@
                 article: {
                     category: {},
                     materials: {}
-                }
+                },
+                isFollow: false
             }
         },
         watch: {
-            '$route': '_queryComment'
+            '$route': '_queryComment',
+            'isFollow'(curVal, oldVal){
+                if (curVal) {
+
+                }
+            }
         },
         mounted(){
             let me = this;
             me._queryComment();
-            me._fetchAuthor();
-//            editor = new E('#editor');
-//            editor.customConfig.zIndex = 100;
-//            editor.create();
             editor = new E('#articleBar', '#articleContent');
             editor.customConfig.zIndex = 100;
             editor.create();
@@ -316,27 +326,27 @@
                         }
                         $("pre").snippet("javascript");
                         scrollTo(0);
+                        me._fetchCount();
                     })
                 }, response => {
                     serviceErrorInfo(response);
                 });
             },
-            _fetchAuthor(){
+            _fetchCount(){
                 let me = this;
-                me.$http.get("/api/author/info").then(response => {
-                    let author = response.data;
-                    me.author = author;
-                }, response => {
-                    serviceErrorInfo(response);
+                me.$http.get("/api/article/count", {
+                    params: {
+                        id: me.id
+                    }
                 });
             },
             _queryComment(){
                 let me = this;
                 showPreLoader();
                 me.id = me.$route.params.id;
-                me._fetchComment();
                 me._fetchArticle();
                 me.$nextTick(() => {
+                    me._fetchComment();
                     hidePreLoader();
                 })
             },
