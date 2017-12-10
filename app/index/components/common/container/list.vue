@@ -57,7 +57,7 @@
 
 
                     <div class="blog_grid_con">
-                        <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
+                        <h6 class="title"><a :href="'/article/'+item.id">{{item.title}}</a></h6>
                         <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -73,6 +73,10 @@
 											<a href="javascript:;">{{item.category.name}}</a>
 										</span>
 									</span>
+                            <span class="meta_part hidden-xs">
+											<i class="ico-heart-o"></i>
+											<span>{{item.view_count}}</span>
+									</span>
 
 								</span>
                         <p class="desc">{{item.summary}}</p>
@@ -80,7 +84,7 @@
                         <router-link class="btn_a" :to="'/article/'+item.id">
                             <span>
 										<i class="in_left ico-angle-right"></i>
-										<span>查看详情</span>
+										<span>查看全文</span>
 										<i class="in_right ico-angle-right"></i>
 									</span>
                         </router-link>

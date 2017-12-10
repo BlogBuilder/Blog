@@ -24,6 +24,10 @@
 										<i class="ico-folder-open-o"></i>
 										<span>{{article.category.name}}</span>
 									</span>
+                             <span class="meta_part hidden-xs">
+											<i class="ico-heart-o"></i>
+											<span>{{article.view_count}}</span>
+									</span>
 								</span>
                     </div>
 
@@ -196,11 +200,11 @@
                             </div>
                             <hr v-if="parent">
                             <!--<div id="editor" class="comment-form-comment typo">-->
-                                <div id="articleBar" class="toolbar"
-                                     style="border: 1px solid rgba(0, 0, 0, 0.07);flex-wrap:wrap">
-                                </div>
-                                <div id="articleContent"
-                                     style="border:1px solid rgba(0, 0, 0, 0.07);min-height: 300px"></div>
+                            <div id="articleBar" class="toolbar"
+                                 style="border: 1px solid rgba(0, 0, 0, 0.07);flex-wrap:wrap">
+                            </div>
+                            <div id="articleContent"
+                                 style="border:1px solid rgba(0, 0, 0, 0.07);min-height: 300px"></div>
                             <p class="form-submit">
                                 <input class="send_button4" type="button" value="回复评论"
                                        @click="sendComment(1)" v-if="parent" id="reply-comment">
@@ -222,6 +226,7 @@
     .w-e-menu:first-child {
         z-index: 111 !important;
     }
+
     .w-e-text img {
         max-width: 100% !important;
     }
@@ -232,6 +237,7 @@
     import {_backBottom, _backPosition} from '../../../script/js-utils'
     import plyr from 'plyr'
     import 'plyr/dist/plyr.css'
+    import scriptjs from 'scriptjs'
     let editor = null;
     module.exports = {
         components: {
@@ -265,6 +271,7 @@
             editor = new E('#articleBar', '#articleContent');
             editor.customConfig.zIndex = 100;
             editor.create();
+            scriptjs('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59f2e09318cff082');
         },
         methods: {
             _fetchComment(){
