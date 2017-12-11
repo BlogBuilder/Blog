@@ -205,12 +205,6 @@
                             </div>
                             <div id="articleContent"
                                  style="border:1px solid rgba(0, 0, 0, 0.07);min-height: 300px"></div>
-                            <input type="text" placeholder="请输入消息接收邮箱地址" v-if="isFollow">
-                            <div style="margin-top: 10px">
-                                <input class="magic-checkbox" type="checkbox" v-model="isFollow" name="layout" id="c1">
-                                <label for="c1">关注本文动态</label>
-
-                            </div>
                             <p class="form-submit">
                                 <input class="send_button4" type="button" value="回复评论"
                                        @click="sendComment(1)" v-if="parent" id="reply-comment">
@@ -245,7 +239,6 @@
     import 'plyr/dist/plyr.css'
     import scriptjs from 'scriptjs'
     import author from '../../../data/author.json';
-    import '../../../style/magic-check.css'
     let editor = null;
     module.exports = {
         components: {
@@ -264,16 +257,10 @@
                     category: {},
                     materials: {}
                 },
-                isFollow: false
             }
         },
         watch: {
-            '$route': '_queryComment',
-            'isFollow'(curVal, oldVal){
-                if (curVal) {
-
-                }
-            }
+            '$route': '_queryComment'
         },
         mounted(){
             let me = this;
