@@ -21,8 +21,8 @@ var router = new VueRouter({
  * * next('/') 或者 next({ path: '/' }): 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。
  */
 router.beforeEach((to, from, next) => {
-    if (to.path.indexOf("/list") != 0 && to.path.indexOf("/detail") != 0) {
-        next('/list');
+    if (to.path != "/" && to.path.indexOf("/list") != 0 && to.path.indexOf("/detail") != 0 && to.path.indexOf("/article") != 0) {
+        next('/');
     } else
         next();
 });

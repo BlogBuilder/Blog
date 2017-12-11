@@ -1,78 +1,69 @@
 <template>
     <div class="content_block col-md-9 f_left" style="min-height: 100vh">
         <div class="hm_blog_list clearfix" style="margin-top: 50px;">
+            <p class="typo-p" v-if="articleList.length==0">当前目录暂无文章。</p>
             <template v-for="item in articleList">
-                <template v-if="item.type==1">
-                    <div class="blog_grid_block clearfix">
-                        <div class="feature_inner">
-                            <div class="feature_inner_corners">
-                                <div class="feature_inner_btns">
-                                    <a href="javascript:;" class="expand_image"><i class="ico-maximize"></i></a>
-                                    <a href="javascript:;" class="icon_link"><i class="ico-link3"></i></a>
-                                </div>
-                                <div class="porto_galla">
-                                    <template v-for="img in item.materials">
-                                        <a :href="img.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'" class="feature_inner_ling">
-                                            <img :src="img.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'" alt="gallery photos"
-                                                 style="width: 100%;height: auto;min-height: 200px;">
-                                        </a>
-                                    </template>
-                                </div>
+                <div class="blog_grid_block clearfix">
+                    <div class="feature_inner" v-if="item.type==1">
+                        <div class="feature_inner_corners">
+                            <div class="feature_inner_btns">
+                                <a href="javascript:;" class="expand_image"><i class="ico-maximize"></i></a>
+                            </div>
+                            <div class="porto_galla">
+                                <template v-for="img in item.materials">
+                                    <a :href="img.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                                       class="feature_inner_ling">
+                                        <img :src="img.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                                             alt="gallery photos"
+                                             style="width: 100%;height: 200px;min-height: 200px;">
+                                    </a>
+                                </template>
                             </div>
                         </div>
-                        <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
-                            <span class="meta">
-									<span class="meta_part">
-											<i class="ico-clock7"></i>
-											<span>{{item.create_time}}</span>
-									</span>
-									<span class="meta_part">
-											<i class="ico-comment-o"></i>
-											<span>{{item.comment_num}} Comments</span>
-									</span>
-									<span class="meta_part">
-										<i class="ico-folder-open-o"></i>
-										<span>
-											<a href="javascript:;">{{item.category.name}}</a>
-										</span>
-									</span>
-
-								</span>
-                            <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
-									<span>
-										<i class="in_left ico-angle-right"></i>
-										<span>查看详情</span>
-										<i class="in_right ico-angle-right"></i>
-									</span>
-                            </a>
-                        </div>
                     </div>
-                </template>
-                <template v-if="item.type==2">
-                    <div class="blog_grid_block clearfix">
-                        <div class="feature_inner">
-                            <div class="feature_inner_corners">
-                                <div class="feature_inner_btns">
-                                    <a href="javascript:;" class="expand_image"><i class="ico-maximize"></i></a>
-                                    <a href="javascript:;" class="icon_link"><i class="ico-link3"></i></a>
-                                </div>
-                                <a :href="item.materials.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'" class="feature_inner_ling"
-                                   data-rel="magnific-popup">
-                                    <img :src="item.materials.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'" alt="photo"
-                                         style="width: 100%;height: auto;min-height: 200px;">
-                                </a>
+                    <div class="feature_inner" v-if="item.type==2">
+                        <div class="feature_inner_corners">
+                            <div class="feature_inner_btns">
+                                <a href="javascript:;" class="expand_image"><i class="ico-maximize"></i></a>
                             </div>
+                            <a :href="item.materials.material+'?imageView2/0/q/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/50/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                               class="feature_inner_ling"
+                               data-rel="magnific-popup">
+                                <img :src="item.materials.material+'?imageMogr2/auto-orient/thumbnail/x250/interlace/1/blur/1x0/quality/75|watermark/1/image/aHR0cDovL2Nkbi5xdWxvbmdqdW4uY24vYmxvZ19pY29fZ3JleS5wbmc=/dissolve/30/gravity/SouthEast/dx/10/dy/10|imageslim'"
+                                     alt="photo"
+                                     style="width: 100%;height: 200px;min-height: 200px;">
+                            </a>
                         </div>
-                        <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
-                            <span class="meta">
-										<span class="meta_part">
+                    </div>
+
+                    <div class="feature_inner" v-if="item.type==3">
+                        <div class="feature_inner_corners">
+                            <video controls style="width: 100%">
+                                <source :src="item.materials.material" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="feature_inner" v-if="item.type==4">
+                        <div class="self_hosted_container">
+                            <audio class="hosted_audio" id="audio_player_2" width="100%" preload="metadata"
+                                   controls="controls">
+                                <source :src="item.materials.material"
+                                        :type="item.audio_type"/>
+
+                            </audio>
+                        </div>
+                    </div>
+
+
+                    <div class="blog_grid_con">
+                        <h6 class="title"><a :href="'/article/'+item.id">{{item.title}}</a></h6>
+                        <span class="meta">
+									<span class="meta_part">
 											<i class="ico-clock7"></i>
 											<span>{{item.create_time}}</span>
 									</span>
-									<span class="meta_part">
+									<span class="meta_part hidden-xs">
 											<i class="ico-comment-o"></i>
 											<span>{{item.comment_num}} Comments</span>
 									</span>
@@ -82,150 +73,38 @@
 											<a href="javascript:;">{{item.category.name}}</a>
 										</span>
 									</span>
-
-								</span>
-                            <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
-									<span>
-										<i class="in_left ico-angle-right"></i>
-										<span>查看详情</span>
-										<i class="in_right ico-angle-right"></i>
-									</span>
-                            </a>
-                        </div>
-                    </div>
-                </template>
-                <template v-if="item.type==3">
-                    <div class="blog_grid_block clearfix">
-                        <div class="feature_inner">
-                            <div class="feature_inner_corners">
-                                <video controls style="width: 100%">
-                                    <source :src="item.materials.material" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                        <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
-                            <span class="meta">
-									<span class="meta_part">
-											<i class="ico-clock7"></i>
-											<span>{{item.create_time}}</span>
-									</span>
-									<span class="meta_part">
-											<i class="ico-comment-o"></i>
-											<span>{{item.comment_num}} Comments</span>
-									</span>
-									<span class="meta_part">
-										<i class="ico-folder-open-o"></i>
-										<span>
-											<a href="javascript:;">{{item.category.name}}</a>
-										</span>
+                            <span class="meta_part hidden-xs">
+											<i class="ico-heart-o"></i>
+											<span>{{item.view_count}}</span>
 									</span>
 
 								</span>
-                            <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
-									<span>
+                        <p class="desc">{{item.summary}}</p>
+
+                        <router-link class="btn_a" :to="'/article/'+item.id">
+                            <span>
 										<i class="in_left ico-angle-right"></i>
-										<span>查看详情</span>
+										<span>查看全文</span>
 										<i class="in_right ico-angle-right"></i>
 									</span>
-                            </a>
-                        </div>
+                        </router-link>
                     </div>
-                </template>
-                <template v-if="item.type==4">
-                    <div class="blog_grid_block clearfix">
-                        <div class="feature_inner">
-                            <div class="self_hosted_container">
-                                <audio class="hosted_audio" id="audio_player_2" width="100%" preload="metadata"
-                                       controls="controls">
-                                    <source :src="item.materials.material"
-                                            :type="item.audio_type"/>
-
-                                </audio>
-                            </div>
-                        </div>
-                        <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
-                            <span class="meta">
-									<span class="meta_part">
-											<i class="ico-clock7"></i>
-											<span>{{item.create_time}}</span>
-									</span>
-									<span class="meta_part">
-											<i class="ico-comment-o"></i>
-											<span>{{item.comment_num}} Comments</span>
-									</span>
-									<span class="meta_part">
-										<i class="ico-folder-open-o"></i>
-										<span>
-											<a href="javascript:;">{{item.category.name}}</a>
-										</span>
-									</span>
-
-								</span>
-                            <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
-									<span>
-										<i class="in_left ico-angle-right"></i>
-										<span>查看详情</span>
-										<i class="in_right ico-angle-right"></i>
-									</span>
-                            </a>
-                        </div>
-                    </div>
-                </template>
-                <template v-if="item.type==5">
-                    <div class="blog_grid_block clearfix">
-                        <div class="feature_inner">
-                            <a href="javascript:;" class="quote_con">
-                                <span>{{item.summary}}</span>
-                                <span class="quote_author">{{item.quote_author}}</span>
-                            </a>
-                        </div>
-                        <div class="blog_grid_con">
-                            <h6 class="title"><a href="javascript:;">{{item.title}}</a></h6>
-                            <span class="meta">
-									<span class="meta_part">
-											<i class="ico-clock7"></i>
-											<span>{{item.create_time}}</span>
-									</span>
-									<span class="meta_part">
-											<i class="ico-comment-o"></i>
-											<span>{{item.comment_num}} Comments</span>
-									</span>
-									<span class="meta_part">
-										<i class="ico-folder-open-o"></i>
-										<span>
-											<a href="javascript:;">{{item.category.name}}</a>
-										</span>
-									</span>
-
-								</span>
-                            <p class="desc">{{item.summary}}</p>
-                            <a class="btn_a" href="javascript:;" @click="viewDetails(item)">
-									<span>
-										<i class="in_left ico-angle-right"></i>
-										<span>查看详情</span>
-										<i class="in_right ico-angle-right"></i>
-									</span>
-                            </a>
-                        </div>
-                    </div>
-                </template>
+                </div>
             </template>
         </div>
         <!-- End blog List -->
         <!-- Pagination -->
-        <div class="pagination">
-            <div class="M-box front pull-right" style="margin-top:10px; "></div>
+        <div class="pagination" style="width: 100%;margin-top: 50px;">
+            <div class="M-box front" style="margin-top:10px; "></div>
         </div>
         <!-- End Pagination -->
     </div>
     <!-- End Content Block -->
 
 </template>
+<style>
+
+</style>
 
 <script type="es6">
 
@@ -268,6 +147,7 @@
                     me.articleList = data.results;
                     jQuery(".M-box").pagination({
                         pageCount: data.totalPage,
+                        count: 1,
                         nextContent: '<i class="ico-arrow-right4"></i>',
                         prevContent: '<i class="ico-arrow-left4"></i>',
                         current: me.currentPage,
@@ -303,26 +183,6 @@
                         return false;
                     });
                 });
-            },
-            viewDetails(article){
-                const me = this;
-                switch (article.type) {
-                    case 1:
-                        me.$router.push("/detail/gallery?id=" + article.id);
-                        break;
-                    case 2:
-                        me.$router.push("/detail/standard?id=" + article.id);
-                        break;
-                    case 3:
-                        me.$router.push("/detail/video?id=" + article.id);
-                        break;
-                    case 4:
-                        me.$router.push("/detail/audio?id=" + article.id);
-                        break;
-                    case 5:
-                        me.$router.push("/detail/quote?id=" + article.id);
-                        break;
-                }
             },
             _initGallery(){
                 //图集图片轮播组件
