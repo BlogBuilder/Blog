@@ -11,6 +11,11 @@
                 <div class="post_detail">
                     <div class="post_title_con" v-if="article.title">
                         <h6 class="title">{{article.title}}</h6>
+                        <a class="main_button small_btn bottom_space popup-with-zoom-anim" target="_self"
+                           href="#popup-dialog-box"
+                           style="position: absolute;top: 0;right: 0px">
+                            关注文章
+                        </a>
                         <span class="meta">
 									<span class="meta_part">
 											<i class="ico-clock7"></i>
@@ -31,7 +36,7 @@
 								</span>
                     </div>
 
-                    <div class="post_format_con">
+                    <div class="post_format_con" v-if="article.type">
 								<span>
 									<a href="javascript:;">
                                         <i class="ico-gallery" v-if="article.type==1"></i>
@@ -205,6 +210,10 @@
                             </div>
                             <div id="articleContent"
                                  style="border:1px solid rgba(0, 0, 0, 0.07);min-height: 300px"></div>
+                            <!--<div>-->
+                            <!--<input class="magic-checkbox" type="checkbox"  id="subscribe" value="option2" >-->
+                            <!--<label for="subscribe" style="color:#ccc">Disabled</label>-->
+                            <!--</div>-->
                             <p class="form-submit">
                                 <input class="send_button4" type="button" value="回复评论"
                                        @click="sendComment(1)" v-if="parent" id="reply-comment">
@@ -219,6 +228,19 @@
             <!-- End Comments Container -->
         </div>
         <!-- End blog List -->
+        <div id="popup-dialog-box" class="zoom-anim-dialog mfp-hide small-dialog"
+             style="padding: 30px;padding-bottom: 0px">
+            <h2>关注该文章</h2>
+            <p>当该文章有新评论时，我们将第一时间通过邮件通知您。</p>
+            <input type="email" style="width: 100%;" placeholder="请输入您的邮箱" v-model="email">
+            <div style="width: 100%;text-align: right;">
+                <a class="main_button color1 medium_btn bottom_space" target="_self" @click="subscribe"
+                   style="margin-top: 30px;"
+                   href="javascript:;">
+                    关 注
+                </a>
+            </div>
+        </div>
     </div>
     <!-- End All Content -->
 </template>
@@ -239,6 +261,7 @@
     import 'plyr/dist/plyr.css'
     import scriptjs from 'scriptjs'
     import author from '../../../data/author.json';
+    //    import '../../../style/magic-check.css'
     let editor = null;
     module.exports = {
         components: {
@@ -257,6 +280,7 @@
                     category: {},
                     materials: {}
                 },
+                email: ""
             }
         },
         watch: {
@@ -314,6 +338,17 @@
                         $("pre").snippet("javascript");
                         scrollTo(0);
                         me._fetchCount();
+                        $('.popup-with-zoom-anim').magnificPopup({
+                            type: 'inline',
+                            fixedContentPos: false,
+                            fixedBgPos: true,
+                            overflowY: 'auto',
+                            closeBtnInside: true,
+                            preloader: false,
+                            midClick: true,
+                            removalDelay: 300,
+                            mainClass: 'my-mfp-zoom-in'
+                        });
                     })
                 }, response => {
                     serviceErrorInfo(response);
@@ -376,6 +411,31 @@
                 me.detail = comment.content;
                 me.parent = comment.id;
                 _backBottom(jQuery('#comments-form'));
+            },
+            subscribe(){
+                let me = this;
+                var ePattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                if ((!(me.email)) || !(ePattern.test(me.email))) {
+                    error("请输入正确的邮箱账号！");
+                    return false;
+                }
+
+                me.$http.post("/api/subscribe/create", {
+                    email: me.email,
+                    article_id: me.id
+                }).then(response => {
+                    let data = response.data;
+                    codeState(data.code, {
+                        200(){
+                            alert("您已关注成功！");
+                        },
+                        501(){
+                            error("您已经关注过该文章，无需重复关注！");
+                        }
+                    })
+                }, response => {
+                    serviceErrorInfo(response);
+                })
             },
             cancelReply(){
                 let me = this;
