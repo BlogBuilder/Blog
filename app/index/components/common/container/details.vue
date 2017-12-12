@@ -231,7 +231,7 @@
         <div id="popup-dialog-box" class="zoom-anim-dialog mfp-hide small-dialog"
              style="padding: 30px;padding-bottom: 0px">
             <h2>关注该文章</h2>
-            <p>当该文章有新评论时，我们将第一时间通过邮件通知您。</p>
+            <p>当该文章有新评论时，我们将第一时间通过邮件通知您（若已关注，无需重复提交）。</p>
             <input type="email" style="width: 100%;" placeholder="请输入您的邮箱" v-model="email">
             <div style="width: 100%;text-align: right;">
                 <a class="main_button color1 medium_btn bottom_space" target="_self" @click="subscribe"
@@ -327,9 +327,6 @@
                             case 1:
                                 me._initGallery();
                                 break;
-                            case 2:
-                                me._initStandard();
-                                break;
                             case 3:
                             case 4:
                                 me._initMedia();
@@ -338,6 +335,21 @@
                         $("pre").snippet("javascript");
                         scrollTo(0);
                         me._fetchCount();
+                        $("#content img").each((index, item) => {
+                            $(item).wrap('<a class="magnific-popup no-border-bottom" href="' + item.src + '"></a>')
+                        });
+                        $(".magnific-popup").magnificPopup({
+                            type: 'image',
+                            mainClass: 'mfp-with-zoom',
+                            zoom: {
+                                enabled: true,
+                                duration: 300,
+                                easing: 'ease-in-out',
+                                opener: function (openerElement) {
+                                    return openerElement.is('img') ? openerElement : openerElement.find('img');
+                                }
+                            }
+                        });
                         $('.popup-with-zoom-anim').magnificPopup({
                             type: 'inline',
                             fixedContentPos: false,
@@ -393,6 +405,10 @@
                             me._fetchComment(id);
                             editor.txt.clear();
                             me.cancelReply();
+                            me.$http.post("/api/subscribe/newComment", {
+                                article_id: me.id,
+                                comment_id: data.comment
+                            });
                             me.$nextTick(() => {
                                 if (isReply) {
                                     _backPosition(me.backTop);
@@ -427,7 +443,8 @@
                     let data = response.data;
                     codeState(data.code, {
                         200(){
-                            alert("您已关注成功！");
+                            alert("已经发送关注请求,请在邮箱中确认关注！");
+                            $('.mfp-close').click();
                         },
                         501(){
                             error("您已经关注过该文章，无需重复关注！");
@@ -442,23 +459,6 @@
                 me.desp = "";
                 me.parent = "";
                 me.detail = "";
-            },
-            _initStandard(){
-                $("#content img").each((index, item) => {
-                    $(item).wrap('<a class="magnific-popup no-border-bottom" href="' + item.src + '"></a>')
-                });
-                $(".magnific-popup").magnificPopup({
-                    type: 'image',
-                    mainClass: 'mfp-with-zoom',
-                    zoom: {
-                        enabled: true,
-                        duration: 300,
-                        easing: 'ease-in-out',
-                        opener: function (openerElement) {
-                            return openerElement.is('img') ? openerElement : openerElement.find('img');
-                        }
-                    }
-                });
             },
             _initGallery(){
                 //图集图片轮播组件
