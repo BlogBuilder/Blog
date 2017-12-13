@@ -147,7 +147,7 @@
                     me.articleList = data.results;
                     jQuery(".M-box").pagination({
                         pageCount: data.totalPage,
-                        count: 1,
+                        count: me._getScreenWidth() < 400 ? 1 : 3,
                         nextContent: '<i class="ico-arrow-right4"></i>',
                         prevContent: '<i class="ico-arrow-left4"></i>',
                         current: me.currentPage,
@@ -253,6 +253,9 @@
                     }
 
                 });
+            },
+            _getScreenWidth(){
+                return document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
             }
         }
     }
