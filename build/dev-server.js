@@ -37,8 +37,8 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 //当发送/api请求时，自动会跨域访问8080端口，前后端分离
-app.use('/api', proxy({target: 'http://localhost:8081', changeOrigin: true}));
-// app.use('/api', proxy({target: 'http://api.qulongjun.cn', changeOrigin: true}));
+// app.use('/api', proxy({target: 'http://localhost:8081', changeOrigin: true}));
+app.use('/api', proxy({target: 'http://api.qulongjun.cn', changeOrigin: true}));
 
 
 // 监听 8888端口，开启服务器
