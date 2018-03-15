@@ -8,11 +8,13 @@
                 </div>
                 <div class="col-md-6 clearfix">
                     <ul class="footer_menu clearfix">
-                        <li><a href="/"><span>Blog</span></a></li>
-                        <li>/</li>
                         <li><a href="http://cv.qulongjun.cn" target="_blank"><span>Resume</span></a></li>
                         <li>/</li>
                         <li><a href="mailto:longjun.qu@cootek.cn"><span>Contact</span></a></li>
+                        <li>/</li>
+                        <li><a target="_blank" href="http://home.liucq.cn"><span>ARCHer</span></a></li>
+                        <li>/</li>
+                        <li><a target="_blank" href="http://joewt.xyz"><span>Joe</span></a></li>
                     </ul>
                 </div>
             </div>
