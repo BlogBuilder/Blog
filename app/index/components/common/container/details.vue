@@ -332,7 +332,9 @@
                                 me._initMedia();
                                 break;
                         }
-                        $("pre").snippet("javascript");
+                        setTimeout(function () {
+                            $("pre").snippet("javascript");
+                        },500)
                         scrollTo(0);
                         me._fetchCount();
                         $("#content img").each((index, item) => {
@@ -361,7 +363,7 @@
                             removalDelay: 300,
                             mainClass: 'my-mfp-zoom-in'
                         });
-                    })
+                    });
                 }, response => {
                     serviceErrorInfo(response);
                 });
